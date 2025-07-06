@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet : Site Web Vitrine - KONE Luc-Augustin</title>
+    <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <!-- BARRE LATERALE (SIDEBAR) -->
+        <aside class="sidebar" data-sidebar>
+            <div class="sidebar-info">
+                <figure class="avatar-box">
+                    <img src="./assets/images/my-avatar.png" alt="KONE Luc-Augustin" width="80">
+                </figure>
+                <div class="info-content">
+                    <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
+                    <p class="title">Technicien Informatique en Alternance</p>
+                </div>
+                <button class="info_more-btn" data-sidebar-btn>
+                    <span>Mes Coordonnées</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
+            </div>
+            <div class="sidebar-info_more">
+                <div class="separator"></div>
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p><a href="mailto:luc.augustin.kone1@gmail.com"
+                                class="contact-link">luc.augustin.kone1@gmail.com</a>
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
+                        <div class="contact-info">
+                            <p class="contact-title">Anniversaire</p><time datetime="1998-06-26">26 juin 1998</time>
+                        </div>
+                    </li>
+                </ul>
+                <div class="separator"></div>
+                <ul class="social-list">
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon
+                                name="logo-linkedin"></ion-icon></a></li>
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-github"></ion-icon></a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- CONTENU PRINCIPAL -->
+        <div class="main-content">
+            <!-- BARRE DE NAVIGATION -->
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
+                    <li class="navbar-item"><a href="parcours.html" class="navbar-link">Parcours</a></li>
+                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Portfolio</a></li>
+                    <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
+                    <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- CONTENU DU PROJET -->
+            <article class="about active" data-page="projet-detail">
+                <header>
+                    <h2 class="h2 article-title">Projet : Site Web Vitrine</h2>
+                </header>
+
+                <section class="project-detail">
+                    <figure class="project-banner">
+                        <img src="./assets/images/image-projet-3.jpg" alt="Site vitrine">
+                    </figure>
+
+                    <div class="project-content">
+                        <h3 class="h3">Objectif du projet</h3>
+                        <p>Création d'un site web vitrine moderne et responsive pour une petite entreprise locale. Le
+                            site devait présenter les services de l'entreprise, inclure une galerie de réalisations et
+                            un formulaire de contact fonctionnel.</p>
+
+                        <h3 class="h3">Technologies et Compétences</h3>
+                        <ul class="project-skills">
+                            <li><strong>Frontend :</strong> HTML5, CSS3 (avec Flexbox/Grid), JavaScript</li>
+                            <li><strong>Design :</strong> Conception responsive (Mobile-First)</li>
+                            <li><strong>Outils :</strong> Visual Studio Code, Git/GitHub</li>
+                        </ul>
+                        <div class="project-actions">
+
+                            <!-- Bouton pour VOIR le PDF dans un nouvel onglet -->
+                            <a href="./assets/pdf/rapport-projet-maintenance.pdf" target="_blank"
+                                class="project-action-btn">
+                                <ion-icon name="eye-outline"></ion-icon>
+                                <span>Voir le PDF</span>
+                            </a>
+
+                            <!-- Bouton pour TÉLÉCHARGER le PDF -->
+                            <a href="./assets/pdf/rapport-projet-maintenance.pdf"
+                                download="Rapport_Projet_Maintenance.pdf" class="project-action-btn">
+                                <ion-icon name="cloud-download-outline"></ion-icon>
+                                <span>Télécharger le PDF</span>
+                            </a>
+
+                        </div>
+                        <h3 class="h3">Démarche et Résultats</h3>
+                        <p>Après une phase de maquettage simple, j'ai développé le site en utilisant des pratiques
+                            modernes de développement web. Le JavaScript a été utilisé pour des interactions dynamiques
+                            comme la validation du formulaire. Le résultat est un site rapide, accessible et
+                            parfaitement consultable sur mobile comme sur ordinateur.</p>
+                    </div>
+
+                    <a href="portfolio.html" class="form-btn project-back-btn">
+                        <ion-icon name="arrow-back-outline"></ion-icon>
+                        <span>Retour au Portfolio</span>
+                    </a>
+                </section>
+            </article>
+        </div>
+    </main>
+    <script src="./assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet : Déploiement GLPI & FusionInventory - KONE Luc-Augustin</title>
+    <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <!-- BARRE LATERALE (SIDEBAR) - INCHANGÉE -->
+        <aside class="sidebar" data-sidebar>
+            <!-- ... (tout le code de la sidebar reste identique) ... -->
+            <div class="sidebar-info">
+                <figure class="avatar-box">
+                    <img src="./assets/images/my-avatar.png" alt="KONE Luc-Augustin" width="80">
+                </figure>
+                <div class="info-content">
+                    <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
+                    <p class="title">Technicien Informatique en Alternance</p>
+                </div>
+                <button class="info_more-btn" data-sidebar-btn>
+                    <span>Mes Coordonnées</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
+            </div>
+            <div class="sidebar-info_more">
+                <div class="separator"></div>
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p><a href="mailto:luc.augustin.kone1@gmail.com"
+                                class="contact-link">luc.augustin.kone1@gmail.com</a>
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
+                        <div class="contact-info">
+                            <p class="contact-title">Anniversaire</p><time datetime="1998-06-26">26 juin 1998</time>
+                        </div>
+                    </li>
+                </ul>
+                <div class="separator"></div>
+                <ul class="social-list">
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon
+                                name="logo-linkedin"></ion-icon></a></li>
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-github"></ion-icon></a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- CONTENU PRINCIPAL -->
+        <div class="main-content">
+            <!-- BARRE DE NAVIGATION - INCHANGÉE -->
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
+                    <li class="navbar-item"><a href="parcours.html" class="navbar-link">Parcours</a></li>
+                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Portfolio</a></li>
+                    <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
+                    <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- ============================================= -->
+            <!-- ==       DÉBUT DU CONTENU DU PROJET          == -->
+            <!-- ============================================= -->
+
+            <!-- Étape 1 : On utilise la classe "about" pour la mise en page générale de l'article -->
+            <article class="about active" data-page="projet-detail">
+
+                <header>
+                    <h2 class="h2 article-title">Projet : Déploiement de GLPI & FusionInventory</h2>
+                </header>
+
+                <!-- Étape 2 : On utilise la classe "project-detail" pour styler le contenu -->
+                <section class="project-detail">
+
+                    <figure class="project-banner">
+                        <img src="./assets/images/acceuil-glpi.png"
+                            alt="Interface de GLPI, la solution de gestion de parc déployée">
+                    </figure>
+
+                    <div class="project-content">
+                        <p>
+                            Ce projet documente le déploiement complet d'une solution de gestion de parc
+                            informatique (ITSM) en utilisant GLPI, enrichie par le plugin FusionInventory pour
+                            l'inventaire automatisé. L'ensemble a été installé et configuré sur un serveur Linux
+                            (Ubuntu) hébergé dans un environnement virtualisé.
+                        </p>
+
+                        <h3 class="h3">Environnement Technique</h3>
+                        <!-- On utilise la classe "project-skills" que votre CSS attend -->
+                        <ul class="project-skills">
+                            <li><strong>Hyperviseur :</strong> VMware Workstation</li>
+                            <li><strong>Système d'exploitation :</strong> Ubuntu 23.10 Desktop</li>
+                            <li><strong>Serveur Web :</strong> Apache2</li>
+                            <li><strong>Base de données :</strong> MySQL</li>
+                            <li><strong>Langage :</strong> PHP et ses dépendances</li>
+                            <li><strong>Applications :</strong> GLPI 10.0.6 & Plugin FusionInventory</li>
+                        </ul>
+
+                        <h3 class="h3">Démarche et Résultats</h3>
+                        <p>
+                            La mise en place a suivi un processus méthodique : préparation de la VM, installation de la pile LAMP (Apache, MySQL, PHP), création de la base de données, déploiement de GLPI, et enfin, intégration de FusionInventory avec configuration des agents sur les postes clients.
+                        </p>
+                        <p>
+                            Le résultat est une **plateforme ITSM pleinement opérationnelle**, capable de gérer un parc, de suivre les tickets d'assistance et d'automatiser l'inventaire. Ce projet a permis de solidifier mes compétences en administration système Linux, déploiement web et virtualisation.
+                        </p>
+                    </div>
+
+                    <!-- BOUTONS D'ACTION (utilisent les classes que vous avez créées) -->
+                    <div class="project-actions">
+                        <a href="./assets/pdf/projet-glpi.pdf" target="_blank" class="project-action-btn">
+                            <ion-icon name="eye-outline"></ion-icon>
+                            <span>Voir le PDF</span>
+                        </a>
+                        <a href="./assets/pdf/projet-glpi.pdf" download="Documentation_Projet_GLPI.pdf" class="project-action-btn">
+                            <ion-icon name="download-outline"></ion-icon>
+                            <span>Télécharger le PDF</span>
+                        </a>
+                    </div>
+                    
+                    <!-- BOUTON DE RETOUR -->
+                     <a href="portfolio.html" class="form-btn project-back-btn">
+                        <ion-icon name="arrow-back-outline"></ion-icon>
+                        <span>Retour au Portfolio</span>
+                    </a>
+
+                </section>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="./assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
