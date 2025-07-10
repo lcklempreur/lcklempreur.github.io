@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://flux.saynete.com/encart_rss_informatique_deuxzero_fr.xml',
         'https://www.bleepingcomputer.com/feed/',
         'https://www.wired.com/feed/category/security/latest/rss',
+        'https://flux.saynete.com/encart_rss_informatique_materiel_fr.xml',
+        'https://www.bing.com/news/search?q=cybers%C3%A9curit%C3%A9&qft=sortbydate%3d%221%22%2Binterval%3d%227%22&form=YFNR&format=rss&cc=fr',
+        'https://feeds.feedburner.com/phoenixjp/Rcbu?format=xml',
     ];
 
     // --- FONCTIONS ---
