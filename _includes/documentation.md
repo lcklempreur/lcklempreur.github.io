@@ -1,8 +1,8 @@
-Pour pusher sur github :
+## I. Pour pusher sur github :
  
- Aller dans le terminal : 
-    CTRL + J
-    Aller dans l'onglet terminal
-git add .
-git commit -m "-"
-git push
+ 1. Aller dans le terminal : 
+    - CTRL + J
+    - Aller dans l'onglet terminal
+2. git add .
+3. git commit -m "-"
+4. git push
