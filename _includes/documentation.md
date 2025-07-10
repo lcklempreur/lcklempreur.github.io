@@ -6,3 +6,7 @@
 2. git add .
 3. git commit -m "-"
 4. git push
+
+```bash
+coucou les zamours
+```
