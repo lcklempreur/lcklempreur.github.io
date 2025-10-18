@@ -1,26 +1,22 @@
+<!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KONE Luc-Augustin - Technicien Informatique</title>
+    <title>KONE Luc-Augustin - Projet Active Directory</title>
     <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <main>
         <!-- BARRE LATERALE (SIDEBAR) -->
         <aside class="sidebar" data-sidebar>
             <div class="sidebar-info">
                 <figure class="avatar-box">
-                    <!-- IMPORTANT : Remplacez par le chemin de votre photo -->
-                    <img src="\assets\images\my-avatar.png"
-                        alt="KONE Luc-Augustin" width="80">
+                    <img src="./assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
                 </figure>
                 <div class="info-content">
                     <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
@@ -38,8 +34,7 @@
                         <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
                         <div class="contact-info">
                             <p class="contact-title">Email</p>
-                            <a href="mailto:luc.augustin.kone1@gmail.com"
-                                class="contact-link">luc.augustin.kone1@gmail.com</a>
+                            <a href="mailto:luc.augustin.kone1@gmail.com" class="contact-link">luc.augustin.kone1@gmail.com</a>
                         </div>
                     </li>
                     <li class="contact-item">
@@ -52,11 +47,8 @@
                 </ul>
                 <div class="separator"></div>
                 <ul class="social-list">
-                    <!-- IMPORTANT : Ajoutez vos liens LinkedIn et GitHub ici -->
-                    <li class="social-item"><a href="[VOTRE LIEN LINKEDIN]" target="_blank"
-                            class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                    <li class="social-item"><a href="[VOTRE LIEN GITHUB]" target="_blank" class="social-link"><ion-icon
-                                name="logo-github"></ion-icon></a></li>
+                    <li class="social-item"><a href="#" target="_blank" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                    <li class="social-item"><a href="#" target="_blank" class="social-link"><ion-icon name="logo-github"></ion-icon></a></li>
                 </ul>
             </div>
         </aside>
@@ -66,67 +58,103 @@
             <!-- BARRE DE NAVIGATION -->
             <nav class="navbar">
                 <ul class="navbar-list">
-                    <li class="navbar-item"><a href="index.html" class="navbar-link active">À propos</a></li>
+                    <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
                     <li class="navbar-item"><a href="parcours.html" class="navbar-link">Parcours</a></li>
-                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
+                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Portfolio</a></li>
+                    <li class="navbar-item"><a href="certifications.html" class="navbar-link">Certifications</a></li>
+                    <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
                     <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
                     <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
                 </ul>
-            </nav> 
+            </nav>
 
             <!-- CONTENU DU PROJET -->
             <article class="about active" data-page="projet-detail">
                 <header>
-                    <h2 class="h2 article-title">Projet : Script d'Automatisation PowerShell</h2>
+                    <h2 class="h2 article-title">Déploiement d'Active Directory</h2>
                 </header>
 
                 <section class="project-detail">
                     <figure class="project-banner">
-                        <img src="./assets/images/image-projet-2.jpg" alt="Script d'automatisation">
+                        <img src="./assets/images/acceuil_AD.png" alt="Architecture Active Directory">
                     </figure>
 
                     <div class="project-content">
                         <h3 class="h3">Objectif du projet</h3>
-                        <p>
-                            Le but de ce projet était de développer un script PowerShell pour automatiser la création de
-                            comptes utilisateurs dans un environnement Active Directory. Le script devait prendre en
-                            entrée un fichier CSV contenant les informations des nouveaux employés (nom, prénom,
-                            service, etc.) et créer les comptes, les assigner aux bons groupes de sécurité, et générer
-                            un mot de passe temporaire.
+                        <p style="color: var(--light-gray);">
+                            Déploiement complet d'une infrastructure Active Directory sous Windows Server 2019 avec mise en place d'une topologie réseau complète incluant services DNS, DHCP et WDS pour une gestion centralisée des utilisateurs et ressources informatiques.
                         </p>
+
+                        <h3 class="h3">Phrase récapitulative</h3>
+                        <blockquote style="border-left: 4px solid var(--orange-yellow-crayola); padding-left: 15px; margin: 20px 0; font-style: italic; color: var(--light-gray);">
+                            "Mise en place d'une infrastructure Active Directory complète avec déploiement automatisé de postes clients, gestion centralisée des utilisateurs et application de la stratégie de sécurité AGDLP."
+                        </blockquote>
 
                         <h3 class="h3">Technologies et Compétences Mises en Œuvre</h3>
                         <ul class="project-skills">
-                            <li><strong>Scripting :</strong> PowerShell 5.1 / 7</li>
-                            <li><strong>Système :</strong> Windows Server, Active Directory</li>
-                            <li><strong>Format de données :</strong> Manipulation de fichiers CSV</li>
-                            <li><strong>Logique :</strong> Gestion des erreurs, logging des actions</li>
+                            <li><strong>Serveur :</strong> Windows Server 2019 Datacenter</li>
+                            <li><strong>Services :</strong> Active Directory, DNS, DHCP, WDS</li>
+                            <li><strong>Client :</strong> Windows 10 Professionnel</li>
+                            <li><strong>Scripting :</strong> PowerShell pour automatisation</li>
+                            <li><strong>Réseau :</strong> Configuration TCP/IP, VLAN, réservations DHCP</li>
+                            <li><strong>Sécurité :</strong> Stratégie AGDLP, GPO</li>
                         </ul>
+
                         <div class="project-actions">
-
-                            <!-- Bouton pour VOIR le PDF dans un nouvel onglet -->
-                            <a href="./assets/pdf/rapport-projet-maintenance.pdf" target="_blank"
-                                class="project-action-btn">
+                            <a href="./assets/pdf/ACTIVE DIRECTORY.pdf" target="_blank" class="project-action-btn">
                                 <ion-icon name="eye-outline"></ion-icon>
-                                <span>Voir le PDF</span>
+                                <span>Voir le rapport PDF</span>
                             </a>
-
-                            <!-- Bouton pour TÉLÉCHARGER le PDF -->
-                            <a href="./assets/pdf/rapport-projet-maintenance.pdf"
-                                download="Rapport_Projet_Maintenance.pdf" class="project-action-btn">
+                            <a href="./assets/pdf/ACTIVE DIRECTORY.pdf" download="Rapport_Projet_Active_Directory.pdf" class="project-action-btn">
                                 <ion-icon name="cloud-download-outline"></ion-icon>
                                 <span>Télécharger le PDF</span>
                             </a>
-
                         </div>
-                        <h3 class="h3">Démarche et Résultats</h3>
-                        <p>
-                            Le script lit le fichier CSV ligne par ligne. Pour chaque utilisateur, il vérifie si le
-                            compte existe déjà. Si non, il crée le compte, définit ses attributs, l'ajoute aux groupes
-                            correspondants et génère un rapport final. Ce script a permis de réduire le temps de
-                            création de 10 minutes par utilisateur à quelques secondes, tout en éliminant les erreurs de
-                            saisie manuelle.
+
+                        <h3 class="h3">Architecture mise en place</h3>
+                        <p style="color: var(--light-gray);">
+                            Configuration d'un domaine "formation.lan" avec les services essentiels :
                         </p>
+                        <ul style="color: var(--light-gray);">
+                            <li>Contrôleur de domaine principal (DC19AD)</li>
+                            <li>Service DNS intégré pour la résolution de noms</li>
+                            <li>Serveur DHCP avec plage 192.168.10.0/24</li>
+                            <li>Windows Deployment Services (WDS) pour déploiement réseau</li>
+                            <li>Unités d'organisation (OU) structurées par services</li>
+                        </ul>
+
+                        <h3 class="h3">Automatisation et scripting</h3>
+                        <p style="color: var(--light-gray);">
+                            Développement de scripts PowerShell pour :
+                        </p>
+                        <ul style="color: var(--light-gray);">
+                            <li>Création automatique des OU, groupes et utilisateurs</li>
+                            <li>Application de la stratégie de sécurité AGDLP</li>
+                            <li>Gestion des profils itinérants</li>
+                            <li>Automatisation des tâches d'administration</li>
+                        </ul>
+
+                        <h3 class="h3">Résultats et bénéfices</h3>
+                        <p style="color: var(--light-gray);">
+                            Cette infrastructure a permis une gestion centralisée et sécurisée du parc informatique avec :
+                        </p>
+                        <ul style="color: var(--light-gray);">
+                            <li>Authentification unique pour tous les utilisateurs</li>
+                            <li>Déploiement automatisé des postes de travail</li>
+                            <li>Gestion granulaire des permissions via GPO</li>
+                            <li>Réduction du temps d'administration</li>
+                            <li>Meilleure sécurité et traçabilité</li>
+                        </ul>
+
+                        <div class="project-challenges">
+                            <h4 style="color: var(--orange-yellow-crayola); margin: 20px 0 10px 0;">Défis techniques relevés</h4>
+                            <ul style="color: var(--light-gray);">
+                                <li><strong>Intégration des services :</strong> Configuration optimale DNS/AD</li>
+                                <li><strong>Déploiement WDS :</strong> Mise en place d'images de déploiement</li>
+                                <li><strong>Scripting avancé :</strong> Automatisation de la création d'objets AD</li>
+                                <li><strong>Sécurité :</strong> Application stricte du modèle AGDLP</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <a href="portfolio.html" class="form-btn project-back-btn">
@@ -137,9 +165,9 @@
             </article>
         </div>
     </main>
+
     <script src="./assets/js/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>

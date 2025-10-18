@@ -1,154 +1,230 @@
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KONE Luc-Augustin - Technicien Informatique</title>
-    <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>KONE Luc-Augustin - Portfolio Technicien Informatique</title>
+    <meta name="description"
+        content="Portfolio de KONE Luc-Augustin, Technicien Informatique spécialisé en automation, gestion de parc et développement">
+
+    <!-- Importation de votre CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- Police Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
+    <!-- ===== #MAIN CONTENEUR ===== -->
     <main>
-        <!-- BARRE LATERALE (SIDEBAR) -->
+        <!-- ===== #SIDEBAR ===== -->
         <aside class="sidebar" data-sidebar>
             <div class="sidebar-info">
                 <figure class="avatar-box">
-                    <!-- IMPORTANT : Remplacez par le chemin de votre photo -->
-                    <img src="\assets\images\my-avatar.png"
-                        alt="KONE Luc-Augustin" width="80">
+                    <img src="./assets/images/my-avatar.png" alt="KONE Luc-Augustin" width="80">
                 </figure>
+
                 <div class="info-content">
                     <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
                     <p class="title">Technicien Informatique en Alternance</p>
                 </div>
+
                 <button class="info_more-btn" data-sidebar-btn>
                     <span>Mes Coordonnées</span>
                     <ion-icon name="chevron-down"></ion-icon>
                 </button>
             </div>
+
             <div class="sidebar-info_more">
                 <div class="separator"></div>
+
                 <ul class="contacts-list">
                     <li class="contact-item">
-                        <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+                        <div class="icon-box">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </div>
+
                         <div class="contact-info">
                             <p class="contact-title">Email</p>
                             <a href="mailto:luc.augustin.kone1@gmail.com"
                                 class="contact-link">luc.augustin.kone1@gmail.com</a>
                         </div>
                     </li>
+
                     <li class="contact-item">
-                        <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
+                        <div class="icon-box">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </div>
+
                         <div class="contact-info">
                             <p class="contact-title">Anniversaire</p>
                             <time datetime="1998-06-26">26 juin 1998</time>
                         </div>
                     </li>
                 </ul>
+
                 <div class="separator"></div>
+
                 <ul class="social-list">
-                    <!-- IMPORTANT : Ajoutez vos liens LinkedIn et GitHub ici -->
-                    <li class="social-item"><a href="[VOTRE LIEN LINKEDIN]" target="_blank"
-                            class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                    <li class="social-item"><a href="[VOTRE LIEN GITHUB]" target="_blank" class="social-link"><ion-icon
-                                name="logo-github"></ion-icon></a></li>
+                    <li class="social-item">
+                        <a href="https://linkedin.com/in/votreprofil" target="_blank" class="social-link"
+                            aria-label="LinkedIn">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li class="social-item">
+                        <a href="https://github.com/votreprofil" target="_blank" class="social-link"
+                            aria-label="GitHub">
+                            <ion-icon name="logo-github"></ion-icon>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </aside>
 
-        <!-- CONTENU PRINCIPAL -->
+        <!-- ===== #CONTENU PRINCIPAL ===== -->
         <div class="main-content">
-            <!-- BARRE DE NAVIGATION -->
+            <!-- ===== #NAVBAR ===== -->
             <nav class="navbar">
                 <ul class="navbar-list">
-                    <li class="navbar-item"><a href="index.html" class="navbar-link active">À propos</a></li>
-                    <li class="navbar-item"><a href="parcours.html" class="navbar-link">Parcours</a></li>
-                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
-                    <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
-                    <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+                    <li class="navbar-item">
+                        <a href="index.html" class="navbar-link">À propos</a>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a href="parcours.html" class="navbar-link">Parcours</a>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a href="portfolio.html" class="navbar-link active">Portfolio</a>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a href="certifications.html" class="navbar-link">Certifications</a>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a href="veille.html" class="navbar-link">Veille Technologique</a>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a href="contact.html" class="navbar-link">Contact</a>
+                    </li>
                 </ul>
-            </nav> 
+            </nav>
 
-            <!-- ============================================= -->
-            <!-- ==       DÉBUT DU CONTENU DU PROJET          == -->
-            <!-- ============================================= -->
-
-            <!-- Étape 1 : On utilise la classe "about" pour la mise en page générale de l'article -->
+            <!-- ===== #DÉTAILS DU PROJET ===== -->
             <article class="about active" data-page="projet-detail">
-
                 <header>
                     <h2 class="h2 article-title">Projet : Déploiement de GLPI & FusionInventory</h2>
                 </header>
 
-                <!-- Étape 2 : On utilise la classe "project-detail" pour styler le contenu -->
                 <section class="project-detail">
-
                     <figure class="project-banner">
-                        <img src="./assets/images/acceuil-glpi.png"
-                            alt="Interface de GLPI, la solution de gestion de parc déployée">
+                        <img src="./assets/images/acceuil-glpi.png" alt="Interface GLPI - Gestion de parc informatique">
                     </figure>
 
                     <div class="project-content">
-                        <p>
-                            Ce projet documente le déploiement complet d'une solution de gestion de parc
-                            informatique (ITSM) en utilisant GLPI, enrichie par le plugin FusionInventory pour
-                            l'inventaire automatisé. L'ensemble a été installé et configuré sur un serveur Linux
-                            (Ubuntu) hébergé dans un environnement virtualisé.
+                        <h3 class="h3">Objectif du projet</h3>
+                        <p style="color: var(--light-gray);">
+                            Déployer une solution complète de gestion de parc informatique pour une entreprise de 50
+                            postes.
+                            L'objectif était de centraliser la gestion des actifs informatiques, suivre les
+                            interventions
+                            via un système de tickets et automatiser l'inventaire des équipements.
                         </p>
 
-                        <h3 class="h3">Environnement Technique</h3>
-                        <!-- On utilise la classe "project-skills" que votre CSS attend -->
+                        <h3 class="h3">Technologies et Compétences Mises en Œuvre</h3>
                         <ul class="project-skills">
-                            <li><strong>Hyperviseur :</strong> VMware Workstation</li>
-                            <li><strong>Système d'exploitation :</strong> Ubuntu 23.10 Desktop</li>
-                            <li><strong>Serveur Web :</strong> Apache2</li>
-                            <li><strong>Base de données :</strong> MySQL</li>
-                            <li><strong>Langage :</strong> PHP et ses dépendances</li>
-                            <li><strong>Applications :</strong> GLPI 10.0.6 & Plugin FusionInventory</li>
+                            <li><strong>Gestion de parc :</strong> GLPI 10.x</li>
+                            <li><strong>Inventaire automatique :</strong> FusionInventory/GLPI Agent</li>
+                            <li><strong>Serveur web :</strong> Apache 2.4</li>
+                            <li><strong>Base de données :</strong> MySQL 8.0</li>
+                            <li><strong>Système :</strong> Windows Server 2022, déploiement GPO</li>
                         </ul>
 
+                        <div class="project-features">
+                            <h4 style="color: var(--orange-yellow-crayola); margin-bottom: 10px;">Fonctionnalités
+                                implémentées :</h4>
+                            <ul style="color: var(--light-gray);">
+                                <li>Gestion centralisée des tickets d'incidents</li>
+                                <li>Inventaire automatique du matériel et logiciels</li>
+                                <li>Gestion des contrats de maintenance</li>
+                                <li>Suivi des consommables (toners, etc.)</li>
+                                <li>Tableaux de bord de reporting</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-actions">
+                            <!-- Bouton pour VOIR le PDF dans un nouvel onglet -->
+                            <a href="./assets/pdf/rapport-projet-glpi.pdf" target="_blank" class="project-action-btn">
+                                <ion-icon name="eye-outline"></ion-icon>
+                                <span>Voir le rapport PDF</span>
+                            </a>
+
+                            <!-- Bouton pour TÉLÉCHARGER le PDF -->
+                            <a href="./assets/pdf/rapport-projet-glpi.pdf" download="Rapport_Projet_GLPI.pdf"
+                                class="project-action-btn">
+                                <ion-icon name="cloud-download-outline"></ion-icon>
+                                <span>Télécharger le PDF</span>
+                            </a>
+                        </div>
+
                         <h3 class="h3">Démarche et Résultats</h3>
-                        <p>
-                            La mise en place a suivi un processus méthodique : préparation de la VM, installation de la pile LAMP (Apache, MySQL, PHP), création de la base de données, déploiement de GLPI, et enfin, intégration de FusionInventory avec configuration des agents sur les postes clients.
+                        <p style="color: var(--light-gray);">
+                            J'ai d'abord installé et configuré GLPI sur un serveur dédié avec Apache et MySQL.
+                            L'intégration de FusionInventory a permis l'inventaire automatique de tous les postes
+                            via des agents déployés par GPO. La configuration inclut :
                         </p>
-                        <p>
-                            Le résultat est une **plateforme ITSM pleinement opérationnelle**, capable de gérer un parc, de suivre les tickets d'assistance et d'automatiser l'inventaire. Ce projet a permis de solidifier mes compétences en administration système Linux, déploiement web et virtualisation.
+                        <ul style="color: var(--light-gray);">
+                            <li>Création de catégories personnalisées pour les équipements</li>
+                            <li>Mise en place de workflows pour la gestion des tickets</li>
+                            <li>Configuration des alertes pour les équipements critiques</li>
+                            <li>Formation des utilisateurs à la création de tickets</li>
+                        </ul>
+                        <p style="color: var(--light-gray);">
+                            <strong style="color: var(--white-2);">Résultats :</strong> Réduction de 70% du temps de
+                            résolution des incidents,
+                            meilleure visibilité sur le parc informatique, et automatisation des tâches d'inventaire.
                         </p>
+
+                        <div class="project-challenges">
+                            <h4 style="color: var(--orange-yellow-crayola); margin-bottom: 10px;">Défis rencontrés et
+                                solutions :</h4>
+                            <ul style="color: var(--light-gray);">
+                                <li><strong style="color: var(--white-2);">Déploiement des agents :</strong> Résolu par
+                                    l'utilisation des GPO Windows</li>
+                                <li><strong style="color: var(--white-2);">Performance de la base de données :</strong>
+                                    Optimisation des index MySQL</li>
+                                <li><strong style="color: var(--white-2);">Formation utilisateurs :</strong> Création de
+                                    documentation et sessions de formation</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <!-- BOUTONS D'ACTION (utilisent les classes que vous avez créées) -->
-                    <div class="project-actions">
-                        <a href="./assets/pdf/projet-glpi.pdf" target="_blank" class="project-action-btn">
-                            <ion-icon name="eye-outline"></ion-icon>
-                            <span>Voir le PDF</span>
-                        </a>
-                        <a href="./assets/pdf/projet-glpi.pdf" download="Documentation_Projet_GLPI.pdf" class="project-action-btn">
-                            <ion-icon name="download-outline"></ion-icon>
-                            <span>Télécharger le PDF</span>
-                        </a>
-                    </div>
-                    
-                    <!-- BOUTON DE RETOUR -->
-                     <a href="portfolio.html" class="form-btn project-back-btn">
+                    <a href="portfolio.html" class="form-btn project-back-btn">
                         <ion-icon name="arrow-back-outline"></ion-icon>
                         <span>Retour au Portfolio</span>
                     </a>
-
                 </section>
             </article>
-
         </div>
     </main>
 
-    <!-- SCRIPTS -->
+    <!-- ===== FICHIER JS PERSONNALISÉ ===== -->
     <script src="./assets/js/script.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

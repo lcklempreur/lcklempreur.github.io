@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KONE Luc-Augustin - Technicien Informatique</title>
+    <title>KONE Luc-Augustin - Portfolio</title>
+    <meta name="description" content="Portfolio de KONE Luc-Augustin, Technicien Informatique en Alternance - Découvrez mes projets en PowerShell, développement web et administration système">
     <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,9 +19,8 @@
         <aside class="sidebar" data-sidebar>
             <div class="sidebar-info">
                 <figure class="avatar-box">
-                    <!-- IMPORTANT : Remplacez par le chemin de votre photo -->
-                    <img src="\assets\images\my-avatar.png"
-                        alt="KONE Luc-Augustin" width="80">
+                    <img src="/assets/images/photo_de_profils.jpg"
+                        alt="KONE Luc-Augustin" width="80">                
                 </figure>
                 <div class="info-content">
                     <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
@@ -38,8 +38,7 @@
                         <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
                         <div class="contact-info">
                             <p class="contact-title">Email</p>
-                            <a href="mailto:luc.augustin.kone1@gmail.com"
-                                class="contact-link">luc.augustin.kone1@gmail.com</a>
+                            <a href="mailto:luc.augustin.kone1@gmail.com" class="contact-link">luc.augustin.kone1@gmail.com</a>
                         </div>
                     </li>
                     <li class="contact-item">
@@ -52,130 +51,178 @@
                 </ul>
                 <div class="separator"></div>
                 <ul class="social-list">
-                    <!-- IMPORTANT : Ajoutez vos liens LinkedIn et GitHub ici -->
-                    <li class="social-item"><a href="[VOTRE LIEN LINKEDIN]" target="_blank"
-                            class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                    <li class="social-item"><a href="[VOTRE LIEN GITHUB]" target="_blank" class="social-link"><ion-icon
-                                name="logo-github"></ion-icon></a></li>
+                    <li class="social-item">
+                        <a href="https://linkedin.com/in/votreprofil" target="_blank" class="social-link" aria-label="LinkedIn">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="https://github.com/votreprofil" target="_blank" class="social-link" aria-label="GitHub">
+                            <ion-icon name="logo-github"></ion-icon>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </aside>
 
         <!-- CONTENU PRINCIPAL -->
         <div class="main-content">
-            <!-- BARRE DE NAVIGATION -->
-            <nav class="navbar">
+            <nav class="navbar" aria-label="Navigation principale">
                 <ul class="navbar-list">
-                    <li class="navbar-item"><a href="index.html" class="navbar-link active">À propos</a></li>
+                    <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
                     <li class="navbar-item"><a href="parcours.html" class="navbar-link">Parcours</a></li>
-                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
+                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Portfolio</a></li>
+                    <li class="navbar-item"><a href="certifications.html" class="navbar-link">Certifications</a></li>
+                    <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
                     <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
                     <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
                 </ul>
-            </nav> 
+            </nav>
 
-            <!-- SECTION PORTFOLIO -->
+            <!-- PORTFOLIO SECTION -->
             <article class="portfolio active" data-page="portfolio">
                 <header>
                     <h2 class="h2 article-title">Portfolio</h2>
                 </header>
 
-                <section>
-                    
-                    <!-- GRILLE DES PROJETS -->
-                    <ul class="project-list">
+                <section class="filter-select-box">
+                    <button class="filter-select" data-select>
+                        <div class="select-value" data-select-value>Sélectionnez une catégorie</div>
+                        <div class="select-icon">
+                            <ion-icon name="chevron-down"></ion-icon>
+                        </div>
+                    </button>
 
+                    <ul class="select-list">
+                        <li class="select-item">
+                            <button data-select-item>Tous</button>
+                        </li>
+                        <li class="select-item">
+                            <button data-select-item>Automatisation</button>
+                        </li>
+                        <li class="select-item">
+                            <button data-select-item>Développement Web</button>
+                        </li>
+                        <li class="select-item">
+                            <button data-select-item>Réseau & Infrastructure</button>
+                        </li>
+                        <li class="select-item">
+                            <button data-select-item>Documentation</button>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="projects">
+                    <ul class="project-list">
                         <!-- Projet 1 -->
-                        <li class="project-item active" data-filter-item data-category="projets réseaux">
-                            <!-- MODIFICATION ICI : le lien pointe vers projet-1.html -->
+                        <li class="project-item active" data-filter-item data-category=" Déploiement de GLPI & FusionInventory">
                             <a href="projet-1.html">
                                 <figure class="project-img">
-                                    <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                    <img src="./assets/images/acceuil-glpi.png" alt="Maquette réseau GNS3"
-                                        loading="lazy">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="./assets/images/acceuil-glpi.png" alt=" Déploiement de GLPI & FusionInventory" loading="lazy">
                                 </figure>
-                                <h3 class="project-title">Projet : Déploiement de GLPI & FusionInventory</h3>
-                                <p class="project-category">Projets Réseaux</p>
+                                <h3 class="project-title"> Déploiement de GLPI & FusionInventory</h3>
+                                <p class="project-category">GLPI</p>
+                                <div class="project-description">
+                                    <p>GLPI : Solution centralisée de gestion de parc et d'incidents IT avec inventaire automatisé.</p>
+                                </div>
                             </a>
                         </li>
 
                         <!-- Projet 2 -->
-                        <li class="project-item active" data-filter-item data-category="scripting">
-                            <!-- MODIFICATION ICI : le lien pointe vers projet-2.html -->
+                        <li class="project-item active" data-filter-item data-category="Active Directory">
                             <a href="projet-2.html">
                                 <figure class="project-img">
-                                    <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                    <img src="./assets/images/image-projet-2.jpg" alt="Script d'automatisation"
-                                        loading="lazy">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="./assets/images/acceuil_AD.png" alt="Active Directory" loading="lazy">
                                 </figure>
-                                <h3 class="project-title">Script d'Automatisation</h3>
-                                <p class="project-category">Scripting</p>
+                                <h3 class="project-title">Active Directory</h3>
+                                <p class="project-category">AD</p>
+                                <div class="project-description">
+                                    <p>Création d'un site responsive pour une entreprise avec formulaire de contact.</p>
+                                </div>
                             </a>
                         </li>
 
                         <!-- Projet 3 -->
-                        <li class="project-item active" data-filter-item data-category="développement web">
-                            <!-- MODIFICATION ICI : le lien pointe vers projet-3.html -->
+                        <li class="project-item active" data-filter-item data-category="reseau & infrastructure">
                             <a href="projet-3.html">
                                 <figure class="project-img">
-                                    <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                    <img src="./assets/images/image-projet-3.jpg" alt="Site vitrine" loading="lazy">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="./assets/images/image-projet-3.jpg" alt="Supervision réseau" loading="lazy">
                                 </figure>
-                                <h3 class="project-title">Site Web Vitrine</h3>
-                                <p class="project-category">Développement Web</p>
+                                <h3 class="project-title">Supervision Réseau</h3>
+                                <p class="project-category">Réseau & Infrastructure</p>
+                                <div class="project-description">
+                                    <p>Mise en place d'une solution Zabbix pour surveiller les équipements critiques.</p>
+                                </div>
                             </a>
                         </li>
 
                         <!-- Projet 4 -->
-                        <li class="project-item active" data-filter-item data-category="projets réseaux">
-                            <!-- MODIFICATION ICI : le lien pointe vers projet-4.html -->
+                        <li class="project-item active" data-filter-item data-category="documentation">
                             <a href="projet-4.html">
                                 <figure class="project-img">
-                                    <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                    <img src="./assets/images/image-projet-4.jpg" alt="Supervision réseau"
-                                        loading="lazy">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="./assets/images/image-projet-4.jpg" alt="Procédure de maintenance" loading="lazy">
                                 </figure>
-                                <h3 class="project-title">Supervision Réseau</h3>
-                                <p class="project-category">Projets Réseaux</p>
+                                <h3 class="project-title">Procédure de Maintenance</h3>
+                                <p class="project-category">Documentation</p>
+                                <div class="project-description">
+                                    <p>Rédaction d'une procédure standardisée pour les mises à jour mensuelles des serveurs.</p>
+                                </div>
                             </a>
                         </li>
 
                         <!-- Projet 5 -->
-                        <li class="project-item active" data-filter-item data-category="documentation">
-                            <!-- MODIFICATION ICI : le lien pointe vers projet-5.html -->
+                        <li class="project-item active" data-filter-item data-category="design">
                             <a href="projet-5.html">
                                 <figure class="project-img">
-                                    <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                    <img src="./assets/images/image-projet-5.jpg" alt="Procédure de maintenance"
-                                        loading="lazy">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="./assets/images/image-projet-5.jpg" alt="Identité visuelle" loading="lazy">
                                 </figure>
-                                <h3 class="project-title">Procédure de Maintenance</h3>
-                                <p class="project-category">Documentation</p>
+                                <h3 class="project-title">Identité Visuelle</h3>
+                                <p class="project-category">Design</p>
+                                <div class="project-description">
+                                    <p>Création d'une charte graphique complète avec logo et palette de couleurs.</p>
+                                </div>
                             </a>
                         </li>
 
                         <!-- Projet 6 -->
-                        <li class="project-item active" data-filter-item data-category="design">
-                            <!-- MODIFICATION ICI : le lien pointe vers projet-6.html -->
+                        <li class="project-item active" data-filter-item data-category="documentation">
                             <a href="projet-6.html">
                                 <figure class="project-img">
-                                    <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                    <img src="./assets/images/image-projet-6.jpg" alt="Identité visuelle"
-                                        loading="lazy">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="./assets/images/image-projet-6.jpg" alt="Fiche de poste" loading="lazy">
                                 </figure>
-                                <h3 class="project-title">Identité Visuelle</h3>
-                                <p class="project-category">Design</p>
+                                <h3 class="project-title">Fiche de Poste Technicien</h3>
+                                <p class="project-category">Documentation</p>
+                                <div class="project-description">
+                                    <p>Documentation détaillée des responsabilités et procédures d'un poste technique.</p>
+                                </div>
                             </a>
                         </li>
-
                     </ul>
                 </section>
             </article>
         </div>
     </main>
+
     <script src="./assets/js/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>

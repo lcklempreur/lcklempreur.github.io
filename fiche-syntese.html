@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Fiche de synthèse - KONE Luc-Augustin</title>
+    <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main> <!-- SIDEBAR (identique à index) -->
+        <aside class="sidebar" data-sidebar>
+            <div class="sidebar-info">
+                <figure class="avatar-box"> <img src="./assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
+                </figure>
+                <div class="info-content">
+                    <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
+                    <p class="title">Technicien Informatique en Alternance</p>
+                </div> <button class="info_more-btn" data-sidebar-btn> <span>Mes Coordonnées</span> <ion-icon
+                        name="chevron-down"></ion-icon> </button>
+            </div>
+
+            <div class="sidebar-info_more">
+                <div class="separator"></div>
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p>
+                            <a href="mailto:luc.augustin.kone1@gmail.com"
+                                class="contact-link">luc.augustin.kone1@gmail.com</a>
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
+                        <div class="contact-info">
+                            <p class="contact-title">Anniversaire</p>
+                            <time datetime="1998-06-26">26 juin 1998</time>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="separator"></div>
+                <ul class="social-list">
+                    <li class="social-item"><a href="[VOTRE LIEN LINKEDIN]" target="_blank"
+                            class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                    <li class="social-item"><a href="[VOTRE LIEN GITHUB]" target="_blank" class="social-link"><ion-icon
+                                name="logo-github"></ion-icon></a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- CONTENU PRINCIPAL -->
+        <div class="main-content">
+            <!-- NAVBAR -->
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
+                    <li class="navbar-item"><a href="parcours.html" class="navbar-link">Parcours</a></li>
+                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
+                    <li class="navbar-item"><a href="certifications.html" class="navbar-link">Certifications</a></li>
+                    <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link active">Fiche synthèse</a></li>
+                    <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
+                    <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- ARTICLE : FICHE DE SYNTHESE -->
+            <article class="project-detail active" data-page="project-detail">
+                <header>
+                    <h2 class="h2 article-title">Fiche de synthèse 📄</h2>
+                </header>
+
+                <!-- Aperçu / bannière -->
+                <div class="">
+                    <img src="./assets/images/projet-synthese.jpg" alt="Aperçu fiche de synthèse">
+
+
+                    <!-- Contenu texte de la fiche -->
+                    <div class="project-content">
+                        <h3 class="h3">Résumé</h3>
+                        <p style="color:var(--light-gray); margin-bottom:12px;">
+                            Voici une fiche de synthèse présentant mes informations professionnelles, compétences clés
+                            et
+                            expériences
+                            principales. Elle est conçue pour être partagée ou téléchargée facilement. ✅
+                        </p>
+
+                        <h4 class="h4">Points clés</h4>
+                        <ul style="color:var(--light-gray); margin-top:8px; line-height:1.6;">
+                            <li>• Technicien de proximité au Conseil Départemental</li>
+                            <li>• BTS SIO (option SISR) en alternance</li>
+                            <li>• Compétences : support utilisateur, gestion de parc, diagnostic matériel & logiciel
+                            </li>
+                            <li>• Disponibilité pour missions courtes ou long terme</li>
+                        </ul>
+
+                        <!-- Bouton de téléchargement -->
+                        <div class="project-actions">
+                            <a class="project-action-btn" href="./assets/files/fiche-synthese.pdf" download>
+                                <ion-icon name="download-outline"></ion-icon>
+                                Télécharger la fiche (PDF)
+                            </a>
+
+                            <!-- Bouton optionnel : ouvrir dans un nouvel onglet -->
+                            <a class="project-action-btn" href="./assets/files/fiche-synthese.pdf" target="_blank"
+                                rel="noopener">
+                                <ion-icon name="open-outline"></ion-icon>
+                                Ouvrir dans un nouvel onglet
+                            </a>
+                        </div>
+
+                        <!-- Liens ou informations complémentaires -->
+                        <p style="color:var(--light-gray); margin-top:6px;">
+                            Si vous souhaitez une version modifiable (Word) ou une version courte, dites-le-moi et je
+                            l'ajusterai. ✨
+                        </p>
+                    </div>
+
+            </article>
+        </div>
+    </main>
+
+    <script src="./assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
