@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,173 +11,193 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<main>
+    <main>
 
-    <!-- BARRE LATERALE (SIDEBAR) -->
-    <aside class="sidebar" data-sidebar>
-        <div class="sidebar-info">
-            <figure class="avatar-box">
-                <img src="./assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
-            </figure>
-            <div class="info-content">
-                <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
-                <p class="title">Technicien Informatique en Alternance</p>
-            </div>
-            <button class="info_more-btn" data-sidebar-btn>
-                <span>Mes Coordonnées</span>
-                <ion-icon name="chevron-down"></ion-icon>
-            </button>
-        </div>
-
-        <div class="sidebar-info_more">
-            <div class="separator"></div>
-            <ul class="contacts-list">
-                <li class="contact-item">
-                    <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
-                    <div class="contact-info">
-                        <p class="contact-title">Email</p>
-                        <a href="mailto:luc.augustin.kone1@gmail.com" class="contact-link">luc.augustin.kone1@gmail.com</a>
-                    </div>
-                </li>
-                <li class="contact-item">
-                    <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
-                    <div class="contact-info">
-                        <p class="contact-title">Anniversaire</p>
-                        <time datetime="1998-06-26">26 juin 1998</time>
-                    </div>
-                </li>
-            </ul>
-
-            <div class="separator"></div>
-            <ul class="social-list">
-                <li class="social-item"><a href="#" target="_blank" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                <li class="social-item"><a href="#" target="_blank" class="social-link"><ion-icon name="logo-github"></ion-icon></a></li>
-            </ul>
-        </div>
-    </aside>
-
-    <!-- CONTENU PRINCIPAL -->
-    <div class="main-content">
-
-        <!-- BARRE DE NAVIGATION -->
-        <nav class="navbar">
-            <ul class="navbar-list">
-                <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
-                <li class="navbar-item"><a href="parcours.html" class="navbar-link">Parcours</a></li>
-                <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Portfolio</a></li>
-                <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
-                <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
-                <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
-            </ul>
-        </nav>
-
-        <!-- CONTENU DU PROJET -->
-        <article class="about active" data-page="projet-detail">
-            <header>
-                <h2 class="h2 article-title">Intégration d’un serveur Linux dans un domaine Active Directory</h2>
-            </header>
-
-            <section class="project-detail">
-
-                <figure class="project-banner">
-                    <!-- Remplace l’image par la tienne -->
-                    <img src="./assets/images/projet4.png" alt="Intégration Linux dans Active Directory">
+        <!-- BARRE LATERALE (SIDEBAR) -->
+        <aside class="sidebar" data-sidebar>
+            <div class="sidebar-info">
+                <figure class="avatar-box">
+                    <img src="/assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
                 </figure>
 
-                <div class="project-content">
-
-                    <h3 class="h3">Objectif du projet</h3>
-                    <p style="color: var(--light-gray);">
-                        Intégrer un serveur Ubuntu Server au domaine Active Directory afin de permettre
-                        l’authentification centralisée des utilisateurs du domaine sur Linux, et d’assurer
-                        une cohérence de résolution DNS et de gestion des identités dans l’infrastructure.
-                    </p>
-
-                    <h3 class="h3">Phrase récapitulative</h3>
-                    <blockquote style="border-left: 4px solid var(--orange-yellow-crayola); padding-left: 15px; margin: 20px 0; font-style: italic; color: var(--light-gray);">
-                        “Jonction d’un serveur Ubuntu au domaine Active Directory via Kerberos et SSSD
-                        afin d’authentifier les utilisateurs du domaine sur Linux et centraliser la gestion
-                        des identités.”
-                    </blockquote>
-
-                    <h3 class="h3">Technologies et Compétences Mises en Œuvre</h3>
-                    <ul class="project-skills">
-                        <li><strong>Système :</strong> Ubuntu Server 24.04</li>
-                        <li><strong>Annuaire :</strong> Active Directory (AD DS)</li>
-                        <li><strong>Services :</strong> DNS, DHCP</li>
-                        <li><strong>Authentification :</strong> Kerberos, SSSD, PAM</li>
-                        <li><strong>Outils :</strong> realmd, adcli</li>
-                        <li><strong>Réseau :</strong> Configuration DHCP, DNS, résolution de noms</li>
-                        <li><strong>Diagnostic :</strong> vérification identité (id), base comptes (getent)</li>
-                    </ul>
-
-                    <div class="project-actions">
-                        <!-- Mets le bon chemin PDF si tu en as un -->
-                        <a href="./assets/pdf/Intégration d’un Ubuntu Server dans un domaine Active Directory.pdf" target="_blank" class="project-action-btn">
-                            <ion-icon name="eye-outline"></ion-icon>
-                            <span>Voir le rapport PDF</span>
-                        </a>
-                        <a href="./assets/pdf/Intégration d’un Ubuntu Server dans un domaine Active Directory.pdf" download="Rapport_Projet_Linux_AD.pdf" class="project-action-btn">
-                            <ion-icon name="cloud-download-outline"></ion-icon>
-                            <span>Télécharger le PDF</span>
-                        </a>
-                    </div>
-
-                    <h3 class="h3">Architecture mise en place</h3>
-                    <p style="color: var(--light-gray);">
-                        L’intégration s’appuie sur une infrastructure Active Directory existante et un serveur Linux membre du domaine :
-                    </p>
-                    <ul style="color: var(--light-gray);">
-                        <li>Contrôleur de domaine Windows Server (AD DS, DNS, DHCP)</li>
-                        <li>Domaine : <strong>tpluc.lan</strong> (à adapter si nécessaire)</li>
-                        <li>Serveur Ubuntu Server configuré pour utiliser le DNS Active Directory</li>
-                        <li>Jonction au domaine via <strong>realm join</strong></li>
-                    </ul>
-
-                    <h3 class="h3">Étapes clés du projet</h3>
-                    <ul style="color: var(--light-gray);">
-                        <li>Configuration réseau et DNS côté Ubuntu (Netplan)</li>
-                        <li>Installation des outils (realmd, sssd, krb5-user…)</li>
-                        <li>Configuration Kerberos et découverte du domaine</li>
-                        <li>Jonction du serveur Linux au domaine Active Directory</li>
-                        <li>Configuration SSSD et NSS pour la résolution des comptes AD</li>
-                        <li>Validation des comptes et groupes AD sur Linux</li>
-                    </ul>
-
-                    <h3 class="h3">Résultats et bénéfices</h3>
-                    <ul style="color: var(--light-gray);">
-                        <li>Authentification des utilisateurs Active Directory sur Ubuntu</li>
-                        <li>Gestion centralisée des identités (AD) utilisable sur Linux</li>
-                        <li>Résolution DNS cohérente dans toute l’infrastructure</li>
-                        <li>Base solide pour l’intégration de services Linux dans un SI Windows</li>
-                    </ul>
-
-                    <div class="project-challenges">
-                        <h4 style="color: var(--orange-yellow-crayola); margin: 20px 0 10px 0;">
-                            Défis techniques relevés
-                        </h4>
-                        <ul style="color: var(--light-gray);">
-                            <li><strong>DNS :</strong> forcer l’utilisation du DNS AD sur Ubuntu via Netplan</li>
-                            <li><strong>Kerberos :</strong> cohérence du realm et résolution des KDC</li>
-                            <li><strong>SSSD/NSS :</strong> rendre visibles les comptes AD via getent/id</li>
-                            <li><strong>Dépannage :</strong> cache SSSD, logs et validation d’authentification</li>
-                        </ul>
-                    </div>
-
+                <div class="info-content">
+                    <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
+                    <p class="title">Technicien Informatique en Alternance</p>
                 </div>
 
-                <a href="portfolio.html" class="form-btn project-back-btn">
-                    <ion-icon name="arrow-back-outline"></ion-icon>
-                    <span>Retour au Portfolio</span>
-                </a>
-            </section>
-        </article>
-    </div>
-</main>
+                <button class="info_more-btn" data-sidebar-btn>
+                    <span>Mes Coordonnées</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
+            </div>
 
-<script src="./assets/js/script.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+            <div class="sidebar-info_more">
+                <div class="separator"></div>
+
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p>
+                            <a href="mailto:luc.augustin.kone1@gmail.com"
+                                class="contact-link">luc.augustin.kone1@gmail.com</a>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
+                        <div class="contact-info">
+                            <p class="contact-title">Anniversaire</p>
+                            <time datetime="1998-06-26">26 juin 1998</time>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="separator"></div>
+
+                <ul class="social-list">
+                    <li class="social-item">
+                        <a href="[VOTRE LIEN LINKEDIN]" target="_blank" class="social-link">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="https://github.com/lcklempreur" target="_blank" class="social-link">
+                            <ion-icon name="logo-github"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- CONTENU PRINCIPAL -->
+        <div class="main-content">
+
+            <!-- BARRE DE NAVIGATION -->
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
+                    <li class="navbar-item"><a href="parcours.html" class="navbar-link">Parcours</a></li>
+                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Portfolio</a></li>
+                    <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
+                    <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
+                    <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- CONTENU DU PROJET -->
+            <article class="about active" data-page="projet-detail">
+                <header>
+                    <h2 class="h2 article-title">Intégration d’un serveur Linux dans un domaine Active Directory</h2>
+                </header>
+
+                <section class="project-detail">
+
+                    <figure class="project-banner">
+                        <!-- Remplace l’image par la tienne -->
+                        <img src="./assets/images/projet4.png" alt="Intégration Linux dans Active Directory">
+                    </figure>
+
+                    <div class="project-content">
+
+                        <h3 class="h3">Objectif du projet</h3>
+                        <p style="color: var(--light-gray);">
+                            Intégrer un serveur Ubuntu Server au domaine Active Directory afin de permettre
+                            l’authentification centralisée des utilisateurs du domaine sur Linux, et d’assurer
+                            une cohérence de résolution DNS et de gestion des identités dans l’infrastructure.
+                        </p>
+
+                        <h3 class="h3">Phrase récapitulative</h3>
+                        <blockquote
+                            style="border-left: 4px solid var(--orange-yellow-crayola); padding-left: 15px; margin: 20px 0; font-style: italic; color: var(--light-gray);">
+                            “Jonction d’un serveur Ubuntu au domaine Active Directory via Kerberos et SSSD
+                            afin d’authentifier les utilisateurs du domaine sur Linux et centraliser la gestion
+                            des identités.”
+                        </blockquote>
+
+                        <h3 class="h3">Technologies et Compétences Mises en Œuvre</h3>
+                        <ul class="project-skills">
+                            <li><strong>Système :</strong> Ubuntu Server 24.04</li>
+                            <li><strong>Annuaire :</strong> Active Directory (AD DS)</li>
+                            <li><strong>Services :</strong> DNS, DHCP</li>
+                            <li><strong>Authentification :</strong> Kerberos, SSSD, PAM</li>
+                            <li><strong>Outils :</strong> realmd, adcli</li>
+                            <li><strong>Réseau :</strong> Configuration DHCP, DNS, résolution de noms</li>
+                            <li><strong>Diagnostic :</strong> vérification identité (id), base comptes (getent)</li>
+                        </ul>
+
+                        <div class="project-actions">
+                            <!-- Mets le bon chemin PDF si tu en as un -->
+                            <a href="./assets/pdf/Intégration d’un Ubuntu Server dans un domaine Active Directory.pdf"
+                                target="_blank" class="project-action-btn">
+                                <ion-icon name="eye-outline"></ion-icon>
+                                <span>Voir le rapport PDF</span>
+                            </a>
+                            <a href="./assets/pdf/Intégration d’un Ubuntu Server dans un domaine Active Directory.pdf"
+                                download="Rapport_Projet_Linux_AD.pdf" class="project-action-btn">
+                                <ion-icon name="cloud-download-outline"></ion-icon>
+                                <span>Télécharger le PDF</span>
+                            </a>
+                        </div>
+
+                        <h3 class="h3">Architecture mise en place</h3>
+                        <p style="color: var(--light-gray);">
+                            L’intégration s’appuie sur une infrastructure Active Directory existante et un serveur Linux
+                            membre du domaine :
+                        </p>
+                        <ul style="color: var(--light-gray);">
+                            <li>Contrôleur de domaine Windows Server (AD DS, DNS, DHCP)</li>
+                            <li>Domaine : <strong>tpluc.lan</strong> (à adapter si nécessaire)</li>
+                            <li>Serveur Ubuntu Server configuré pour utiliser le DNS Active Directory</li>
+                            <li>Jonction au domaine via <strong>realm join</strong></li>
+                        </ul>
+
+                        <h3 class="h3">Étapes clés du projet</h3>
+                        <ul style="color: var(--light-gray);">
+                            <li>Configuration réseau et DNS côté Ubuntu (Netplan)</li>
+                            <li>Installation des outils (realmd, sssd, krb5-user…)</li>
+                            <li>Configuration Kerberos et découverte du domaine</li>
+                            <li>Jonction du serveur Linux au domaine Active Directory</li>
+                            <li>Configuration SSSD et NSS pour la résolution des comptes AD</li>
+                            <li>Validation des comptes et groupes AD sur Linux</li>
+                        </ul>
+
+                        <h3 class="h3">Résultats et bénéfices</h3>
+                        <ul style="color: var(--light-gray);">
+                            <li>Authentification des utilisateurs Active Directory sur Ubuntu</li>
+                            <li>Gestion centralisée des identités (AD) utilisable sur Linux</li>
+                            <li>Résolution DNS cohérente dans toute l’infrastructure</li>
+                            <li>Base solide pour l’intégration de services Linux dans un SI Windows</li>
+                        </ul>
+
+                        <div class="project-challenges">
+                            <h4 style="color: var(--orange-yellow-crayola); margin: 20px 0 10px 0;">
+                                Défis techniques relevés
+                            </h4>
+                            <ul style="color: var(--light-gray);">
+                                <li><strong>DNS :</strong> forcer l’utilisation du DNS AD sur Ubuntu via Netplan</li>
+                                <li><strong>Kerberos :</strong> cohérence du realm et résolution des KDC</li>
+                                <li><strong>SSSD/NSS :</strong> rendre visibles les comptes AD via getent/id</li>
+                                <li><strong>Dépannage :</strong> cache SSSD, logs et validation d’authentification</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <a href="portfolio.html" class="form-btn project-back-btn">
+                        <ion-icon name="arrow-back-outline"></ion-icon>
+                        <span>Retour au Portfolio</span>
+                    </a>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <script src="./assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

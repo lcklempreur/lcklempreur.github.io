@@ -13,158 +13,170 @@
 </head>
 
 <body>
-<main>
+    <main>
 
-    <!-- BARRE LATERALE (SIDEBAR) -->
-    <aside class="sidebar" data-sidebar>
-        <div class="sidebar-info">
-            <figure class="avatar-box">
-                <img src="./assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
-            </figure>
-
-            <div class="info-content">
-                <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
-                <p class="title">Technicien Informatique en Alternance</p>
-            </div>
-
-            <button class="info_more-btn" data-sidebar-btn>
-                <span>Mes Coordonnées</span>
-                <ion-icon name="chevron-down"></ion-icon>
-            </button>
-        </div>
-
-        <div class="sidebar-info_more">
-            <div class="separator"></div>
-
-            <ul class="contacts-list">
-                <li class="contact-item">
-                    <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
-                    <div class="contact-info">
-                        <p class="contact-title">Email</p>
-                        <a href="mailto:luc.augustin.kone1@gmail.com" class="contact-link">luc.augustin.kone1@gmail.com</a>
-                    </div>
-                </li>
-
-                <li class="contact-item">
-                    <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
-                    <div class="contact-info">
-                        <p class="contact-title">Anniversaire</p>
-                        <time datetime="1998-06-26">26 juin 1998</time>
-                    </div>
-                </li>
-            </ul>
-
-            <div class="separator"></div>
-
-            <ul class="social-list">
-                <li class="social-item">
-                    <a href="[VOTRE LIEN LINKEDIN]" target="_blank" class="social-link">
-                        <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                </li>
-                <li class="social-item">
-                    <a href="[VOTRE LIEN GITHUB]" target="_blank" class="social-link">
-                        <ion-icon name="logo-github"></ion-icon>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </aside>
-
-    <!-- CONTENU PRINCIPAL -->
-    <div class="main-content">
-
-        <!-- BARRE DE NAVIGATION -->
-        <nav class="navbar">
-            <ul class="navbar-list">
-                <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
-                <li class="navbar-item"><a href="parcours.html" class="navbar-link">Parcours</a></li>
-                <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Portfolio</a></li>
-                <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
-                <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
-                <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
-            </ul>
-        </nav>
-
-        <!-- CONTENU DU PROJET -->
-        <article class="about active" data-page="projet-detail">
-            <header>
-                <h2 class="h2 article-title">HAProxy : Reverse Proxy & Load Balancing</h2>
-            </header>
-
-            <section class="project-detail">
-
-                <!-- BANNIÈRE (remplace par ton image) -->
-                <figure class="project-banner">
-                    <img src="./assets/images/haproxy.jpg" alt="HAProxy - Load Balancing" loading="lazy">
+        <!-- BARRE LATERALE (SIDEBAR) -->
+        <aside class="sidebar" data-sidebar>
+            <div class="sidebar-info">
+                <figure class="avatar-box">
+                    <img src="/assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
                 </figure>
 
-                <div class="project-content">
+                <div class="info-content">
+                    <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
+                    <p class="title">Technicien Informatique en Alternance</p>
+                </div>
 
-                    <h3 class="h3">Objectif du projet</h3>
-                    <p style="color: var(--light-gray);">
-                        Mettre en place un reverse proxy (proxy inverse) avec HAProxy afin de répartir la charge
-                        (load balancing (répartition de charge)) entre deux serveurs web (Apache2 (serveur web)),
-                        tout en assurant un contrôle de disponibilité (health check (test d’état)).
-                    </p>
+                <button class="info_more-btn" data-sidebar-btn>
+                    <span>Mes Coordonnées</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
+            </div>
 
-                    <h3 class="h3">Phrase récapitulative</h3>
-                    <blockquote style="border-left: 4px solid var(--orange-yellow-crayola); padding-left: 15px; margin: 20px 0; font-style: italic; color: var(--light-gray);">
-                        "Mise en place d’un cluster web derrière HAProxy avec équilibrage Round Robin (répartition 50/50),
-                        supervision via page /stats et simulation de panne d’un backend."
-                    </blockquote>
+            <div class="sidebar-info_more">
+                <div class="separator"></div>
 
-                    <h3 class="h3">Technologies et compétences mises en œuvre</h3>
-                    <ul class="project-skills">
-                        <li><strong>Proxy :</strong> HAProxy (reverse proxy (proxy inverse))</li>
-                        <li><strong>Web :</strong> Apache2 (serveur web) sur Web1 et Web2</li>
-                        <li><strong>Équilibrage :</strong> Round Robin (répartition de charge 50/50)</li>
-                        <li><strong>Supervision :</strong> Interface HAProxy /stats (stats (statistiques de service))</li>
-                        <li><strong>Réseau :</strong> NAT (Network Address Translation), passerelle (gateway (routeur par défaut))</li>
-                        <li><strong>Sécurité :</strong> Auth basique (authentification (contrôle d’accès)) sur /stats</li>
-                        <li><strong>Optionnel :</strong> iptables (pare-feu Linux) + DNAT (Destination NAT) + MASQUERADE (SNAT dynamique)</li>
-                    </ul>
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p>
+                            <a href="mailto:luc.augustin.kone1@gmail.com"
+                                class="contact-link">luc.augustin.kone1@gmail.com</a>
+                        </div>
+                    </li>
 
-                    <div class="project-actions">
-                        <a href="./assets/pdf/HAproxy.pdf" target="_blank" class="project-action-btn">
-                            <ion-icon name="eye-outline"></ion-icon>
-                            <span>Voir le rapport PDF</span>
+                    <li class="contact-item">
+                        <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
+                        <div class="contact-info">
+                            <p class="contact-title">Anniversaire</p>
+                            <time datetime="1998-06-26">26 juin 1998</time>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="separator"></div>
+
+                <ul class="social-list">
+                    <li class="social-item">
+                        <a href="[VOTRE LIEN LINKEDIN]" target="_blank" class="social-link">
+                            <ion-icon name="logo-linkedin"></ion-icon>
                         </a>
-                        <a href="./assets/pdf/HAproxy.pdf" download="Rapport_Projet_HAProxy.pdf" class="project-action-btn">
-                            <ion-icon name="cloud-download-outline"></ion-icon>
-                            <span>Télécharger le PDF</span>
+                    </li>
+                    <li class="social-item">
+                        <a href="https://github.com/lcklempreur" target="_blank" class="social-link">
+                            <ion-icon name="logo-github"></ion-icon>
                         </a>
-                    </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
 
-                    <h3 class="h3">Architecture (topologie)</h3>
-                    <p style="color: var(--light-gray);">
-                        L’infrastructure s’appuie sur un serveur HAProxy placé entre un réseau “WAN” (Internet (réseau public))
-                        et un réseau “LAN” (réseau local).
-                    </p>
+        <!-- CONTENU PRINCIPAL -->
+        <div class="main-content">
 
-                    <ul style="color: var(--light-gray);">
-                        <li><strong>HAProxy :</strong> WAN 192.168.43.240 / LAN 10.1.43.1</li>
-                        <li><strong>Web1 :</strong> 10.1.43.2 (Apache2)</li>
-                        <li><strong>Web2 :</strong> 10.1.43.3 (Apache2)</li>
-                        <li><strong>Client :</strong> réseau public 192.168.43.X</li>
-                    </ul>
+            <!-- BARRE DE NAVIGATION -->
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
+                    <li class="navbar-item"><a href="parcours.html" class="navbar-link">Parcours</a></li>
+                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Portfolio</a></li>
+                    <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
+                    <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
+                    <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+                </ul>
+            </nav>
 
-                    <h3 class="h3">Mise en place (étapes clés)</h3>
-                    <ul style="color: var(--light-gray);">
-                        <li>Installation de HAProxy sur le serveur proxy (sans Apache2 sur cette machine).</li>
-                        <li>Installation d’Apache2 sur Web1 et Web2.</li>
-                        <li>Configuration HAProxy : frontend (point d’entrée) + backend (serveurs web) + checks.</li>
-                        <li>Activation de la page de stats /stats (authentification (contrôle d’accès)).</li>
-                        <li>Configuration de la passerelle (gateway (routeur par défaut)) sur Web1/Web2 vers HAProxy.</li>
-                        <li>Tests : alternance Web1/Web2, simulation panne (arrêt Apache) et vérification bascule.</li>
-                    </ul>
+            <!-- CONTENU DU PROJET -->
+            <article class="about active" data-page="projet-detail">
+                <header>
+                    <h2 class="h2 article-title">HAProxy : Reverse Proxy & Load Balancing</h2>
+                </header>
 
-                    <h3 class="h3">Extrait de configuration HAProxy (principe)</h3>
-                    <p style="color: var(--light-gray);">
-                        Exemple de bloc “listen” avec équilibrage Round Robin et supervision :
-                    </p>
+                <section class="project-detail">
 
-                    <pre style="background: #111; padding: 16px; border-radius: 12px; overflow:auto; color: #ddd;">
+                    <!-- BANNIÈRE (remplace par ton image) -->
+                    <figure class="project-banner">
+                        <img src="./assets/images/haproxy.jpg" alt="HAProxy - Load Balancing" loading="lazy">
+                    </figure>
+
+                    <div class="project-content">
+
+                        <h3 class="h3">Objectif du projet</h3>
+                        <p style="color: var(--light-gray);">
+                            Mettre en place un reverse proxy (proxy inverse) avec HAProxy afin de répartir la charge
+                            (load balancing (répartition de charge)) entre deux serveurs web (Apache2 (serveur web)),
+                            tout en assurant un contrôle de disponibilité (health check (test d’état)).
+                        </p>
+
+                        <h3 class="h3">Phrase récapitulative</h3>
+                        <blockquote
+                            style="border-left: 4px solid var(--orange-yellow-crayola); padding-left: 15px; margin: 20px 0; font-style: italic; color: var(--light-gray);">
+                            "Mise en place d’un cluster web derrière HAProxy avec équilibrage Round Robin (répartition
+                            50/50),
+                            supervision via page /stats et simulation de panne d’un backend."
+                        </blockquote>
+
+                        <h3 class="h3">Technologies et compétences mises en œuvre</h3>
+                        <ul class="project-skills">
+                            <li><strong>Proxy :</strong> HAProxy (reverse proxy (proxy inverse))</li>
+                            <li><strong>Web :</strong> Apache2 (serveur web) sur Web1 et Web2</li>
+                            <li><strong>Équilibrage :</strong> Round Robin (répartition de charge 50/50)</li>
+                            <li><strong>Supervision :</strong> Interface HAProxy /stats (stats (statistiques de
+                                service))</li>
+                            <li><strong>Réseau :</strong> NAT (Network Address Translation), passerelle (gateway
+                                (routeur par défaut))</li>
+                            <li><strong>Sécurité :</strong> Auth basique (authentification (contrôle d’accès)) sur
+                                /stats</li>
+                            <li><strong>Optionnel :</strong> iptables (pare-feu Linux) + DNAT (Destination NAT) +
+                                MASQUERADE (SNAT dynamique)</li>
+                        </ul>
+
+                        <div class="project-actions">
+                            <a href="./assets/pdf/HAproxy.pdf" target="_blank" class="project-action-btn">
+                                <ion-icon name="eye-outline"></ion-icon>
+                                <span>Voir le rapport PDF</span>
+                            </a>
+                            <a href="./assets/pdf/HAproxy.pdf" download="Rapport_Projet_HAProxy.pdf"
+                                class="project-action-btn">
+                                <ion-icon name="cloud-download-outline"></ion-icon>
+                                <span>Télécharger le PDF</span>
+                            </a>
+                        </div>
+
+                        <h3 class="h3">Architecture (topologie)</h3>
+                        <p style="color: var(--light-gray);">
+                            L’infrastructure s’appuie sur un serveur HAProxy placé entre un réseau “WAN” (Internet
+                            (réseau public))
+                            et un réseau “LAN” (réseau local).
+                        </p>
+
+                        <ul style="color: var(--light-gray);">
+                            <li><strong>HAProxy :</strong> WAN 192.168.43.240 / LAN 10.1.43.1</li>
+                            <li><strong>Web1 :</strong> 10.1.43.2 (Apache2)</li>
+                            <li><strong>Web2 :</strong> 10.1.43.3 (Apache2)</li>
+                            <li><strong>Client :</strong> réseau public 192.168.43.X</li>
+                        </ul>
+
+                        <h3 class="h3">Mise en place (étapes clés)</h3>
+                        <ul style="color: var(--light-gray);">
+                            <li>Installation de HAProxy sur le serveur proxy (sans Apache2 sur cette machine).</li>
+                            <li>Installation d’Apache2 sur Web1 et Web2.</li>
+                            <li>Configuration HAProxy : frontend (point d’entrée) + backend (serveurs web) + checks.
+                            </li>
+                            <li>Activation de la page de stats /stats (authentification (contrôle d’accès)).</li>
+                            <li>Configuration de la passerelle (gateway (routeur par défaut)) sur Web1/Web2 vers
+                                HAProxy.</li>
+                            <li>Tests : alternance Web1/Web2, simulation panne (arrêt Apache) et vérification bascule.
+                            </li>
+                        </ul>
+
+                        <h3 class="h3">Extrait de configuration HAProxy (principe)</h3>
+                        <p style="color: var(--light-gray);">
+                            Exemple de bloc “listen” avec équilibrage Round Robin et supervision :
+                        </p>
+
+                        <pre style="background: #111; padding: 16px; border-radius: 12px; overflow:auto; color: #ddd;">
 listen cluster_web
   bind 192.168.43.240:80
   mode http
@@ -184,51 +196,59 @@ listen cluster_web
   stats uri /stats
                     </pre>
 
-                    <h3 class="h3">Tests réalisés</h3>
-                    <ul style="color: var(--light-gray);">
-                        <li><strong>Test HTTP :</strong> accès à l’IP HAProxy et rafraîchissement pour observer l’alternance Web1/Web2.</li>
-                        <li><strong>Test /stats :</strong> accès à <em>http://IP_HAPROXY/stats</em> pour vérifier l’état (UP/DOWN).</li>
-                        <li><strong>Test de panne :</strong> arrêt d’Apache2 sur Web1 puis vérification que Web2 prend le relais.</li>
-                    </ul>
-
-                    <div class="project-challenges">
-                        <h4 style="color: var(--orange-yellow-crayola); margin: 20px 0 10px 0;">Difficultés techniques rencontrées</h4>
+                        <h3 class="h3">Tests réalisés</h3>
                         <ul style="color: var(--light-gray);">
-                            <li><strong>Service HAProxy ne démarre pas :</strong> erreur de syntaxe (configuration (fichier de conf)) ou mauvaise IP bind.</li>
-                            <li><strong>Conflit de port :</strong> Apache2 installé par erreur sur la machine HAProxy.</li>
-                            <li><strong>Routage :</strong> passerelle non définie sur Web1/Web2 (gateway incorrecte).</li>
+                            <li><strong>Test HTTP :</strong> accès à l’IP HAProxy et rafraîchissement pour observer
+                                l’alternance Web1/Web2.</li>
+                            <li><strong>Test /stats :</strong> accès à <em>http://IP_HAPROXY/stats</em> pour vérifier
+                                l’état (UP/DOWN).</li>
+                            <li><strong>Test de panne :</strong> arrêt d’Apache2 sur Web1 puis vérification que Web2
+                                prend le relais.</li>
                         </ul>
+
+                        <div class="project-challenges">
+                            <h4 style="color: var(--orange-yellow-crayola); margin: 20px 0 10px 0;">Difficultés
+                                techniques rencontrées</h4>
+                            <ul style="color: var(--light-gray);">
+                                <li><strong>Service HAProxy ne démarre pas :</strong> erreur de syntaxe (configuration
+                                    (fichier de conf)) ou mauvaise IP bind.</li>
+                                <li><strong>Conflit de port :</strong> Apache2 installé par erreur sur la machine
+                                    HAProxy.</li>
+                                <li><strong>Routage :</strong> passerelle non définie sur Web1/Web2 (gateway
+                                    incorrecte).</li>
+                            </ul>
+                        </div>
+
+                        <h3 class="h3">Résultats & bénéfices</h3>
+                        <ul style="color: var(--light-gray);">
+                            <li>Répartition de charge (load balancing (répartition de charge)) entre 2 serveurs.</li>
+                            <li>Haute disponibilité “basique” (failover (bascule)) en cas de panne d’un backend.</li>
+                            <li>Supervision simple via /stats et checks (health check (test d’état)).</li>
+                        </ul>
+
+                        <h3 class="h3">Compétences BTS SIO SISR mobilisées</h3>
+                        <ul style="color: var(--light-gray);">
+                            <li>Administrer les systèmes et les réseaux.</li>
+                            <li>Mettre à disposition un service (service web).</li>
+                            <li>Diagnostiquer et résoudre un dysfonctionnement.</li>
+                            <li>Documenter une solution technique.</li>
+                        </ul>
+
                     </div>
 
-                    <h3 class="h3">Résultats & bénéfices</h3>
-                    <ul style="color: var(--light-gray);">
-                        <li>Répartition de charge (load balancing (répartition de charge)) entre 2 serveurs.</li>
-                        <li>Haute disponibilité “basique” (failover (bascule)) en cas de panne d’un backend.</li>
-                        <li>Supervision simple via /stats et checks (health check (test d’état)).</li>
-                    </ul>
+                    <a href="portfolio.html" class="form-btn project-back-btn">
+                        <ion-icon name="arrow-back-outline"></ion-icon>
+                        <span>Retour au Portfolio</span>
+                    </a>
 
-                    <h3 class="h3">Compétences BTS SIO SISR mobilisées</h3>
-                    <ul style="color: var(--light-gray);">
-                        <li>Administrer les systèmes et les réseaux.</li>
-                        <li>Mettre à disposition un service (service web).</li>
-                        <li>Diagnostiquer et résoudre un dysfonctionnement.</li>
-                        <li>Documenter une solution technique.</li>
-                    </ul>
+                </section>
+            </article>
+        </div>
+    </main>
 
-                </div>
-
-                <a href="portfolio.html" class="form-btn project-back-btn">
-                    <ion-icon name="arrow-back-outline"></ion-icon>
-                    <span>Retour au Portfolio</span>
-                </a>
-
-            </section>
-        </article>
-    </div>
-</main>
-
-<script src="./assets/js/script.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
