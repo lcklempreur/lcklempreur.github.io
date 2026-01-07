@@ -1,10 +1,9 @@
+<!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KONE Luc-Augustin - Technicien Informatique</title>
+    <title>KONE Luc-Augustin - Projet Serveur de Messagerie</title>
     <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,130 +12,163 @@
 </head>
 
 <body>
-    <main>
-        <!-- BARRE LATERALE (SIDEBAR) -->
-        <aside class="sidebar" data-sidebar>
-            <div class="sidebar-info">
-                <figure class="avatar-box">
-                    <!-- IMPORTANT : Remplacez par le chemin de votre photo -->
-                    <img src="/assets/images/photo_de_profils.jpg"
-                        alt="KONE Luc-Augustin" width="80">
-                </figure>
-                <div class="info-content">
-                    <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
-                    <p class="title">Technicien Informatique en Alternance</p>
-                </div>
-                <button class="info_more-btn" data-sidebar-btn>
-                    <span>Mes Coordonnées</span>
-                    <ion-icon name="chevron-down"></ion-icon>
-                </button>
-            </div>
-            <div class="sidebar-info_more">
-                <div class="separator"></div>
-                <ul class="contacts-list">
-                    <li class="contact-item">
-                        <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
-                        <div class="contact-info">
-                            <p class="contact-title">Email</p>
-                            <a href="mailto:luc.augustin.kone1@gmail.com"
-                                class="contact-link">luc.augustin.kone1@gmail.com</a>
-                        </div>
-                    </li>
-                    <li class="contact-item">
-                        <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
-                        <div class="contact-info">
-                            <p class="contact-title">Anniversaire</p>
-                            <time datetime="1998-06-26">26 juin 1998</time>
-                        </div>
-                    </li>
-                </ul>
-                <div class="separator"></div>
-                <ul class="social-list">
-                    <!-- IMPORTANT : Ajoutez vos liens LinkedIn et GitHub ici -->
-                    <li class="social-item"><a href="[VOTRE LIEN LINKEDIN]" target="_blank"
-                            class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                    <li class="social-item"><a href="[VOTRE LIEN GITHUB]" target="_blank" class="social-link"><ion-icon
-                                name="logo-github"></ion-icon></a></li>
-                </ul>
-            </div>
-        </aside>
+<main>
 
-        <!-- CONTENU PRINCIPAL -->
-        <div class="main-content">
-            <!-- BARRE DE NAVIGATION -->
-            <nav class="navbar">
-                <ul class="navbar-list">
-                    <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
-                    <li class="navbar-item"><a href="parcours.html" class="navbar-link">Parcours</a></li>
-                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Portfolio</a></li>
-                    <!-- <li class="navbar-item"><a href="certifications.html" class="navbar-link">Certifications</a></li> -->
-                    <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
-                    <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
-                    <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
-                </ul>
-            </nav> 
-
-            <!-- CONTENU DU PROJET -->
-            <article class="about active" data-page="projet-detail">
-                <header>
-                    <h2 class="h2 article-title">Projet : Procédure de Maintenance</h2>
-                </header>
-
-                <section class="project-detail">
-                    <figure class="project-banner">
-                        <img src="./assets/images/image-projet-5.jpg" alt="Procédure de maintenance">
-                    </figure>
-
-                    <div class="project-content">
-                        <h3 class="h3">Objectif du projet</h3>
-                        <p>Rédiger une procédure technique claire et détaillée pour la mise à jour mensuelle des
-                            serveurs Windows ("Patch Tuesday"). Le document devait être utilisable par n'importe quel
-                            technicien de l'équipe pour garantir un processus standardisé et sécurisé.</p>
-
-                        <h3 class="h3">Compétences</h3>
-                        <ul class="project-skills">
-                            <li><strong>Rédaction technique :</strong> Clarté, précision, structuration de l'information
-                            </li>
-                            <li><strong>Système :</strong> Windows Server Update Services (WSUS), gestion des GPO</li>
-                            <li><strong>Gestion de risques :</strong> Plan de rollback, identification des services
-                                critiques</li>
-                        </ul>
-                        <div class="project-actions">
-
-                            <!-- Bouton pour VOIR le PDF dans un nouvel onglet -->
-                            <a href="./assets/pdf/rapport-projet-maintenance.pdf" target="_blank"
-                                class="project-action-btn">
-                                <ion-icon name="eye-outline"></ion-icon>
-                                <span>Voir le PDF</span>
-                            </a>
-
-                            <!-- Bouton pour TÉLÉCHARGER le PDF -->
-                            <a href="./assets/pdf/rapport-projet-maintenance.pdf"
-                                download="Rapport_Projet_Maintenance.pdf" class="project-action-btn">
-                                <ion-icon name="cloud-download-outline"></ion-icon>
-                                <span>Télécharger le PDF</span>
-                            </a>
-
-                        </div>
-                        <h3 class="h3">Démarche et Résultats</h3>
-                        <p>La procédure a été structurée en plusieurs phases : pré-requis, phase de test sur un serveur
-                            pilote, déploiement en production, et vérifications post-déploiement. Des captures d'écran
-                            et des commandes précises ont été incluses. Ce document a permis d'homogénéiser les
-                            pratiques, de réduire les risques d'oubli et de faciliter l'intégration de nouveaux membres
-                            dans l'équipe.</p>
-                    </div>
-
-                    <a href="portfolio.html" class="form-btn project-back-btn">
-                        <ion-icon name="arrow-back-outline"></ion-icon>
-                        <span>Retour au Portfolio</span>
-                    </a>
-                </section>
-            </article>
+<!-- SIDEBAR -->
+<aside class="sidebar" data-sidebar>
+    <div class="sidebar-info">
+        <figure class="avatar-box">
+            <img src="./assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
+        </figure>
+        <div class="info-content">
+            <h1 class="name">KONE Luc-Augustin</h1>
+            <p class="title">Technicien Informatique en Alternance</p>
         </div>
-    </main>
-    <script src="./assets/js/script.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
+        <button class="info_more-btn" data-sidebar-btn>
+            <span>Mes Coordonnées</span>
+            <ion-icon name="chevron-down"></ion-icon>
+        </button>
+    </div>
 
+    <div class="sidebar-info_more">
+        <div class="separator"></div>
+        <ul class="contacts-list">
+            <li class="contact-item">
+                <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+                <div class="contact-info">
+                    <p class="contact-title">Email</p>
+                    <a href="mailto:luc.augustin.kone1@gmail.com" class="contact-link">
+                        luc.augustin.kone1@gmail.com
+                    </a>
+                </div>
+            </li>
+            <li class="contact-item">
+                <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
+                <div class="contact-info">
+                    <p class="contact-title">Anniversaire</p>
+                    <time datetime="1998-06-26">26 juin 1998</time>
+                </div>
+            </li>
+        </ul>
+    </div>
+</aside>
+
+<!-- CONTENU PRINCIPAL -->
+<div class="main-content">
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <ul class="navbar-list">
+        <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
+        <li class="navbar-item"><a href="parcours.html" class="navbar-link">Parcours</a></li>
+        <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Portfolio</a></li>
+        <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
+        <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
+        <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ARTICLE -->
+<article class="about active" data-page="projet-detail">
+<header>
+    <h2 class="h2 article-title">Serveur de messagerie interne (Postfix / Dovecot)</h2>
+</header>
+
+<section class="project-detail">
+
+<figure class="project-banner">
+    <img src="./assets/images/postfix.jpg" alt="Serveur de messagerie Postfix Dovecot">
+</figure>
+
+<div class="project-content">
+
+<h3 class="h3">Objectif du projet</h3>
+<p style="color: var(--light-gray);">
+Mettre en place un serveur de messagerie interne basé sur Postfix et Dovecot afin
+de permettre l’envoi, la réception et la consultation des e-mails dans une
+infrastructure réseau maîtrisée.
+</p>
+
+<h3 class="h3">Phrase récapitulative</h3>
+<blockquote style="border-left: 4px solid var(--orange-yellow-crayola); padding-left: 15px; margin: 20px 0; font-style: italic; color: var(--light-gray);">
+“Mise en place d’un serveur de messagerie interne basé sur Postfix et Dovecot,
+permettant la gestion des e-mails, l’authentification des utilisateurs et
+l’accès aux messages via client mail ou webmail.”
+</blockquote>
+
+<h3 class="h3">Technologies et Compétences Mises en Œuvre</h3>
+<ul class="project-skills">
+    <li><strong>Système :</strong> Ubuntu Server 22.04 / 24.04</li>
+    <li><strong>MTA :</strong> Postfix (envoi et routage des mails)</li>
+    <li><strong>MDA :</strong> Dovecot (stockage et accès IMAP)</li>
+    <li><strong>Webmail :</strong> Roundcube</li>
+    <li><strong>Services :</strong> Apache, PHP, MariaDB</li>
+    <li><strong>Sécurité :</strong> Permissions, authentification, TLS</li>
+    <li><strong>Diagnostic :</strong> Analyse des logs mail</li>
+</ul>
+
+<div class="project-actions">
+    <a href="./assets/pdf/postfix.pdf" target="_blank" class="project-action-btn">
+        <ion-icon name="eye-outline"></ion-icon>
+        <span>Voir le rapport PDF</span>
+    </a>
+    <a href="./assets/pdf/postfix.pdf" download="Rapport_Projet_Messagerie.pdf" class="project-action-btn">
+        <ion-icon name="cloud-download-outline"></ion-icon>
+        <span>Télécharger le PDF</span>
+    </a>
+</div>
+
+<h3 class="h3">Architecture mise en place</h3>
+<ul style="color: var(--light-gray);">
+    <li>Serveur Ubuntu dédié à la messagerie</li>
+    <li>Postfix pour l’envoi et la réception des e-mails</li>
+    <li>Dovecot pour l’accès IMAP aux boîtes mail</li>
+    <li>Roundcube pour la consultation via navigateur web</li>
+    <li>Stockage des messages au format Maildir</li>
+</ul>
+
+<h3 class="h3">Fonctionnalités mises en œuvre</h3>
+<ul style="color: var(--light-gray);">
+    <li>Envoi et réception d’e-mails internes</li>
+    <li>Gestion des boîtes aux lettres utilisateurs</li>
+    <li>Consultation des messages via client mail et webmail</li>
+    <li>Journalisation complète des échanges</li>
+</ul>
+
+<h3 class="h3">Résultats et bénéfices</h3>
+<ul style="color: var(--light-gray);">
+    <li>Messagerie interne fonctionnelle</li>
+    <li>Maîtrise complète du flux des e-mails</li>
+    <li>Amélioration de la compréhension des services mail</li>
+    <li>Base solide pour la sécurité et l’audit des échanges</li>
+</ul>
+
+<div class="project-challenges">
+    <h4 style="color: var(--orange-yellow-crayola); margin: 20px 0 10px 0;">
+        Défis techniques relevés
+    </h4>
+    <ul style="color: var(--light-gray);">
+        <li>Configuration cohérente Postfix / Dovecot</li>
+        <li>Gestion des formats de boîtes aux lettres</li>
+        <li>Analyse et résolution des erreurs de livraison</li>
+        <li>Sécurisation de l’accès aux messages</li>
+    </ul>
+</div>
+
+</div>
+
+<a href="portfolio.html" class="form-btn project-back-btn">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+    <span>Retour au Portfolio</span>
+</a>
+
+</section>
+</article>
+</div>
+</main>
+
+<script src="./assets/js/script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
 </html>
