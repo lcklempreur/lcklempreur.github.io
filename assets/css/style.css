@@ -28,6 +28,7 @@
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
+  --navbar-height: 70px;
 
   /* Typographie */
   --ff-poppins: 'Poppins', sans-serif;
@@ -359,16 +360,23 @@ main {
 
 .navbar {
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
+  height: var(--navbar-height);
+
   background: hsla(240, 1%, 17%, 0.75);
   backdrop-filter: blur(10px);
+
   border: 1px solid var(--jet);
-  border-radius: 12px 12px 0 0;
+  border-top: none;                 /* évite double bord en haut */
+  border-radius: 0 0 12px 12px;     /* arrondi en bas (puisqu’en haut) */
+
   box-shadow: var(--shadow-2);
-  z-index: 5;
+  z-index: 999;
 }
+
+
 
 .navbar-list {
   display: flex;
@@ -846,9 +854,18 @@ article {
 .navbar {
   background: rgba(10, 10, 18, 0.80) !important;
   backdrop-filter: blur(16px) !important;
-  border-radius: 18px 18px 0 0 !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+
+  top: 0 !important;
+  bottom: auto !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: var(--navbar-height) !important;
+
+  border-radius: 0 0 18px 18px !important;
+  border-top: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
+
 
 .navbar-link {
   position: relative;
