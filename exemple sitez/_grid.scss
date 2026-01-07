@@ -1,0 +1,103 @@
+.grid {
+        display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+}
+
+.row {
+    position: relative;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: justify;
+    align-items: center;
+    -ms-flex-align: center;
+    flex-flow: row wrap;
+    &.right {
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+        -ms-flex-pack: end;
+    }
+}
+
+.content-md {
+    max-width: 1010px;
+    margin: 0 auto;
+}
+
+.content-lg {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.right {
+    margin-left:auto;
+}
+
+.center {
+    margin:0 auto;
+    text-align: center;
+}
+
+.col-100 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+}
+
+.col-80 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 80%;
+        flex: 0 0 80%;
+        max-width: 80%;
+        
+}
+
+.col-70 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 70%;
+        flex: 0 0 70%;
+        max-width: 70%;
+        
+}
+
+.col-60 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 60%;
+        flex: 0 0 60%;
+        max-width: 60%;
+        
+}
+
+.col-50 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+        
+}
+
+.col-40 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 40%;
+        flex: 0 0 40%;
+        max-width: 40%;
+}
+
+.col-30 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 30%;
+        flex: 0 0 30%;
+        max-width: 30%;
+}
+
+.col-25 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+}

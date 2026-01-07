@@ -1,0 +1,61 @@
+.trm {
+  transform: translate3d(0, 100%, 0);
+  transition: transform cubic-bezier(0, 1.01, 0.12, 1.01) 3.5s, opacity cubic-bezier(0, 1.01, 0.12, 1.01) 3.5s;
+  will-change: transform;
+}
+
+.trm2 {
+  transform: translate3d(0, 0, 0);
+}
+
+.hey {
+  transform: translate3d(0, 80px, 0);
+  
+  
+  transition: transform cubic-bezier(0, 1.01, 0.12, 1.01) 3.5s, opacity cubic-bezier(0, 1.01, 0.12, 1.01) 3.5s;
+  will-change: transform;
+}
+
+.hey2 {
+  transform: translate3d(0, 0, 0);
+}
+
+.yepa {
+    opacity: 0!important;
+   /* overflow: hidden;
+    will-change: transform;
+    transform:scale3d(.9,.9,1);*/
+    transition: opacity cubic-bezier(0, 1.01, 0.12, 1.01) 7s;
+    transition-delay: .05s;
+   /* img {
+       will-change: transform;
+        transition: transform cubic-bezier(0, 1.01, 0.12, 1.01) 4s;
+        transform:scale3d(1.1,1.1,1);
+    }*/
+    &.anim {
+        opacity: 1!important;
+        /*transform:scale3d(1,1,1);*/
+        /*img {
+            transform:scale3d(1,1,1);
+        }*/
+    }
+
+}
+
+.yepa2 {
+    opacity: 1;
+   
+}
+
+.ts-line { overflow: hidden; padding: 0 0 0.2em 0; margin: 0 0 -0.1em; }
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: .5;
+  }
+}
+
+

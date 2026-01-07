@@ -102,7 +102,7 @@ article {
   border-radius: 20px;
   padding: 15px;
   box-shadow: var(--shadow-1);
-  z-index: 1;
+  z-index: 10;
 }
 
 .separator {
@@ -819,4 +819,181 @@ mark {
   height: 100%;
   object-fit: cover; /* C'est la magie : l'image couvre la zone sans se déformer */
   object-position: center center; /* Centre la vue sur le milieu de l'image */
+}
+
+/* === AJOUTS DESIGN VIVANT B+C === */
+
+/* === FOND GLOBAL PLUS VIVANT === */
+body {
+  background:
+    radial-gradient(circle at top left, rgba(255, 215, 128, 0.08), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(100, 149, 237, 0.10), transparent 55%),
+    #050509;
+  color: var(--white-2);
+}
+
+/* === PANNEAUX EN VERRE (SIDEBAR + CONTENU) === */
+.sidebar,
+article {
+  background: rgba(10, 10, 15, 0.72) !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.75) !important;
+  backdrop-filter: blur(18px) !important;
+}
+
+/* === NAVBAR GLASS + ANIMATION LIENS === */
+.navbar {
+  background: rgba(10, 10, 18, 0.80) !important;
+  backdrop-filter: blur(16px) !important;
+  border-radius: 18px 18px 0 0 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.navbar-link {
+  position: relative;
+  font-weight: 400;
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--orange-yellow-crayola);
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.navbar-link:hover::after,
+.navbar-link.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* === TITRES AVEC SOULIGNEMENT ANIMÉ === */
+.article-title {
+  position: relative;
+  overflow: hidden;
+}
+
+.article-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 60px;
+  border-radius: 999px;
+  background: var(--text-gradient-yellow);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.4s ease-out;
+}
+
+article.active .article-title::after {
+  transform: scaleX(1);
+}
+
+/* === HOVER DOUX SUR LES CARTES === */
+.service-item,
+.content-card,
+.timeline-item,
+.project-item > a {
+  transition:
+    transform var(--transition-1),
+    box-shadow var(--transition-1),
+    border-color var(--transition-1),
+    background var(--transition-1);
+}
+
+.service-item:hover,
+.content-card:hover,
+.timeline-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-3);
+  border-color: var(--orange-yellow-crayola);
+}
+
+/* cartes projets vitrées */
+.project-item > a {
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 55%);
+  border-radius: 18px;
+  padding-bottom: 12px;
+}
+
+.project-item > a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 60%);
+}
+
+/* === AVATAR STYLE GLASS === */
+.avatar-box {
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 60%) !important;
+  padding: 4px !important;
+  border-radius: 999px !important;
+}
+
+.avatar-box img {
+  width: 88px !important;
+  height: 88px !important;
+  border-radius: 999px !important;
+  object-fit: cover !important;
+  border: 2px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* === BOUTONS GLASS RONDS === */
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0 8px 0;
+}
+
+.project-action-btn,
+.project-back-btn,
+.form-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-6);
+  font-weight: 400;
+  text-transform: none;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+.project-action-btn::before,
+.project-back-btn::before,
+.form-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.project-action-btn:hover::before,
+.project-back-btn:hover::before,
+.form-btn:hover::before {
+  opacity: 1;
+}
+
+.form-btn[disabled] {
+  opacity: 0.4;
+  box-shadow: none;
+  cursor: not-allowed;
 }
