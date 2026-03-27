@@ -1,50 +1,206 @@
+<!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KONE Luc-Augustin - Technicien Informatique</title>
+    <title>Veille Technologique – KONE Luc-Augustin</title>
     <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
+    <style>
+  /* === AMÉLIORATIONS GLOBALES === */
+  :root {
+    --accent: #e2a951;
+    --accent-soft: rgba(226,169,81,0.12);
+    --accent-border: rgba(226,169,81,0.35);
+    --card-bg: rgba(255,255,255,0.04);
+    --card-border: rgba(255,255,255,0.08);
+    --text-muted: rgba(255,255,255,0.55);
+    --radius: 12px;
+  }
 
+  /* Badge tech */
+  .badge {
+    display: inline-block;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 600;
+    margin: 3px 3px 3px 0;
+    letter-spacing: .3px;
+  }
+
+  /* Card générique */
+  .info-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 8px 0;
+  }
+  .info-card .card-label {
+    font-size: 10.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+    font-weight: 600;
+  }
+  .info-card .card-value {
+    color: var(--light-gray, #d6d6d6);
+    font-size: 13px;
+  }
+
+  /* Grid 2 colonnes */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  /* Section titre custom */
+  .sec-title {
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 26px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--accent-border);
+  }
+
+  /* Bloc accent (bordure gauche) */
+  .accent-block {
+    background: var(--card-bg);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 14px 18px;
+    margin: 10px 0;
+  }
+  .accent-block .block-title {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 13.5px;
+    margin-bottom: 7px;
+  }
+  .accent-block ul {
+    color: var(--light-gray, #d6d6d6);
+    padding-left: 16px;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* Incident card */
+  .incident-card {
+    background: var(--card-bg);
+    border-left: 3px solid #c0392b;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 12px 16px;
+    margin: 8px 0;
+  }
+  .incident-card .inc-title { color: #e07070; font-weight: 600; font-size: 13px; margin-bottom: 5px; }
+  .incident-card .inc-body { color: var(--text-muted); font-size: 12.5px; margin: 3px 0; }
+  .incident-card .inc-fix { color: #7ec97e; font-size: 12px; margin-top: 5px; }
+
+  /* Code block */
+  .code-block {
+    background: rgba(0,0,0,0.35);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #a8d8a8;
+    margin: 10px 0;
+    overflow-x: auto;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  /* Table simple */
+  .simple-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  .simple-table th {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid var(--accent-border);
+  }
+  .simple-table td {
+    color: var(--light-gray, #d6d6d6);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .simple-table tr:last-child td { border-bottom: none; }
+
+  /* Alert box (succès) */
+  .alert-box {
+    background: rgba(126,201,126,0.07);
+    border: 1px solid rgba(126,201,126,0.3);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 12px 0;
+  }
+  .alert-box .alert-title { color: #7ec97e; font-weight: 600; font-size: 14px; margin-bottom: 7px; }
+  .alert-box ul { color: var(--light-gray, #d6d6d6); padding-left: 18px; margin: 0; font-size: 13px; line-height: 1.7; }
+
+  /* Flux box */
+  .flux-box {
+    background: var(--card-bg);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 14px 20px;
+    margin: 14px 0;
+    font-family: monospace;
+    font-size: 13px;
+    color: var(--light-gray, #d6d6d6);
+    line-height: 2;
+  }
+  .flux-box .arr { color: var(--accent); margin: 0 6px; }
+
+  /* Navbar fix */
+  .navbar-link { transition: color .2s; }
+  .navbar-link:hover { color: var(--accent) !important; }
+
+  /* Project title upgrade */
+  .article-title { letter-spacing: -.3px; }
+
+  /* Back button */
+  .project-back-btn { margin-top: 28px; display: inline-flex; align-items: center; gap: 8px; }
+</style>
+</head>
 <body class="theme-glass">
-    <main>
-        <!-- BARRE LATERALE (SIDEBAR) -->
+<main>
         <aside class="sidebar" data-sidebar>
             <div class="sidebar-info">
                 <figure class="avatar-box">
                     <img src="/assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
                 </figure>
-
                 <div class="info-content">
                     <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
                     <p class="title">Technicien Informatique en Alternance</p>
                 </div>
-
                 <button class="info_more-btn" data-sidebar-btn>
                     <span>Mes Coordonnées</span>
                     <ion-icon name="chevron-down"></ion-icon>
                 </button>
             </div>
-
             <div class="sidebar-info_more">
                 <div class="separator"></div>
-
                 <ul class="contacts-list">
                     <li class="contact-item">
                         <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
                         <div class="contact-info">
                             <p class="contact-title">Email</p>
-                            <a href="mailto:luc.augustin.kone1@gmail.com"
-                                class="contact-link">luc.augustin.kone1@gmail.com</a>
+                            <a href="mailto:luc.augustin.kone1@gmail.com" class="contact-link">luc.augustin.kone1@gmail.com</a>
                         </div>
                     </li>
-
                     <li class="contact-item">
                         <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
                         <div class="contact-info">
@@ -53,15 +209,8 @@
                         </div>
                     </li>
                 </ul>
-
                 <div class="separator"></div>
-
                 <ul class="social-list">
-                    <li class="social-item">
-                        <a href="[VOTRE LIEN LINKEDIN]" target="_blank" class="social-link">
-                            <ion-icon name="logo-linkedin"></ion-icon>
-                        </a>
-                    </li>
                     <li class="social-item">
                         <a href="https://github.com/lcklempreur" target="_blank" class="social-link">
                             <ion-icon name="logo-github"></ion-icon>
@@ -70,70 +219,38 @@
                 </ul>
             </div>
         </aside>
-
-        <!-- CONTENU PRINCIPAL -->
-        <div class="main-content">
-            <!-- BARRE DE NAVIGATION -->
-            <nav class="navbar">
-                <ul class="navbar-list">
-                    <li class="navbar-item"><a href="index.html" class="navbar-link ">À propos</a></li>
-                    <li class="navbar-item"><a href="competences.html" class="navbar-link">competences</a></li>
-                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
-                    <!-- <li class="navbar-item"><a href="certifications.html" class="navbar-link">Certifications</a></li> -->
+    <div class="main-content">
+        <nav class="navbar">
+            <ul class="navbar-list">
+                    <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
+                    <li class="navbar-item"><a href="competences.html" class="navbar-link">Compétences</a></li>
+                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link">Projets</a></li>
                     <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
-                    <li class="navbar-item"><a href="veille.html" class="navbar-link active">Veille Technologique</a>
-                    </li>
+                    <li class="navbar-item"><a href="veille.html" class="navbar-link active">Veille Technologique</a></li>
                     <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
-                </ul>
-            </nav>
-
-            <!-- 
-        #VEILLE TECHNOLOGIQUE
-        C'est la seule section visible car elle possède la classe "active".-->
-            <article class="blog active" data-page="veille technologique">
-
-                <header>
-                    <h2 class="h2 article-title">Veille Technologique</h2>
-                </header>
-
-                <!-- La section utilise la classe "timeline" pour imiter le style du parcours -->
-                <section class="timeline">
-                    <!-- NOUVELLE BARRE DE RECHERCHE -->
-                    <div class="search-container" style="margin-bottom: 30px;">
-                        <input type="text" id="search-bar" placeholder="Rechercher par mot-clé..."style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;
-                        color: #FFF;">
-                        
-                    </div>
-                    <!-- FIN DE LA BARRE DE RECHERCHE -->
-
-                    <!-- Le JavaScript va injecter les articles de veille ici -->
-                    <ol class="timeline-list" id="rss-content">
-
-                        <!-- Message de chargement initial -->
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">Chargement de la veille...</h4>
-                            <p class="timeline-text">Veuillez patienter pendant que nous récupérons les derniers
-                                articles.</p>
-                        </li>
-
-                    </ol>
-
-                </section>
-
-            </article>
-
-        </div>
-
-    </main>
-
-
+            </ul>
+        </nav>
+        <article class="blog active" data-page="veille technologique">
+            <header><h2 class="h2 article-title">Veille Technologique</h2></header>
+            <section class="timeline">
+                <div class="search-container" style="margin-bottom:24px">
+                    <input type="text" id="search-bar" placeholder="Rechercher par mot-clé..."
+                        style="width:100%;padding:10px 14px;font-size:15px;border:1px solid rgba(255,255,255,0.12);
+                        border-radius:10px;background:rgba(255,255,255,0.05);color:#fff;outline:none">
+                </div>
+                <ol class="timeline-list" id="rss-content">
+                    <li class="timeline-item">
+                        <h4 class="h4 timeline-item-title">Chargement de la veille...</h4>
+                        <p class="timeline-text">Récupération des derniers articles en cours.</p>
+                    </li>
+                </ol>
+            </section>
+        </article>
+    </div>
+</main>
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/veille-script.js"></script>
-
-    <!-- ionicon link -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </body>
-
 </html>

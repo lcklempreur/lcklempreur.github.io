@@ -136,6 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+  function updateNavbarHeight() {
+    if (!navbar) return;
+    const h = navbar.getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--navbar-height', h + 'px');
+  }
+
   // Au DOM prêt
   updateNavbarHeight();
 

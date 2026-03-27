@@ -4,48 +4,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KONE Luc-Augustin - Projet rsyslog</title>
+    <title>KONE Luc-Augustin - Projet rsyslog + ELK Stack</title>
     <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .info-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+        .info-card .label {
+            font-size: 11px;
+            color: var(--orange-yellow-crayola, #e2a951);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .info-card .value {
+            color: var(--light-gray, #d6d6d6);
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .stack-badge {
+            display: inline-block;
+            background: rgba(226, 169, 81, 0.15);
+            border: 1px solid rgba(226, 169, 81, 0.4);
+            color: var(--orange-yellow-crayola, #e2a951);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 4px 4px 4px 0;
+        }
+        .flux-box {
+            background: rgba(255,255,255,0.04);
+            border-left: 3px solid var(--orange-yellow-crayola, #e2a951);
+            border-radius: 0 8px 8px 0;
+            padding: 14px 18px;
+            margin: 16px 0;
+            font-family: monospace;
+            font-size: 13px;
+            color: var(--light-gray, #d6d6d6);
+            line-height: 2;
+        }
+        .flux-arrow {
+            color: var(--orange-yellow-crayola, #e2a951);
+            margin: 0 6px;
+        }
+        .etape-block {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 16px 18px;
+            margin: 10px 0;
+            border-left: 3px solid var(--orange-yellow-crayola, #e2a951);
+        }
+        .etape-block .etape-title {
+            color: var(--orange-yellow-crayola, #e2a951);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .etape-block ul {
+            color: var(--light-gray, #d6d6d6);
+            padding-left: 18px;
+            margin: 0;
+        }
+        .etape-block ul li {
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+        .incident-card {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin: 10px 0;
+            border-left: 3px solid #e25555;
+        }
+        .incident-card .incident-title {
+            color: #e27070;
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+        .incident-card .solution {
+            color: #7ec97e;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+        .incident-card p {
+            color: var(--light-gray, #d6d6d6);
+            font-size: 12px;
+            margin: 4px 0;
+        }
+        .section-title-custom {
+            color: var(--orange-yellow-crayola, #e2a951);
+            font-size: 16px;
+            font-weight: 600;
+            margin: 28px 0 12px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(226, 169, 81, 0.3);
+        }
+        .machine-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 13px;
+        }
+        .machine-table th {
+            background: rgba(226, 169, 81, 0.15);
+            color: var(--orange-yellow-crayola, #e2a951);
+            padding: 8px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .machine-table td {
+            color: var(--light-gray, #d6d6d6);
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .machine-table tr:last-child td { border-bottom: none; }
+        .alert-box {
+            background: rgba(126, 201, 126, 0.08);
+            border: 1px solid rgba(126, 201, 126, 0.3);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin: 12px 0;
+        }
+        .alert-box .alert-title {
+            color: #7ec97e;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .alert-box ul {
+            color: var(--light-gray, #d6d6d6);
+            padding-left: 18px;
+            margin: 0;
+            font-size: 13px;
+        }
+        .code-block {
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-family: monospace;
+            font-size: 12px;
+            color: #a8d8a8;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+    </style>
 </head>
 
 <body class="theme-glass">
     <main>
 
-        <!-- BARRE LATERALE (SIDEBAR) -->
+        <!-- BARRE LATERALE -->
         <aside class="sidebar" data-sidebar>
             <div class="sidebar-info">
                 <figure class="avatar-box">
                     <img src="/assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
                 </figure>
-
                 <div class="info-content">
                     <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
                     <p class="title">Technicien Informatique en Alternance</p>
                 </div>
-
                 <button class="info_more-btn" data-sidebar-btn>
                     <span>Mes Coordonnées</span>
                     <ion-icon name="chevron-down"></ion-icon>
                 </button>
             </div>
-
             <div class="sidebar-info_more">
                 <div class="separator"></div>
-
                 <ul class="contacts-list">
                     <li class="contact-item">
                         <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
                         <div class="contact-info">
                             <p class="contact-title">Email</p>
-                            <a href="mailto:luc.augustin.kone1@gmail.com"
-                                class="contact-link">luc.augustin.kone1@gmail.com</a>
+                            <a href="/cdn-cgi/l/email-protection#6a061f09440b1f0d1f191e0304440105040f5b2a0d070b030644090507" class="contact-link"><span class="__cf_email__" data-cfemail="9df1e8feb3fce8fae8eee9f4f3b3f6f2f3f8acddfaf0fcf4f1b3fef2f0">[email&#160;protected]</span></a>
                         </div>
                     </li>
-
                     <li class="contact-item">
                         <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
                         <div class="contact-info">
@@ -54,15 +201,8 @@
                         </div>
                     </li>
                 </ul>
-
                 <div class="separator"></div>
-
                 <ul class="social-list">
-                    <li class="social-item">
-                        <a href="[VOTRE LIEN LINKEDIN]" target="_blank" class="social-link">
-                            <ion-icon name="logo-linkedin"></ion-icon>
-                        </a>
-                    </li>
                     <li class="social-item">
                         <a href="https://github.com/lcklempreur" target="_blank" class="social-link">
                             <ion-icon name="logo-github"></ion-icon>
@@ -73,105 +213,256 @@
         </aside>
 
         <!-- CONTENU PRINCIPAL -->
-        <div class="main-content>
+        <div class="main-content">
 
-<!-- NAVBAR -->
-<nav class=" navbar">
-            <ul class="navbar-list">
-                <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
-                <li class="navbar-item"><a href="competences.html" class="navbar-link">competences</a></li>
-                <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Projets</a></li>
-                <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
-                <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
-                <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
-            </ul>
+            <!-- NAVBAR -->
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
+                    <li class="navbar-item"><a href="competences.html" class="navbar-link">Compétences</a></li>
+                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Projets</a></li>
+                    <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
+                    <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
+                    <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+                </ul>
             </nav>
 
             <!-- ARTICLE -->
             <article class="about active" data-page="projet-detail">
                 <header>
-                    <h2 class="h2 article-title">Centralisation des logs avec rsyslog</h2>
+                    <h2 class="h2 article-title">Centralisation des logs – rsyslog + ELK Stack</h2>
                 </header>
 
                 <section class="project-detail">
 
-                    <!-- IMAGE -->
                     <figure class="project-banner">
-                        <img src="./assets/images/rsyslog.png" alt="Architecture rsyslog">
+                        <img src="./assets/images/rsyslog.png" alt="Architecture rsyslog ELK">
                     </figure>
 
                     <div class="project-content">
 
-                        <h3 class="h3">Objectif du projet</h3>
-                        <p style="color: var(--light-gray);">
-                            Mise en place d’une solution de centralisation des journaux système (logs) afin de
-                            collecter,
-                            structurer et analyser les événements provenant de plusieurs machines Linux et Windows
-                            dans une infrastructure intégrée à un domaine Active Directory.
+                        <!-- INFOS RAPIDES -->
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <div class="label">Projet</div>
+                                <div class="value">BTS SIO SISR – E6</div>
+                            </div>
+                            <div class="info-card">
+                                <div class="label">Période</div>
+                                <div class="value">Décembre 2025 – Mars 2026</div>
+                            </div>
+                            <div class="info-card">
+                                <div class="label">Serveur</div>
+                                <div class="value">ubulog – Ubuntu Server 24.04 LTS</div>
+                            </div>
+                            <div class="info-card">
+                                <div class="label">Domaine</div>
+                                <div class="value">srvlog.lan</div>
+                            </div>
+                        </div>
+
+                        <!-- STACK -->
+                        <h3 class="section-title-custom">Stack technique</h3>
+                        <div>
+                            <span class="stack-badge">rsyslog</span>
+                            <span class="stack-badge">Filebeat</span>
+                            <span class="stack-badge">Elasticsearch 8.x</span>
+                            <span class="stack-badge">Kibana</span>
+                            <span class="stack-badge">NXLog</span>
+                            <span class="stack-badge">Ubuntu Server 24.04</span>
+                            <span class="stack-badge">Windows Server 2022</span>
+                            <span class="stack-badge">Active Directory</span>
+                            <span class="stack-badge">UFW</span>
+                            <span class="stack-badge">logrotate</span>
+                        </div>
+
+                        <!-- OBJECTIF -->
+                        <h3 class="section-title-custom">Objectif du projet</h3>
+                        <p style="color: var(--light-gray); font-size: 14px; line-height: 1.7;">
+                            Mise en place d'une infrastructure complète de centralisation et d'analyse des journaux système
+                            (logs) pour un parc Linux et Windows intégré à un domaine Active Directory. L'objectif est de
+                            collecter, structurer en JSON, indexer dans Elasticsearch et visualiser dans Kibana les événements
+                            de toutes les machines, avec un système d'alertes automatiques pour la détection d'incidents
+                            de sécurité en temps réel.
                         </p>
 
-                        <h3 class="h3">Phrase récapitulative</h3>
-                        <blockquote
-                            style="border-left: 4px solid var(--orange-yellow-crayola); padding-left: 15px; margin: 20px 0; font-style: italic; color: var(--light-gray);">
-                            “Mise en place d’un serveur rsyslog centralisé permettant d’améliorer la supervision,
-                            la traçabilité et le diagnostic des incidents.”
+                        <blockquote style="border-left: 4px solid var(--orange-yellow-crayola); padding-left: 15px; margin: 20px 0; font-style: italic; color: var(--light-gray);">
+                            "Infrastructure de centralisation des logs avec alertes temps réel : rsyslog collecte, Elasticsearch indexe, Kibana supervise."
                         </blockquote>
 
-                        <h3 class="h3">Technologies et Compétences Mises en Œuvre</h3>
-                        <ul class="project-skills">
-                            <li><strong>Système :</strong> Ubuntu Server 24.04</li>
-                            <li><strong>Service :</strong> rsyslog (journalisation centralisée)</li>
-                            <li><strong>Annuaire :</strong> Active Directory (DNS, domaine)</li>
-                            <li><strong>Réseau :</strong> TCP/UDP – port syslog 514</li>
-                            <li><strong>Sécurité :</strong> Traçabilité et audit des événements</li>
+                        <!-- ARCHITECTURE -->
+                        <h3 class="section-title-custom">Architecture de l'infrastructure</h3>
+
+                        <table class="machine-table">
+                            <thead>
+                                <tr>
+                                    <th>Machine</th>
+                                    <th>IP</th>
+                                    <th>Rôle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>ubulog</strong></td>
+                                    <td>192.168.10.1</td>
+                                    <td>Serveur rsyslog + ELK Stack (Elasticsearch, Filebeat, Kibana)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>clsyslog</strong></td>
+                                    <td>192.168.10.x</td>
+                                    <td>Client Linux – envoi des logs vers ubulog</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SRV-RSYSLOG</strong></td>
+                                    <td>192.168.10.10</td>
+                                    <td>Windows Server 2022 – AD/DNS + NXLog (agent logs Windows)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 class="section-title-custom">Flux des données</h3>
+                        <div class="flux-box">
+                            Clients Linux/Windows
+                            <span class="flux-arrow">→</span>
+                            rsyslog (port 514/TCP)
+                            <span class="flux-arrow">→</span>
+                            Fichiers JSON<br>
+                            <span style="margin-left: 20px; color: rgba(255,255,255,0.3)">↓</span><br>
+                            Filebeat
+                            <span class="flux-arrow">→</span>
+                            Elasticsearch 8.x
+                            <span class="flux-arrow">→</span>
+                            Kibana (dashboards + alertes)
+                        </div>
+
+                        <!-- RÉALISATION -->
+                        <h3 class="section-title-custom">Travaux réalisés</h3>
+
+                        <div class="etape-block">
+                            <div class="etape-title">1. Configuration rsyslog – Collecte et structuration JSON</div>
+                            <ul>
+                                <li>Activation réception TCP port 514 (modules imtcp/imudp)</li>
+                                <li>Template JSON custom pour chaque log (timestamp, hostname, programme, sévérité, message)</li>
+                                <li>Règles de tri par programme : sshd, sudo, systemd, kernel</li>
+                                <li>Arborescence : <code>/var/log/central/[hostname]/[categorie]/</code></li>
+                            </ul>
+                        </div>
+
+                        <div class="etape-block">
+                            <div class="etape-title">2. Déploiement ELK Stack</div>
+                            <ul>
+                                <li>Elasticsearch 8.x : stockage et indexation (index rsyslog-logs)</li>
+                                <li>Filebeat : transfert des fichiers JSON vers Elasticsearch</li>
+                                <li>Kibana : interface de visualisation (http://192.168.10.1:5601)</li>
+                                <li>NXLog sur Windows Server 2022 : transmission des Event Logs Windows</li>
+                            </ul>
+                        </div>
+
+                        <div class="etape-block">
+                            <div class="etape-title">3. Dashboards Kibana</div>
+                            <ul>
+                                <li>Tableau des machines actives (logs par hostname)</li>
+                                <li>Camembert de répartition par programme (sshd, sudo, kernel…)</li>
+                                <li>Bar chart temporel : évolution des logs dans le temps</li>
+                                <li>Dashboard SSH dédié : connexions réussies vs échecs</li>
+                            </ul>
+                        </div>
+
+                        <div class="etape-block">
+                            <div class="etape-title">4. Sécurité et maintenance</div>
+                            <ul>
+                                <li>Pare-feu UFW : SSH:22, rsyslog:514, Kibana:5601 (réseau interne uniquement)</li>
+                                <li>Logrotate : rotation quotidienne, 6 mois de rétention, compression .gz</li>
+                                <li>Snapshots Elasticsearch automatisés quotidiennement (cron)</li>
+                            </ul>
+                        </div>
+
+                        <!-- ALERTE -->
+                        <h3 class="section-title-custom">Incident simulé – Détection brute force SSH</h3>
+
+                        <div class="alert-box">
+                            <div class="alert-title">🔔 Alerte Kibana : Brute Force SSH</div>
+                            <ul>
+                                <li>Simulation : 20 tentatives de connexion SSH échouées générées via commande logger</li>
+                                <li>Condition d'alerte : plus de 5 échecs SSH en 1 minute</li>
+                                <li>Résultat : alerte déclenchée en temps réel dans Kibana (statut Active)</li>
+                                <li>Vérification : dashboard SSH affiche le pic de tentatives avec hostname et timestamps</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-block">
+# Commande de simulation utilisée :<br>
+for i in {1..20}; do<br>
+&nbsp;&nbsp;logger -p auth.warning -t sshd "Failed password for hacker from 10.0.0.1 port 22 ssh2"<br>
+done
+                        </div>
+
+                        <!-- INCIDENTS -->
+                        <h3 class="section-title-custom">Incidents rencontrés et résolus</h3>
+
+                        <div class="incident-card">
+                            <div class="incident-title">① omelasticsearch incompatible avec Elasticsearch 8.x</div>
+                            <p>Le module rsyslog omelasticsearch ne supportait pas HTTPS avec ES 8.x — aucun log envoyé, aucune erreur visible.</p>
+                            <div class="solution">✅ Solution : remplacement par Filebeat, outil officiel Elastic pour ES 8.x.</div>
+                        </div>
+
+                        <div class="incident-card">
+                            <div class="incident-title">② Guillemets typographiques corrompant les configs rsyslog</div>
+                            <p>Copier-coller depuis un éditeur riche introduisait des guillemets typographiques non parsables par rsyslog.</p>
+                            <div class="solution">✅ Solution : réécriture des fichiers avec la commande <code>tee</code> (caractères ASCII purs).</div>
+                        </div>
+
+                        <div class="incident-card">
+                            <div class="incident-title">③ JSON mal formé – plusieurs objets sur une même ligne</div>
+                            <p>Filebeat ne pouvait pas lire les logs JSON car plusieurs objets étaient collés sur la même ligne.</p>
+                            <div class="solution">✅ Solution : ajout de \n à la fin du template JSON rsyslog (un objet JSON par ligne).</div>
+                        </div>
+
+                        <div class="incident-card">
+                            <div class="incident-title">④ Kibana sans permissions sur le certificat SSL Elasticsearch</div>
+                            <p>Après réinstallation d'Elasticsearch, Kibana crashait (EACCES sur /etc/elasticsearch/certs/http_ca.crt).</p>
+                            <div class="solution">✅ Solution : chmod sur les certificats + ajout de kibana au groupe elasticsearch.</div>
+                        </div>
+
+                        <div class="incident-card">
+                            <div class="incident-title">⑤ Cluster Elasticsearch en état RED après test de restauration</div>
+                            <p>Un index de test resté dégradé (unassigned_shards) bloquait le cluster entier.</p>
+                            <div class="solution">✅ Solution : suppression du data stream de test via l'API DELETE _data_stream.</div>
+                        </div>
+
+                        <div class="incident-card">
+                            <div class="incident-title">⑥ Alertes Kibana – clé de chiffrement manquante</div>
+                            <p>Impossible de créer des règles d'alerte : "You must configure an encryption key to use Alerting".</p>
+                            <div class="solution">✅ Solution : ajout des 3 clés xpack dans kibana.yml + redémarrage du service.</div>
+                        </div>
+
+                        <!-- RÉSULTATS -->
+                        <h3 class="section-title-custom">Résultats obtenus</h3>
+                        <ul style="color: var(--light-gray); font-size: 14px; line-height: 2; padding-left: 20px;">
+                            <li>Stack ELK opérationnelle : logs Linux et Windows centralisés, indexés et visualisables</li>
+                            <li>Dashboards Kibana fonctionnels avec supervision en temps réel</li>
+                            <li>Système d'alertes brute force SSH actif (détection sous 1 minute)</li>
+                            <li>Archivage automatique 6 mois + snapshots Elasticsearch quotidiens</li>
+                            <li>6 incidents techniques rencontrés, diagnostiqués et résolus</li>
                         </ul>
 
-                        <div class="project-actions">
-                            <a href="./assets/pdf/Centralisation des logs avec rsyslog.pdf" target="_blank"
-                                class="project-action-btn">
+                        <!-- LIENS -->
+                        <div class="project-actions" style="margin-top: 24px;">
+                            <a href="./assets/pdf/Centralisation des logs avec rsyslog.pdf" target="_blank" class="project-action-btn">
                                 <ion-icon name="eye-outline"></ion-icon>
                                 <span>Voir le rapport PDF</span>
                             </a>
-                            <a href="./assets/pdf/Centralisation des logs avec rsyslog.pdf" download
-                                class="project-action-btn">
+                            <a href="./assets/pdf/Centralisation des logs avec rsyslog.pdf" download class="project-action-btn">
                                 <ion-icon name="cloud-download-outline"></ion-icon>
                                 <span>Télécharger le PDF</span>
                             </a>
-                        </div>
-
-                        <h3 class="h3">Architecture mise en place</h3>
-                        <ul style="color: var(--light-gray);">
-                            <li>Serveur Linux dédié à la centralisation des logs</li>
-                            <li>Clients Linux et Windows membres du domaine</li>
-                            <li>Transmission des journaux via rsyslog</li>
-                            <li>Stockage structuré par machine et par service</li>
-                        </ul>
-
-                        <h3 class="h3">Résultats et bénéfices</h3>
-                        <ul style="color: var(--light-gray);">
-                            <li>Centralisation complète des journaux système</li>
-                            <li>Amélioration du diagnostic des incidents</li>
-                            <li>Meilleure visibilité sur l’état du système</li>
-                            <li>Base exploitable pour la supervision</li>
-                        </ul>
-
-                        <div class="project-challenges">
-                            <h4 style="color: var(--orange-yellow-crayola); margin: 20px 0 10px 0;">
-                                Défis techniques relevés
-                            </h4>
-                            <ul style="color: var(--light-gray);">
-                                <li>Configuration client / serveur rsyslog</li>
-                                <li>Structuration et volumétrie des logs</li>
-                                <li>Gestion des permissions et formats</li>
-                                <li>Diagnostic réseau et journalisation</li>
-                            </ul>
                         </div>
 
                     </div>
 
                     <a href="portfolio.html" class="form-btn project-back-btn">
                         <ion-icon name="arrow-back-outline"></ion-icon>
-                        <span>Retour au Projets</span>
+                        <span>Retour aux Projets</span>
                     </a>
 
                 </section>
@@ -179,9 +470,4 @@
         </div>
     </main>
 
-    <script src="./assets/js/script.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
-
-</html>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><sc

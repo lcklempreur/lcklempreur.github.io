@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets – KONE Luc-Augustin</title>
+    <title>FOG Project – Déploiement PXE – KONE Luc-Augustin</title>
     <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -230,112 +230,128 @@
                     <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
             </ul>
         </nav>
-        <article class="portfolio active" data-page="portfolio">
-            <header><h2 class="h2 article-title">Projets</h2></header>
+        <article class="about active" data-page="projet-detail">
+            <header><h2 class="h2 article-title">Déploiement PXE – FOG Project</h2></header>
+            <section class="project-detail">
+                <figure class="project-banner">
+                    <img src="./assets/images/rsyslog.png" alt="FOG Project">
+                </figure>
+                <div class="project-content">
 
-            <section class="filter-select-box">
-                <button class="filter-select" data-select>
-                    <div class="select-value" data-select-value>Sélectionnez une catégorie</div>
-                    <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
-                </button>
-                <ul class="select-list">
-                    <li class="select-item"><button data-select-item>Tous</button></li>
-                    <li class="select-item"><button data-select-item>Réseau & Infrastructure</button></li>
-                    <li class="select-item"><button data-select-item>Supervision & Logs</button></li>
-                    <li class="select-item"><button data-select-item>Déploiement</button></li>
-                    <li class="select-item"><button data-select-item>Messagerie</button></li>
-                    <li class="select-item"><button data-select-item>ITSM</button></li>
-                </ul>
-            </section>
+                    <div class="grid-2">
+                        <div class="info-card"><div class="card-label">Projet</div><div class="card-value">BTS SIO SISR – E6</div></div>
+                        <div class="info-card"><div class="card-label">Période</div><div class="card-value">Mars – Mai 2026</div></div>
+                        <div class="info-card"><div class="card-label">Serveur</div><div class="card-value">srv-fog – Ubuntu Server 22.04 LTS</div></div>
+                        <div class="info-card"><div class="card-label">Domaine</div><div class="card-value">AD Windows Server 2022 existant</div></div>
+                    </div>
 
-            <section class="projects">
-                <ul class="project-list">
+                    <p class="sec-title">Stack technique</p>
+                    <div>
+                        <span class="badge">FOG Project</span>
+                        <span class="badge">Ubuntu Server 22.04</span>
+                        <span class="badge">PXE Boot</span>
+                        <span class="badge">TFTP</span>
+                        <span class="badge">Apache</span>
+                        <span class="badge">MySQL</span>
+                        <span class="badge">NFS</span>
+                        <span class="badge">Windows Server 2022</span>
+                        <span class="badge">Active Directory</span>
+                        <span class="badge">DHCP options 66/67</span>
+                        <span class="badge">FOG Client</span>
+                        <span class="badge">VMware Workstation</span>
+                    </div>
 
-                    <li class="project-item active" data-filter-item data-category="réseau & infrastructure">
-                        <a href="projet-2.html">
-                            <figure class="project-img">
-                                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                <img src="./assets/images/acceuil_AD.png" alt="Active Directory" loading="lazy">
-                            </figure>
-                            <h3 class="project-title">Déploiement Active Directory</h3>
-                            <p class="project-category">Réseau & Infrastructure</p>
-                            <div class="project-description"><p>Mise en place d'un domaine Windows Server 2022 avec DNS, DHCP, GPO et structuration AGDLP.</p></div>
-                        </a>
-                    </li>
+                    <p class="sec-title">Objectif du projet</p>
+                    <p style="color:var(--light-gray);font-size:14px;line-height:1.7">
+                        Mettre en place une solution de déploiement automatisé de postes informatiques avec FOG Project sur Ubuntu Server, intégrée à l'infrastructure Active Directory Windows Server 2022 existante. L'objectif est de centraliser la capture et le déploiement d'images Windows via boot PXE, et d'automatiser la jonction au domaine AD après déploiement.
+                    </p>
+                    <blockquote style="border-left:4px solid var(--accent);padding-left:15px;margin:18px 0;font-style:italic;color:var(--light-gray)">
+                        "Déploiement centralisé de postes Windows via PXE intégré à l'Active Directory : capturer une fois, déployer partout."
+                    </blockquote>
 
-                    <li class="project-item active" data-filter-item data-category="supervision & logs">
-                        <a href="projet-3.html">
-                            <figure class="project-img">
-                                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                <img src="./assets/images/rsyslog.png" alt="rsyslog ELK Stack" loading="lazy">
-                            </figure>
-                            <h3 class="project-title">Centralisation des logs – rsyslog + ELK</h3>
-                            <p class="project-category">Supervision & Logs</p>
-                            <div class="project-description"><p>rsyslog + Filebeat + Elasticsearch + Kibana avec dashboards et alertes brute force SSH temps réel.</p></div>
-                        </a>
-                    </li>
+                    <p class="sec-title">Architecture</p>
+                    <table class="simple-table">
+                        <thead><tr><th>Machine</th><th>Rôle</th><th>OS</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>srv-fog</strong></td><td>Serveur FOG (Apache, TFTP, NFS, MySQL)</td><td>Ubuntu Server 22.04</td></tr>
+                            <tr><td><strong>SRV-AD</strong></td><td>Active Directory, DNS, DHCP (options 66/67)</td><td>Windows Server 2022</td></tr>
+                            <tr><td><strong>VM cliente</strong></td><td>Poste à capturer / déployer</td><td>Windows 10/11</td></tr>
+                        </tbody>
+                    </table>
 
-                    <li class="project-item active" data-filter-item data-category="réseau & infrastructure">
-                        <a href="projet-4.html">
-                            <figure class="project-img">
-                                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                <img src="./assets/images/projet4.png" alt="Linux Active Directory" loading="lazy">
-                            </figure>
-                            <h3 class="project-title">Intégration Linux / Active Directory</h3>
-                            <p class="project-category">Réseau & Infrastructure</p>
-                            <div class="project-description"><p>Jonction d'un serveur Ubuntu 24.04 au domaine via Kerberos et SSSD pour authentification centralisée.</p></div>
-                        </a>
-                    </li>
+                    <div class="flux-box">
+                        VM cliente (boot PXE)
+                        <span class="arr">→</span>
+                        DHCP (options 66/67)
+                        <span class="arr">→</span>
+                        TFTP (srv-fog)<br>
+                        <span style="margin-left:20px;opacity:.4">↓</span><br>
+                        Interface web FOG
+                        <span class="arr">→</span>
+                        Capture / Déploiement image
+                        <span class="arr">→</span>
+                        Jonction AD automatique
+                    </div>
 
-                    <li class="project-item active" data-filter-item data-category="messagerie">
-                        <a href="projet-5.html">
-                            <figure class="project-img">
-                                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                <img src="./assets/images/postfix.jpg" alt="Postfix Dovecot" loading="lazy">
-                            </figure>
-                            <h3 class="project-title">Serveur de messagerie interne</h3>
-                            <p class="project-category">Messagerie</p>
-                            <div class="project-description"><p>Postfix (SMTP) + Dovecot (IMAP) + Roundcube webmail – envoi, réception et consultation sur domaine local.</p></div>
-                        </a>
-                    </li>
+                    <p class="sec-title">Travaux réalisés</p>
 
-                    <li class="project-item active" data-filter-item data-category="réseau & infrastructure">
-                        <a href="projet-6.html">
-                            <figure class="project-img">
-                                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                <img src="./assets/images/haproxy.jpg" alt="HAProxy" loading="lazy">
-                            </figure>
-                            <h3 class="project-title">HAProxy – Load Balancing</h3>
-                            <p class="project-category">Réseau & Infrastructure</p>
-                            <div class="project-description"><p>Reverse proxy avec répartition de charge Round Robin entre serveurs Apache2, supervision /stats et test de bascule.</p></div>
-                        </a>
-                    </li>
+                    <div class="accent-block">
+                        <div class="block-title">1. Installation du serveur FOG sur Ubuntu Server 22.04</div>
+                        <ul>
+                            <li>Exécution du script d'installation officiel FOG (Apache, TFTP, NFS, MySQL configurés automatiquement)</li>
+                            <li>Accès à l'interface web FOG : <code>http://IP_FOG/fog/management</code></li>
+                            <li>Vérification des services : Apache, FOGMulticastManager, FOGImageReplicator</li>
+                        </ul>
+                    </div>
 
-                    <li class="project-item active" data-filter-item data-category="déploiement">
-                        <a href="projet-7.html">
-                            <figure class="project-img">
-                                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                <img src="./assets/images/rsyslog.png" alt="FOG Project" loading="lazy">
-                            </figure>
-                            <h3 class="project-title">Déploiement PXE – FOG Project</h3>
-                            <p class="project-category">Déploiement</p>
-                            <div class="project-description"><p>Capture et déploiement automatisé d'images Windows via boot PXE, intégré à l'infrastructure AD existante.</p></div>
-                        </a>
-                    </li>
+                    <div class="accent-block">
+                        <div class="block-title">2. Configuration DHCP sur Windows Server 2022</div>
+                        <ul>
+                            <li>Option 66 (Boot Server Host Name) → IP du serveur FOG</li>
+                            <li>Option 67 (Bootfile Name) → <code>undionly.kpxe</code> (BIOS) / <code>ipxe.efi</code> (UEFI)</li>
+                            <li>Test de boot PXE depuis une VM cliente vierge</li>
+                        </ul>
+                    </div>
 
-                    <li class="project-item active" data-filter-item data-category="itsm">
-                        <a href="projet-1.html">
-                            <figure class="project-img">
-                                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                <img src="./assets/images/acceuil-glpi.png" alt="GLPI" loading="lazy">
-                            </figure>
-                            <h3 class="project-title">GLPI & FusionInventory</h3>
-                            <p class="project-category">ITSM</p>
-                            <div class="project-description"><p>Solution centralisée de gestion de parc, ticketing et inventaire automatisé des équipements.</p></div>
-                        </a>
-                    </li>
+                    <div class="accent-block">
+                        <div class="block-title">3. Capture et déploiement d'image Windows</div>
+                        <ul>
+                            <li>Enregistrement de la VM cliente dans FOG (via boot PXE → auto-enregistrement)</li>
+                            <li>Capture de l'image disque Windows 10/11 (type : Single disk – Multiple partitions)</li>
+                            <li>Déploiement de l'image sur une VM cliente vierge via tâche FOG</li>
+                        </ul>
+                    </div>
 
-                </ul>
+                    <div class="accent-block">
+                        <div class="block-title">4. Jonction automatique au domaine AD</div>
+                        <ul>
+                            <li>Installation du FOG Client sur le poste maître avant capture</li>
+                            <li>Configuration de la jonction automatique au domaine AD dans FOG</li>
+                            <li>Vérification : poste déployé rejoint automatiquement le domaine srvlog.lan</li>
+                        </ul>
+                    </div>
+
+                    <p class="sec-title">Résultats obtenus</p>
+                    <ul style="color:var(--light-gray);font-size:14px;line-height:2;padding-left:20px">
+                        <li>Serveur FOG opérationnel avec interface web de gestion des hôtes et images</li>
+                        <li>Capture d'image Windows réussie et stockée sur le serveur</li>
+                        <li>Déploiement automatisé via PXE fonctionnel sur VM cliente</li>
+                        <li>Jonction automatique au domaine AD après déploiement</li>
+                        <li>Documentation complète : procédures, schéma réseau, captures d'écran, incidents résolus</li>
+                    </ul>
+
+                    <p class="sec-title">Compétences BTS SIO SISR mobilisées</p>
+                    <ul style="color:var(--light-gray);font-size:14px;line-height:2;padding-left:20px">
+                        <li>Concevoir une solution d'infrastructure réseau (architecture PXE + AD)</li>
+                        <li>Installer, tester et déployer une solution d'infrastructure réseau</li>
+                        <li>Exploiter, dépanner et superviser une solution d'infrastructure réseau</li>
+                    </ul>
+
+                </div>
+                <a href="portfolio.html" class="form-btn project-back-btn">
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                    <span>Retour aux Projets</span>
+                </a>
             </section>
         </article>
     </div>

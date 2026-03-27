@@ -1,31 +1,196 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Fiche de synthèse - KONE Luc-Augustin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche synthèse – KONE Luc-Augustin</title>
     <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
+    <style>
+  /* === AMÉLIORATIONS GLOBALES === */
+  :root {
+    --accent: #e2a951;
+    --accent-soft: rgba(226,169,81,0.12);
+    --accent-border: rgba(226,169,81,0.35);
+    --card-bg: rgba(255,255,255,0.04);
+    --card-border: rgba(255,255,255,0.08);
+    --text-muted: rgba(255,255,255,0.55);
+    --radius: 12px;
+  }
 
+  /* Badge tech */
+  .badge {
+    display: inline-block;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 600;
+    margin: 3px 3px 3px 0;
+    letter-spacing: .3px;
+  }
+
+  /* Card générique */
+  .info-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 8px 0;
+  }
+  .info-card .card-label {
+    font-size: 10.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+    font-weight: 600;
+  }
+  .info-card .card-value {
+    color: var(--light-gray, #d6d6d6);
+    font-size: 13px;
+  }
+
+  /* Grid 2 colonnes */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  /* Section titre custom */
+  .sec-title {
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 26px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--accent-border);
+  }
+
+  /* Bloc accent (bordure gauche) */
+  .accent-block {
+    background: var(--card-bg);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 14px 18px;
+    margin: 10px 0;
+  }
+  .accent-block .block-title {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 13.5px;
+    margin-bottom: 7px;
+  }
+  .accent-block ul {
+    color: var(--light-gray, #d6d6d6);
+    padding-left: 16px;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* Incident card */
+  .incident-card {
+    background: var(--card-bg);
+    border-left: 3px solid #c0392b;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 12px 16px;
+    margin: 8px 0;
+  }
+  .incident-card .inc-title { color: #e07070; font-weight: 600; font-size: 13px; margin-bottom: 5px; }
+  .incident-card .inc-body { color: var(--text-muted); font-size: 12.5px; margin: 3px 0; }
+  .incident-card .inc-fix { color: #7ec97e; font-size: 12px; margin-top: 5px; }
+
+  /* Code block */
+  .code-block {
+    background: rgba(0,0,0,0.35);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #a8d8a8;
+    margin: 10px 0;
+    overflow-x: auto;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  /* Table simple */
+  .simple-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  .simple-table th {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid var(--accent-border);
+  }
+  .simple-table td {
+    color: var(--light-gray, #d6d6d6);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .simple-table tr:last-child td { border-bottom: none; }
+
+  /* Alert box (succès) */
+  .alert-box {
+    background: rgba(126,201,126,0.07);
+    border: 1px solid rgba(126,201,126,0.3);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 12px 0;
+  }
+  .alert-box .alert-title { color: #7ec97e; font-weight: 600; font-size: 14px; margin-bottom: 7px; }
+  .alert-box ul { color: var(--light-gray, #d6d6d6); padding-left: 18px; margin: 0; font-size: 13px; line-height: 1.7; }
+
+  /* Flux box */
+  .flux-box {
+    background: var(--card-bg);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 14px 20px;
+    margin: 14px 0;
+    font-family: monospace;
+    font-size: 13px;
+    color: var(--light-gray, #d6d6d6);
+    line-height: 2;
+  }
+  .flux-box .arr { color: var(--accent); margin: 0 6px; }
+
+  /* Navbar fix */
+  .navbar-link { transition: color .2s; }
+  .navbar-link:hover { color: var(--accent) !important; }
+
+  /* Project title upgrade */
+  .article-title { letter-spacing: -.3px; }
+
+  /* Back button */
+  .project-back-btn { margin-top: 28px; display: inline-flex; align-items: center; gap: 8px; }
+</style>
+</head>
 <body class="theme-glass">
-    <main> <!-- SIDEBAR (identique à index) -->
+<main>
         <aside class="sidebar" data-sidebar>
             <div class="sidebar-info">
-                <figure class="avatar-box"> <img src="./assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
+                <figure class="avatar-box">
+                    <img src="/assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
                 </figure>
                 <div class="info-content">
                     <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
                     <p class="title">Technicien Informatique en Alternance</p>
-                </div> <button class="info_more-btn" data-sidebar-btn> <span>Mes Coordonnées</span> <ion-icon
-                        name="chevron-down"></ion-icon> </button>
+                </div>
+                <button class="info_more-btn" data-sidebar-btn>
+                    <span>Mes Coordonnées</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
             </div>
-
             <div class="sidebar-info_more">
                 <div class="separator"></div>
                 <ul class="contacts-list">
@@ -33,8 +198,7 @@
                         <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
                         <div class="contact-info">
                             <p class="contact-title">Email</p>
-                            <a href="mailto:luc.augustin.kone1@gmail.com"
-                                class="contact-link">luc.augustin.kone1@gmail.com</a>
+                            <a href="mailto:luc.augustin.kone1@gmail.com" class="contact-link">luc.augustin.kone1@gmail.com</a>
                         </div>
                     </li>
                     <li class="contact-item">
@@ -45,91 +209,61 @@
                         </div>
                     </li>
                 </ul>
-
                 <div class="separator"></div>
                 <ul class="social-list">
-                    <li class="social-item"><a href="[VOTRE LIEN LINKEDIN]" target="_blank"
-                            class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                    <li class="social-item"><a href="https://github.com/lcklempreur" target="_blank" class="social-link"><ion-icon
-                                name="logo-github"></ion-icon></a></li>
+                    <li class="social-item">
+                        <a href="https://github.com/lcklempreur" target="_blank" class="social-link">
+                            <ion-icon name="logo-github"></ion-icon>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </aside>
-
-        <!-- CONTENU PRINCIPAL -->
-        <div class="main-content">
-            <!-- NAVBAR -->
-            <nav class="navbar">
-                <ul class="navbar-list">
+    <div class="main-content">
+        <nav class="navbar">
+            <ul class="navbar-list">
                     <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
-                    <li class="navbar-item"><a href="competences.html" class="navbar-link">competences</a></li>
+                    <li class="navbar-item"><a href="competences.html" class="navbar-link">Compétences</a></li>
                     <li class="navbar-item"><a href="portfolio.html" class="navbar-link">Projets</a></li>
-                    <!-- <li class="navbar-item"><a href="certifications.html" class="navbar-link">Certifications</a></li> -->
                     <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link active">Fiche synthèse</a></li>
                     <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
                     <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
-                </ul>
-            </nav>
+            </ul>
+        </nav>
+        <article class="about active" data-page="project-detail">
+            <header><h2 class="h2 article-title">Fiche de synthèse 📄</h2></header>
+            <div style="width:100%;border-radius:16px;overflow:hidden;margin-bottom:24px;background:#202022;">
+                <img src="./assets/images/projet-synthese.jpg" alt="Aperçu fiche de synthèse" style="width:100%;height:auto;display:block;">
+            </div>
 
-            <!-- ARTICLE : FICHE DE SYNTHESE -->
-            <article class="project-detail active" data-page="project-detail">
-                <header>
-                    <h2 class="h2 article-title">Fiche de synthèse 📄</h2>
-                </header>
-
-                <!-- Aperçu / bannière -->
-                <div class="">
-                    <img src="./assets/images/projet-synthese.jpg" alt="Aperçu fiche de synthèse">
-
-
-                    <!-- Contenu texte de la fiche -->
-                    <div class="project-content">
-                        <h3 class="h3">Résumé</h3>
-                        <p style="color:var(--light-gray); margin-bottom:12px;">
-                            Voici une fiche de synthèse présentant mes informations professionnelles, compétences clés
-                            et
-                            expériences
-                            principales. Elle est conçue pour être partagée ou téléchargée facilement. ✅
-                        </p>
-
-                        <h4 class="h4">Points clés</h4>
-                        <ul style="color:var(--light-gray); margin-top:8px; line-height:1.6;">
-                            <li>• Technicien de proximité au Conseil Départemental</li>
-                            <li>• BTS SIO (option SISR) en alternance</li>
-                            <li>• Compétences : support utilisateur, gestion de parc, diagnostic matériel & logiciel
-                            </li>
-                            <li>• Disponibilité pour missions courtes ou long terme</li>
-                        </ul>
-
-                        <!-- Bouton de téléchargement -->
-                        <div class="project-actions">
-                            <a class="project-action-btn" href="./assets/files/fiche-synthese.pdf" download>
-                                <ion-icon name="download-outline"></ion-icon>
-                                Télécharger la fiche (PDF)
-                            </a>
-
-                            <!-- Bouton optionnel : ouvrir dans un nouvel onglet -->
-                            <a class="project-action-btn" href="./assets/files/fiche-synthese.pdf" target="_blank"
-                                rel="noopener">
-                                <ion-icon name="open-outline"></ion-icon>
-                                Ouvrir dans un nouvel onglet
-                            </a>
-                        </div>
-
-                        <!-- Liens ou informations complémentaires -->
-                        <p style="color:var(--light-gray); margin-top:6px;">
-                            Si vous souhaitez une version modifiable (Word) ou une version courte, dites-le-moi et je
-                            l'ajusterai. ✨
-                        </p>
-                    </div>
-
-            </article>
-        </div>
-    </main>
-
+            <div class="project-content">
+                <h3 class="h3">Résumé</h3>
+                <p style="color:var(--light-gray);margin-bottom:12px">
+                    Fiche de synthèse présentant mes informations professionnelles, compétences clés et réalisations principales en BTS SIO option SISR.
+                </p>
+                <div class="grid-2" style="margin:16px 0">
+                    <div class="info-card"><div class="card-label">Formation</div><div class="card-value">BTS SIO option SISR</div></div>
+                    <div class="info-card"><div class="card-label">Alternance</div><div class="card-value">Conseil Départemental 93</div></div>
+                    <div class="info-card"><div class="card-label">Spécialité</div><div class="card-value">Infrastructure, Systèmes & Réseaux</div></div>
+                    <div class="info-card"><div class="card-label">Projets E6</div><div class="card-value">rsyslog + ELK / FOG Project</div></div>
+                </div>
+                <div class="project-actions">
+                    <a class="project-action-btn" href="./assets/files/fiche-synthese.pdf" download>
+                        <ion-icon name="download-outline"></ion-icon>
+                        Télécharger la fiche (PDF)
+                    </a>
+                    <a class="project-action-btn" href="./assets/files/fiche-synthese.pdf" target="_blank" rel="noopener">
+                        <ion-icon name="open-outline"></ion-icon>
+                        Ouvrir dans un nouvel onglet
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+</main>
     <script src="./assets/js/script.js"></script>
+    
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>

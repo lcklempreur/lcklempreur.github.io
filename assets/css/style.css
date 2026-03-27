@@ -30,6 +30,14 @@
   --bittersweet-shimmer: hsl(0, 43%, 51%);
   --navbar-height: 70px;
 
+  /* Variables pour les améliorations (badges, cards, blocs) */
+  --accent: hsl(45, 100%, 72%);
+  --accent-soft: hsla(45, 100%, 72%, 0.10);
+  --accent-border: hsla(45, 100%, 72%, 0.30);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --radius: 12px;
+
   /* Typographie */
   --ff-poppins: 'Poppins', sans-serif;
   --fs-1: 24px;
@@ -798,16 +806,24 @@ mark {
   Cible la barre de recherche par son ID pour changer la couleur du texte saisi.
   Assurez-vous que votre balise <input> a bien l'attribut id="search-input" dans votre HTML.
 */
-#search-input {
+#search-input,
+#search-bar {
   color: var(--orange-yellow-crayola);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
 }
 
-/* 
-  [Optionnel mais recommandé] Style le texte d'exemple (placeholder).
-*/
-#search-input::placeholder {
+#search-input::placeholder,
+#search-bar::placeholder {
   color: var(--light-gray-70);
-  opacity: 1; /* Assure la visibilité sur tous les navigateurs */
+  opacity: 1;
+}
+
+#search-input:focus,
+#search-bar:focus {
+  border-color: var(--orange-yellow-crayola);
+  outline: none;
 }
 /* ===================================== */
 /* == AMÉLIORATION BANNIÈRE DE PROJET == */
@@ -1014,3 +1030,166 @@ article.active .article-title::after {
   box-shadow: none;
   cursor: not-allowed;
 }
+
+/* ======================================= */
+/* == STYLES PORTFOLIO – DESCRIPTIONS   == */
+/* ======================================= */
+
+.project-description {
+  margin-top: 8px;
+  padding: 0 10px;
+}
+
+.project-description p {
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-300);
+  line-height: 1.5;
+}
+
+/* ======================================= */
+/* == STYLES COMPOSANTS AMÉLIORÉS       == */
+/* ======================================= */
+
+/* Badges technologiques */
+.badge {
+  display: inline-block;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  border-radius: 20px;
+  padding: 3px 11px;
+  font-size: 11.5px;
+  font-weight: 600;
+  margin: 3px 3px 3px 0;
+  letter-spacing: .3px;
+}
+
+/* Carte info (grid-2) */
+.info-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin: 8px 0;
+}
+.info-card .card-label {
+  font-size: 10.5px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+.info-card .card-value {
+  color: var(--light-gray);
+  font-size: 13px;
+}
+
+/* Grid 2 colonnes */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 12px 0;
+}
+@media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* Titre de section custom */
+.sec-title {
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 600;
+  margin: 26px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--accent-border);
+}
+
+/* Bloc avec bordure gauche accent */
+.accent-block {
+  background: var(--card-bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 14px 18px;
+  margin: 10px 0;
+}
+.accent-block .block-title {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 13.5px;
+  margin-bottom: 7px;
+}
+.accent-block ul {
+  color: var(--light-gray);
+  padding-left: 16px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Carte incident (bordure rouge) */
+.incident-card {
+  background: var(--card-bg);
+  border-left: 3px solid #c0392b;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 12px 16px;
+  margin: 8px 0;
+}
+.incident-card .inc-title { color: #e07070; font-weight: 600; font-size: 13px; margin-bottom: 5px; }
+.incident-card .inc-body { color: hsla(0, 0%, 84%, 0.6); font-size: 12.5px; margin: 3px 0; }
+.incident-card .inc-fix { color: #7ec97e; font-size: 12px; margin-top: 5px; }
+
+/* Bloc code */
+.code-block {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: #a8d8a8;
+  margin: 10px 0;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Table simple */
+.simple-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+.simple-table th {
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--accent-border);
+}
+.simple-table td {
+  color: var(--light-gray);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--card-border);
+}
+.simple-table tr:last-child td { border-bottom: none; }
+
+/* Boîte d'alerte (succès) */
+.alert-box {
+  background: rgba(126, 201, 126, 0.07);
+  border: 1px solid rgba(126, 201, 126, 0.3);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin: 12px 0;
+}
+.alert-box .alert-title { color: #7ec97e; font-weight: 600; font-size: 14px; margin-bottom: 7px; }
+.alert-box ul { color: var(--light-gray); padding-left: 18px; margin: 0; font-size: 13px; line-height: 1.7; }
+
+/* Flux de données */
+.flux-box {
+  background: var(--card-bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 14px 20px;
+  margin: 14px 0;
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--light-gray);
+  line-height: 2;
+}
+.flux-box .arr { color: var(--accent); margin: 0 6px; }

@@ -1,51 +1,206 @@
+<!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KONE Luc-Augustin - Compétences</title>
+    <title>Compétences – KONE Luc-Augustin</title>
     <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+  /* === AMÉLIORATIONS GLOBALES === */
+  :root {
+    --accent: #e2a951;
+    --accent-soft: rgba(226,169,81,0.12);
+    --accent-border: rgba(226,169,81,0.35);
+    --card-bg: rgba(255,255,255,0.04);
+    --card-border: rgba(255,255,255,0.08);
+    --text-muted: rgba(255,255,255,0.55);
+    --radius: 12px;
+  }
+
+  /* Badge tech */
+  .badge {
+    display: inline-block;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 600;
+    margin: 3px 3px 3px 0;
+    letter-spacing: .3px;
+  }
+
+  /* Card générique */
+  .info-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 8px 0;
+  }
+  .info-card .card-label {
+    font-size: 10.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+    font-weight: 600;
+  }
+  .info-card .card-value {
+    color: var(--light-gray, #d6d6d6);
+    font-size: 13px;
+  }
+
+  /* Grid 2 colonnes */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  /* Section titre custom */
+  .sec-title {
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 26px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--accent-border);
+  }
+
+  /* Bloc accent (bordure gauche) */
+  .accent-block {
+    background: var(--card-bg);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 14px 18px;
+    margin: 10px 0;
+  }
+  .accent-block .block-title {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 13.5px;
+    margin-bottom: 7px;
+  }
+  .accent-block ul {
+    color: var(--light-gray, #d6d6d6);
+    padding-left: 16px;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* Incident card */
+  .incident-card {
+    background: var(--card-bg);
+    border-left: 3px solid #c0392b;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 12px 16px;
+    margin: 8px 0;
+  }
+  .incident-card .inc-title { color: #e07070; font-weight: 600; font-size: 13px; margin-bottom: 5px; }
+  .incident-card .inc-body { color: var(--text-muted); font-size: 12.5px; margin: 3px 0; }
+  .incident-card .inc-fix { color: #7ec97e; font-size: 12px; margin-top: 5px; }
+
+  /* Code block */
+  .code-block {
+    background: rgba(0,0,0,0.35);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #a8d8a8;
+    margin: 10px 0;
+    overflow-x: auto;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  /* Table simple */
+  .simple-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  .simple-table th {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid var(--accent-border);
+  }
+  .simple-table td {
+    color: var(--light-gray, #d6d6d6);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .simple-table tr:last-child td { border-bottom: none; }
+
+  /* Alert box (succès) */
+  .alert-box {
+    background: rgba(126,201,126,0.07);
+    border: 1px solid rgba(126,201,126,0.3);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 12px 0;
+  }
+  .alert-box .alert-title { color: #7ec97e; font-weight: 600; font-size: 14px; margin-bottom: 7px; }
+  .alert-box ul { color: var(--light-gray, #d6d6d6); padding-left: 18px; margin: 0; font-size: 13px; line-height: 1.7; }
+
+  /* Flux box */
+  .flux-box {
+    background: var(--card-bg);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 14px 20px;
+    margin: 14px 0;
+    font-family: monospace;
+    font-size: 13px;
+    color: var(--light-gray, #d6d6d6);
+    line-height: 2;
+  }
+  .flux-box .arr { color: var(--accent); margin: 0 6px; }
+
+  /* Navbar fix */
+  .navbar-link { transition: color .2s; }
+  .navbar-link:hover { color: var(--accent) !important; }
+
+  /* Project title upgrade */
+  .article-title { letter-spacing: -.3px; }
+
+  /* Back button */
+  .project-back-btn { margin-top: 28px; display: inline-flex; align-items: center; gap: 8px; }
+</style>
 </head>
-
 <body class="theme-glass">
-    <main>
-
-        <!-- BARRE LATERALE (SIDEBAR) -->
+<main>
         <aside class="sidebar" data-sidebar>
             <div class="sidebar-info">
                 <figure class="avatar-box">
                     <img src="/assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
                 </figure>
-
                 <div class="info-content">
                     <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
                     <p class="title">Technicien Informatique en Alternance</p>
                 </div>
-
                 <button class="info_more-btn" data-sidebar-btn>
                     <span>Mes Coordonnées</span>
                     <ion-icon name="chevron-down"></ion-icon>
                 </button>
             </div>
-
             <div class="sidebar-info_more">
                 <div class="separator"></div>
-
                 <ul class="contacts-list">
                     <li class="contact-item">
                         <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
                         <div class="contact-info">
                             <p class="contact-title">Email</p>
-                            <a href="mailto:luc.augustin.kone1@gmail.com"
-                                class="contact-link">luc.augustin.kone1@gmail.com</a>
+                            <a href="mailto:luc.augustin.kone1@gmail.com" class="contact-link">luc.augustin.kone1@gmail.com</a>
                         </div>
                     </li>
-
                     <li class="contact-item">
                         <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
                         <div class="contact-info">
@@ -54,15 +209,8 @@
                         </div>
                     </li>
                 </ul>
-
                 <div class="separator"></div>
-
                 <ul class="social-list">
-                    <li class="social-item">
-                        <a href="[VOTRE LIEN LINKEDIN]" target="_blank" class="social-link">
-                            <ion-icon name="logo-linkedin"></ion-icon>
-                        </a>
-                    </li>
                     <li class="social-item">
                         <a href="https://github.com/lcklempreur" target="_blank" class="social-link">
                             <ion-icon name="logo-github"></ion-icon>
@@ -71,203 +219,136 @@
                 </ul>
             </div>
         </aside>
-
-        <!-- CONTENU PRINCIPAL -->
-        <div class="main-content">
-
-            <!-- BARRE DE NAVIGATION -->
-            <nav class="navbar">
-                <ul class="navbar-list">
+    <div class="main-content">
+        <nav class="navbar">
+            <ul class="navbar-list">
                     <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
-                    <li class="navbar-item"><a href="competences.html" class="navbar-link">competences</a></li>
+                    <li class="navbar-item"><a href="competences.html" class="navbar-link active">Compétences</a></li>
                     <li class="navbar-item"><a href="portfolio.html" class="navbar-link">Projets</a></li>
                     <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
                     <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
                     <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+            </ul>
+        </nav>
+        <article class="about active" data-page="competences">
+            <header><h2 class="h2 article-title">Compétences</h2></header>
+            <section class="about-text">
+                <p>Compétences développées en contexte BTS SIO option SISR et en alternance au Conseil Départemental de Seine-Saint-Denis, orientées administration système, support et services réseau.</p>
+            </section>
+
+            <section class="service">
+                <h3 class="h3 service-title">Systèmes & Administration</h3>
+                <ul class="service-list">
+                    <li class="service-item">
+                        <div class="service-icon-box"><ion-icon name="desktop-outline" style="font-size:34px;color:var(--accent)"></ion-icon></div>
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Support poste de travail</h4>
+                            <p class="service-item-text">Diagnostic matériel/logiciel, résolution d'incidents, gestion des périphériques (double écran, imprimantes), dotation et remplacement.</p>
+                        </div>
+                    </li>
+                    <li class="service-item">
+                        <div class="service-icon-box"><ion-icon name="key-outline" style="font-size:34px;color:var(--accent)"></ion-icon></div>
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Active Directory</h4>
+                            <p class="service-item-text">Réinitialisation de mots de passe, gestion des comptes, intégration d'équipements au domaine, structuration AGDLP, GPO.</p>
+                        </div>
+                    </li>
+                    <li class="service-item">
+                        <div class="service-icon-box"><ion-icon name="wifi-outline" style="font-size:34px;color:var(--accent)"></ion-icon></div>
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Réseau de proximité</h4>
+                            <p class="service-item-text">Analyse de connectivité, diagnostic réseau utilisateur, configuration DNS/DHCP, vérifications de base (ping, tracert, nslookup).</p>
+                        </div>
+                    </li>
                 </ul>
-            </nav>
+            </section>
 
-            <!-- PAGE "COMPÉTENCES" -->
-            <article class="about active" data-page="competences">
-                <header>
-                    <h2 class="h2 article-title">Compétences</h2>
-                </header>
+            <section class="service">
+                <h3 class="h3 service-title">Services & Infrastructure</h3>
+                <ul class="service-list">
+                    <li class="service-item">
+                        <div class="service-icon-box"><ion-icon name="analytics-outline" style="font-size:34px;color:var(--accent)"></ion-icon></div>
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Supervision & Logs (ELK Stack)</h4>
+                            <p class="service-item-text">Centralisation rsyslog, indexation Elasticsearch, dashboards et alertes Kibana, détection d'incidents en temps réel.</p>
+                        </div>
+                    </li>
+                    <li class="service-item">
+                        <div class="service-icon-box"><ion-icon name="cloud-upload-outline" style="font-size:34px;color:var(--accent)"></ion-icon></div>
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Déploiement réseau (FOG Project / PXE)</h4>
+                            <p class="service-item-text">Capture et déploiement automatisé d'images Windows via boot PXE, intégration Active Directory, jonction domaine automatique.</p>
+                        </div>
+                    </li>
+                    <li class="service-item">
+                        <div class="service-icon-box"><ion-icon name="mail-outline" style="font-size:34px;color:var(--accent)"></ion-icon></div>
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Messagerie interne (Postfix / Dovecot)</h4>
+                            <p class="service-item-text">Configuration MTA/MDA, SMTP, IMAP, webmail Roundcube, journalisation et diagnostic des erreurs de livraison.</p>
+                        </div>
+                    </li>
+                    <li class="service-item">
+                        <div class="service-icon-box"><ion-icon name="git-network-outline" style="font-size:34px;color:var(--accent)"></ion-icon></div>
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Load Balancing (HAProxy)</h4>
+                            <p class="service-item-text">Reverse proxy, répartition de charge Round Robin, health checks, supervision /stats et simulation de bascule.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
-                <!-- INTRO -->
-                <section class="about-text">
-                    <p>
-                        Cette page présente mes compétences principales en environnement professionnel et en contexte BTS SIO option SISR, avec une approche orientée support, systèmes et services.
-                    </p>
-                    <p>
-                        En alternance au Département de la Seine-Saint-Denis, j’interviens sur le traitement des incidents, la gestion des accès, le suivi de tickets des équipements.
-                    </p>
-                </section>
+            <section class="service">
+                <h3 class="h3 service-title">Virtualisation & Outillage</h3>
+                <ul class="service-list">
+                    <li class="service-item">
+                        <div class="service-icon-box"><ion-icon name="layers-outline" style="font-size:34px;color:var(--accent)"></ion-icon></div>
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Virtualisation</h4>
+                            <p class="service-item-text">VMware Workstation, ESXi – création, configuration et gestion de VM (snapshots, réseau, stockage).</p>
+                        </div>
+                    </li>
+                    <li class="service-item">
+                        <div class="service-icon-box"><ion-icon name="construct-outline" style="font-size:34px;color:var(--accent)"></ion-icon></div>
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">GLPI & ITSM</h4>
+                            <p class="service-item-text">Ticketing, gestion de parc, inventaire automatisé FusionInventory, déploiement applicatif.</p>
+                        </div>
+                    </li>
+                    <li class="service-item">
+                        <div class="service-icon-box"><ion-icon name="phone-portrait-outline" style="font-size:34px;color:var(--accent)"></ion-icon></div>
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Gestion des mobiles</h4>
+                            <p class="service-item-text">Enrôlement et configuration de téléphones, mise en place de l'authentification unique.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
-                <!-- SYSTÈMES -->
-                <section class="service">
-                    <h3 class="h3 service-title">Systèmes</h3>
-                    <ul class="service-list">
-
-                        <li class="service-item">
-                            <div class="service-icon-box">
-                                <ion-icon name="desktop-outline"
-                                    style="font-size: 34px; color: var(--orange-yellow-crayola);"></ion-icon>
-                            </div>
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Support poste de travail</h4>
-                                <p class="service-item-text">
-                                    Diagnostic matériel/logiciel, résolution d’incidents, périphériques : double écran, imprimantes, dotation et remplacement.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li class="service-item">
-                            <div class="service-icon-box">
-                                <ion-icon name="wifi-outline"
-                                    style="font-size: 34px; color: var(--orange-yellow-crayola);"></ion-icon>
-                            </div>
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Dépannage réseau de proximité</h4>
-                                <p class="service-item-text">
-                                    Analyse de connectivité, incidents réseau utilisateur, vérifications de base.
-                                </p>
-                            </div>
-                        </li>
-
-                    </ul>
-                </section>
-
-                <!-- SERVICES -->
-                <section class="service">
-                    <h3 class="h3 service-title">Services</h3>
-                    <ul class="service-list">
-
-                        <li class="service-item">
-                            <div class="service-icon-box">
-                                <ion-icon name="key-outline"
-                                    style="font-size: 34px; color: var(--orange-yellow-crayola);"></ion-icon>
-                            </div>
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Active Directory</h4>
-                                <p class="service-item-text">
-                                    Réinitialisation de mots de passe, vérification
-                                    de comptes, intégration d’équipements mobiles au domaine, contrôle de présence d’un nouvel agent dans l’annuaire.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li class="service-item">
-                            <div class="service-icon-box">
-                                <ion-icon name="phone-portrait-outline"
-                                    style="font-size: 34px; color: var(--orange-yellow-crayola);"></ion-icon>
-                            </div>
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Gestion des mobiles & authentification</h4>
-                                <p class="service-item-text">
-                                    Enrôlement et configuration de téléphones, mise en place du mot de passe unique pour éviter la récupération du mot de passe utilisateur.
-                                </p>
-                            </div>
-                        </li>
-
-                    </ul>
-                </section>
-
-                <!-- VIRTUALISATION & LAB -->
-                <section class="service">
-                    <h3 class="h3 service-title">Virtualisation & lab</h3>
-                    <ul class="service-list">
-
-                        <li class="service-item">
-                            <div class="service-icon-box">
-                                <ion-icon name="layers-outline"
-                                    style="font-size: 34px; color: var(--orange-yellow-crayola);"></ion-icon>
-                            </div>
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Environnement de test</h4>
-                                <p class="service-item-text">
-                                    Mise en place de machines virtuelles pour tester des services, valider des procédures et reproduire des incidents avant application.
-                                </p>
-                            </div>
-                        </li>
-
-                    </ul>
-                </section>
-
-                <!-- SUPPORT & ITSM -->
-                <section class="service">
-                    <h3 class="h3 service-title">Support & ITSM</h3>
-                    <ul class="service-list">
-
-                        <li class="service-item">
-                            <div class="service-icon-box">
-                                <ion-icon name="ticket-outline"
-                                    style="font-size: 34px; color: var(--orange-yellow-crayola);"></ion-icon>
-                            </div>
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Ticketing (TOPI) & suivi</h4>
-                                <p class="service-item-text">
-                                    Consultation et traitement des tickets, suivi des incidents assignés, escalade si nécessaire.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li class="service-item">
-                            <div class="service-icon-box">
-                                <ion-icon name="construct-outline"
-                                    style="font-size: 34px; color: var(--orange-yellow-crayola);"></ion-icon>
-                            </div>
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">GLPI (ITSM) & déploiement applicatif</h4>
-                                <p class="service-item-text">
-                                    Utilisation de GLPI  pour le suivi et la gestion, et déploiement d’applications sur les postes utilisateurs.
-                                </p>
-                            </div>
-                        </li>
-
-                    </ul>
-                </section>
-
-                <!-- DOCUMENTATION & MÉTHODE -->
-                <section class="service">
-                    <h3 class="h3 service-title">Documentation & méthode</h3>
-                    <ul class="service-list">
-
-                        <li class="service-item">
-                            <div class="service-icon-box">
-                                <ion-icon name="document-text-outline"
-                                    style="font-size: 34px; color: var(--orange-yellow-crayola);"></ion-icon>
-                            </div>
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Procédures & capitalisation</h4>
-                                <p class="service-item-text">
-                                    Rédaction de procédures et partage de solutions, pour accélérer la résolution et standardiser les interventions.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li class="service-item">
-                            <div class="service-icon-box">
-                                <ion-icon name="checkmark-done-outline"
-                                    style="font-size: 34px; color: var(--orange-yellow-crayola);"></ion-icon>
-                            </div>
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Méthode de diagnostic</h4>
-                                <p class="service-item-text">
-                                    Identification, reproduction, correction et validation, avec traçabilité via ticketing.
-                                </p>
-                            </div>
-                        </li>
-
-                    </ul>
-                </section>
-
-            </article>
-        </div>
-    </main>
-
+            <section class="service">
+                <h3 class="h3 service-title">Documentation & Méthode</h3>
+                <ul class="service-list">
+                    <li class="service-item">
+                        <div class="service-icon-box"><ion-icon name="document-text-outline" style="font-size:34px;color:var(--accent)"></ion-icon></div>
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Procédures & capitalisation</h4>
+                            <p class="service-item-text">Rédaction de procédures d'installation et de dépannage, partage de solutions, standardisation des interventions.</p>
+                        </div>
+                    </li>
+                    <li class="service-item">
+                        <div class="service-icon-box"><ion-icon name="checkmark-done-outline" style="font-size:34px;color:var(--accent)"></ion-icon></div>
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Méthode de diagnostic</h4>
+                            <p class="service-item-text">Identification, reproduction, correction, validation – avec traçabilité via ticketing (TOPI / GLPI).</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </div>
+</main>
     <script src="./assets/js/script.js"></script>
+    
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>
