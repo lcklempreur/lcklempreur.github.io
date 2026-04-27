@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KONE Luc-Augustin - Projet Centralisation Logs rsyslog + Filebeat + Elasticsearch + Kibana</title>
+    <title>KONE Luc-Augustin - Projet rsyslog + ELK Stack</title>
     <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +34,17 @@
             color: var(--light-gray, #d6d6d6);
             font-size: 13px;
             font-weight: 500;
+        }
+        .stack-badge {
+            display: inline-block;
+            background: rgba(226, 169, 81, 0.15);
+            border: 1px solid rgba(226, 169, 81, 0.4);
+            color: var(--orange-yellow-crayola, #e2a951);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 4px 4px 4px 0;
         }
         .flux-box {
             background: rgba(255,255,255,0.04);
@@ -156,29 +167,137 @@
 
 <body class="theme-glass">
     <main>
-        <div class="container">
-            <article>
-                <section class="project-details">
-                    <div class="content">
 
-                        <h2 class="project-title">Centralisation et analyse des journaux système</h2>
-                        <p class="project-subtitle">rsyslog + Filebeat + Elasticsearch + Kibana</p>
+        <!-- BARRE LATERALE -->
+        <aside class="sidebar" data-sidebar>
+            <div class="sidebar-info">
+                <figure class="avatar-box">
+                    <img src="/assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
+                </figure>
+                <div class="info-content">
+                    <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
+                    <p class="title">Technicien Informatique en Alternance</p>
+                </div>
+                <button class="info_more-btn" data-sidebar-btn>
+                    <span>Mes Coordonnées</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
+            </div>
+            <div class="sidebar-info_more">
+                <div class="separator"></div>
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p>
+                            <a href="/cdn-cgi/l/email-protection#6a061f09440b1f0d1f191e0304440105040f5b2a0d070b030644090507" class="contact-link"><span class="__cf_email__" data-cfemail="9df1e8feb3fce8fae8eee9f4f3b3f6f2f3f8acddfaf0fcf4f1b3fef2f0">[email&#160;protected]</span></a>
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
+                        <div class="contact-info">
+                            <p class="contact-title">Anniversaire</p>
+                            <time datetime="1998-06-26">26 juin 1998</time>
+                        </div>
+                    </li>
+                </ul>
+                <div class="separator"></div>
+                <ul class="social-list">
+                    <li class="social-item">
+                        <a href="https://github.com/lcklempreur" target="_blank" class="social-link">
+                            <ion-icon name="logo-github"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
 
-                        <!-- CONTEXTE -->
-                        <h3 class="section-title-custom">Contexte et objectifs</h3>
-                        <p style="color: var(--light-gray); font-size: 14px; line-height: 1.8;">
-                            La centralisation des journaux système est une pratique fondamentale en infrastructure IT. Elle permet de superviser efficacement les systèmes, diagnostiquer rapidement les incidents, renforcer la sécurité par la détection d'anomalies et garantir la traçabilité des actions. 
-                            <br><br>
-                            Ce projet met en place une solution ELK (Elasticsearch, Filebeat, Kibana) complète intégrée dans un environnement Active Directory existant avec Ubuntu Server 24.04 LTS comme serveur central de logs.
+        <!-- CONTENU PRINCIPAL -->
+        <div class="main-content">
+
+            <!-- NAVBAR -->
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
+                    <li class="navbar-item"><a href="competences.html" class="navbar-link">Compétences</a></li>
+                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Projets</a></li>
+                    <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
+                    <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
+                    <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- ARTICLE -->
+            <article class="about active" data-page="projet-detail">
+                <header>
+                    <h2 class="h2 article-title">Centralisation et analyse des journaux système – rsyslog + Filebeat + Elasticsearch + Kibana</h2>
+                </header>
+
+                <section class="project-detail">
+
+                    <figure class="project-banner">
+                        <img src="./assets/images/rsyslog.png" alt="Architecture rsyslog ELK">
+                    </figure>
+
+                    <div class="project-content">
+
+                        <!-- INFOS RAPIDES -->
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <div class="label">Projet</div>
+                                <div class="value">BTS SIO SISR – E6</div>
+                            </div>
+                            <div class="info-card">
+                                <div class="label">Période</div>
+                                <div class="value">Décembre 2025 – Mars 2026</div>
+                            </div>
+                            <div class="info-card">
+                                <div class="label">Serveur</div>
+                                <div class="value">ubulog – Ubuntu Server 24.04 LTS</div>
+                            </div>
+                            <div class="info-card">
+                                <div class="label">Domaine</div>
+                                <div class="value">srvlog.lan</div>
+                            </div>
+                        </div>
+
+                        <!-- STACK -->
+                        <h3 class="section-title-custom">Stack technique</h3>
+                        <div>
+                            <span class="stack-badge">rsyslog</span>
+                            <span class="stack-badge">Filebeat</span>
+                            <span class="stack-badge">Elasticsearch 8.x</span>
+                            <span class="stack-badge">Kibana</span>
+                            <span class="stack-badge">NXLog</span>
+                            <span class="stack-badge">Ubuntu Server 24.04</span>
+                            <span class="stack-badge">Windows Server 2022</span>
+                            <span class="stack-badge">Active Directory</span>
+                            <span class="stack-badge">UFW</span>
+                            <span class="stack-badge">logrotate</span>
+                        </div>
+
+                        <!-- OBJECTIF -->
+                        <h3 class="section-title-custom">Objectif du projet</h3>
+                        <p style="color: var(--light-gray); font-size: 14px; line-height: 1.7;">
+                            Mise en place d'une infrastructure complète de centralisation et d'analyse des journaux système
+                            (logs) pour un parc Linux et Windows intégré à un domaine Active Directory. L'objectif est de
+                            collecter, structurer en JSON, indexer dans Elasticsearch et visualiser dans Kibana les événements
+                            de toutes les machines, avec un système d'alertes automatiques pour la détection d'incidents
+                            de sécurité en temps réel.
                         </p>
 
-                        <!-- MACHINES -->
-                        <h3 class="section-title-custom">Infrastructure déployée</h3>
+                        <blockquote style="border-left: 4px solid var(--orange-yellow-crayola); padding-left: 15px; margin: 20px 0; font-style: italic; color: var(--light-gray);">
+                            "Infrastructure de centralisation des logs avec alertes temps réel : rsyslog collecte, Elasticsearch indexe, Kibana supervise."
+                        </blockquote>
+
+                        <!-- ARCHITECTURE -->
+                        <h3 class="section-title-custom">Architecture de l'infrastructure</h3>
+
                         <table class="machine-table">
                             <thead>
                                 <tr>
                                     <th>Machine</th>
-                                    <th>Adresse IP</th>
+                                    <th>IP</th>
                                     <th>Rôle</th>
                                 </tr>
                             </thead>
@@ -201,7 +320,6 @@
                             </tbody>
                         </table>
 
-                        <!-- FLUX -->
                         <h3 class="section-title-custom">Flux de centralisation des logs</h3>
                         <div class="flux-box">
                             Clients (syslog)
@@ -228,7 +346,7 @@
                                 <li>Activation réception TCP port 514 (module imtcp)</li>
                                 <li>Template JSON RFC3339 : @timestamp, hostname, programme, sévérité, message</li>
                                 <li>Arborescence : /var/log/central/hostname/categorie/YYYY-MM-DD.json</li>
-                                <li>Règles de tri par programme : sshd, sudo, systemd, kernel, apache2, nginx, NXLog Windows</li>
+                                <li>Règles de tri par programme : sshd, sudo, systemd, kernel, apache2, nginx</li>
                                 <li>Configuration clients Linux : *.* @@192.168.10.1:514 (relais TCP fiable)</li>
                             </ul>
                         </div>
@@ -248,8 +366,8 @@
                             <div class="etape-title">3. Déploiement Kibana (interface de visualisation)</div>
                             <ul>
                                 <li>Installation kibana + génération token d'enrôlement pour Elasticsearch</li>
-                                <li>Configuration 3 clés xpack obligatoires : encryptedSavedObjects, reporting, security (32 chars min chacune)</li>
-                                <li>Permissions certificats SSL : chmod 755 /etc/elasticsearch/certs/ && chmod 644 http_ca.crt</li>
+                                <li>Configuration 3 clés xpack obligatoires : encryptedSavedObjects, reporting, security (32 chars min)</li>
+                                <li>Permissions certificats SSL : chmod 755 /etc/elasticsearch/certs/</li>
                                 <li>Kibana groupe elasticsearch pour accès certificats</li>
                                 <li>Accès sécurisé : http://192.168.10.1:5601 (réseau interne uniquement)</li>
                             </ul>
@@ -259,8 +377,8 @@
                             <div class="etape-title">4. Installation Filebeat (transfert JSON vers Elasticsearch)</div>
                             <ul>
                                 <li>Collecte fichiers JSON : /var/log/central/**/all-json/*.json</li>
-                                <li>Configuration multiline : json.keys_under_root + json.add_error_key + json.message_key</li>
-                                <li>Output Elasticsearch : hosts https://localhost:9200 avec username/password (elastic)</li>
+                                <li>Configuration multiline : json.keys_under_root + json.add_error_key</li>
+                                <li>Output Elasticsearch : hosts https://localhost:9200 avec username/password</li>
                                 <li>Index destination : rsyslog-logs (sans ILM pour contrôle manuel)</li>
                                 <li>Vérification : curl -k -u elastic:pass https://localhost:9200/rsyslog-logs/_count</li>
                             </ul>
@@ -270,8 +388,8 @@
                             <div class="etape-title">5. Création Data View et dashboards Kibana</div>
                             <ul>
                                 <li>Data View : pattern rsyslog-logs* avec timestamp field @timestamp</li>
-                                <li><strong>Dashboard Centralisation Logs :</strong> tableau des machines actives, camembert par programme, bar chart temporel par hostname</li>
-                                <li><strong>Dashboard Authentification SSH :</strong> compteur total SSH, tableau sévérité, bar chart temporel, compteur Failed password</li>
+                                <li><strong>Dashboard Centralisation Logs :</strong> tableau des machines, camembert par programme, bar chart temporel</li>
+                                <li><strong>Dashboard Authentification SSH :</strong> compteur SSH, tableau sévérité, bar chart, compteur Failed password</li>
                                 <li>Vue Discover : logs SSH en temps réel avec KQL filter program : "sshd"</li>
                             </ul>
                         </div>
@@ -284,7 +402,6 @@
                                 <li>Condition : WHEN count() IS ABOVE 5 FOR THE LAST 1 minute</li>
                                 <li>Fréquence : Every 1 second</li>
                                 <li>Status Active (rouge) quand alerte déclenchée</li>
-                                <li>Accès : Stack Management > Rules > Alerte Brute Force SSH > onglet Alerts</li>
                             </ul>
                         </div>
 
@@ -295,7 +412,6 @@
                                 <li>rsyslog : port 514/TCP et 514/UDP (collecte logs)</li>
                                 <li>Elasticsearch : port 9200/TCP (accès interne uniquement)</li>
                                 <li>Kibana : port 5601/TCP → seulement depuis 192.168.10.0/24 et 192.168.209.0/24 (NAT)</li>
-                                <li>sudo ufw enable && sudo ufw status verbose</li>
                             </ul>
                         </div>
 
@@ -304,7 +420,7 @@
                             <ul>
                                 <li>Logrotate : /etc/logrotate.d/central-logs → rotation quotidienne, 180 jours rétention, compression .gz</li>
                                 <li>Archive directory : /var/log/archives/ (chown syslog:adm)</li>
-                                <li>Snapshots Elasticsearch : script /etc/cron.daily/elasticsearch-snapshot (sauvegarde quotidienne dans /var/backups/elasticsearch/)</li>
+                                <li>Snapshots Elasticsearch : script /etc/cron.daily/elasticsearch-snapshot</li>
                                 <li>Repository backup_logs configuré via API curl -X PUT _snapshot/backup_logs</li>
                             </ul>
                         </div>
@@ -339,20 +455,20 @@ done<br>
 
                         <div class="incident-card">
                             <div class="incident-title">① omelasticsearch incompatible Elasticsearch 8.x (HTTPS)</div>
-                            <p>Module rsyslog omelasticsearch v8.2112 ne supportait pas HTTPS → logs jamais envoyés, aucune erreur visible, index rsyslog absent.</p>
+                            <p>Module rsyslog omelasticsearch v8.2112 ne supportait pas HTTPS → logs jamais envoyés, aucune erreur visible.</p>
                             <div class="solution">✅ Solution : remplacement par Filebeat (outil officiel Elastic supportant nativement ES 8.x + HTTPS)</div>
                         </div>
 
                         <div class="incident-card">
                             <div class="incident-title">② Guillemets typographiques corrompant config rsyslog</div>
-                            <p>nano remplaçait guillemets droits par guillemets typographiques. rsyslog affichait : "invalid character - is there an invalid escape sequence?"</p>
-                            <div class="solution">✅ Solution : utilisation sudo tee avec heredoc (tee &lt;&lt; 'EOF') pour écrire fichiers config (ASCII pur)</div>
+                            <p>nano remplaçait guillemets droits par guillemets typographiques. rsyslog affichait : "invalid character"</p>
+                            <div class="solution">✅ Solution : utilisation sudo tee avec heredoc (tee &lt;&lt; 'EOF') pour écrire fichiers config</div>
                         </div>
 
                         <div class="incident-card">
                             <div class="incident-title">③ JSON multiline – plusieurs objets par ligne</div>
-                            <p>Template rsyslog générait plusieurs objets JSON collés. Filebeat attendait 1 objet/ligne → affichait "events filtered" au lieu de "events acked".</p>
-                            <div class="solution">✅ Solution : ajout \n en fin template JsonFormat : constant(value="\"}\n")</div>
+                            <p>Template rsyslog générait plusieurs objets JSON collés. Filebeat attendait 1 objet/ligne.</p>
+                            <div class="solution">✅ Solution : ajout \n en fin template JsonFormat : constant(value="}"}\n")</div>
                         </div>
 
                         <div class="incident-card">
@@ -363,19 +479,19 @@ done<br>
 
                         <div class="incident-card">
                             <div class="incident-title">⑤ Cluster Elasticsearch état RED (snapshot restore)</div>
-                            <p>Après test restauration snapshot, index resté RED → unassigned_shards bloquait cluster entier sur 1 nœud.</p>
+                            <p>Après test restauration snapshot, index resté RED → unassigned_shards bloquait cluster entier.</p>
                             <div class="solution">✅ Solution : DELETE _data_stream/restored_rsyslog-logs via API curl</div>
                         </div>
 
                         <div class="incident-card">
                             <div class="incident-title">⑥ Kibana alertes – clé chiffrement xpack manquante</div>
                             <p>Impossible créer règles d'alerte : "You must configure an encryption key to use Alerting"</p>
-                            <div class="solution">✅ Solution : 3 clés xpack 32chars dans kibana.yml (encryptedSavedObjects, reporting, security) + systemctl restart kibana</div>
+                            <div class="solution">✅ Solution : 3 clés xpack 32chars dans kibana.yml + systemctl restart kibana</div>
                         </div>
 
                         <div class="incident-card">
                             <div class="incident-title">⑦ Alerte Brute Force SSH – KQL + fenêtre temporelle</div>
-                            <p>Alerte exécutée (Succeeded) mais sans déclencher Active alerts. Erreurs : (1) KQL ciblait program au lieu de message ; (2) fenêtre 1 seconde trop courte.</p>
+                            <p>Alerte exécutée (Succeeded) mais sans déclencher Active alerts. Erreurs : KQL incorrecte + fenêtre trop courte.</p>
                             <div class="solution">✅ Solution : KQL correcte program:"sshd" AND message:"Failed password" + fenêtre "FOR THE LAST 5 minutes"</div>
                         </div>
 
@@ -392,7 +508,7 @@ done<br>
                             <li>✅ 7 incidents rencontrés → diagnostiqués et résolus</li>
                         </ul>
 
-                        <!-- PDF -->
+                        <!-- LIENS -->
                         <div class="project-actions" style="margin-top: 24px;">
                             <a href="./assets/pdf/Rsyslog-projet.pdf" target="_blank" class="project-action-btn">
                                 <ion-icon name="eye-outline"></ion-icon>
@@ -400,7 +516,7 @@ done<br>
                             </a>
                             <a href="./assets/pdf/Rsyslog-projet.pdf" download class="project-action-btn">
                                 <ion-icon name="cloud-download-outline"></ion-icon>
-                                <span>Télécharger le guide complet</span>
+                                <span>Télécharger le PDF</span>
                             </a>
                         </div>
 
@@ -416,7 +532,4 @@ done<br>
         </div>
     </main>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-</body>
-
-</html>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><sc
