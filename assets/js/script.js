@@ -151,43 +151,4 @@ document.addEventListener('DOMContentLoaded', () => {
       navbar.classList.toggle('open');
     });
 
-    // Fermer quand on clique sur un lien
-    $$('.navbar-link', navbar).forEach(link => {
-      link.addEventListener('click', () => navbar.classList.remove('open'));
-    });
-
-    // Fermer si on clique en dehors
-    document.addEventListener('click', (e) => {
-      if (!navbar.contains(e.target)) navbar.classList.remove('open');
-    });
-  }
-
-
-  function updateNavbarHeight() {
-    if (!navbar) return;
-    // Sur mobile le menu hamburger gère sa propre hauteur via nav-header (70px fixe)
-    if (window.innerWidth < 580) {
-      document.documentElement.style.setProperty('--navbar-height', '70px');
-      return;
-    }
-    const h = navbar.getBoundingClientRect().height;
-    document.documentElement.style.setProperty('--navbar-height', h + 'px');
-  }
-
-  // Au DOM prêt
-  updateNavbarHeight();
-
-  // Après chargement complet (fonts/icônes peuvent changer la hauteur)
-  window.addEventListener('load', updateNavbarHeight);
-
-  // Au resize
-  window.addEventListener('resize', updateNavbarHeight);
-
-  // Double frame pour capturer les recalculs de layout (mise en page)
-  requestAnimationFrame(() => requestAnimationFrame(updateNavbarHeight));
-
-  /* ===================================================
-     IMPORTANT : la veille est gérée uniquement par veille-script.js
-  =================================================== */
-
-});
+    // Fermer quand on cl
