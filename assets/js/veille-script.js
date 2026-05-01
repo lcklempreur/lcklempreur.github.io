@@ -1,265 +1,144 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  /* ---------------------------------------------------
-    CONFIG
-  --------------------------------------------------- */
 
-  // Flux RSS
   const rssFeeds = [
     'https://www.cert.ssi.gouv.fr/feed/',
     'https://www.bleepingcomputer.com/feed/',
     'https://www.theverge.com/rss/index.xml'
   ];
 
-  // Éléments DOM (Document Object Model : représentation HTML manipulable en JS)
   const feedContainer = document.getElementById('rss-content');
-  const searchInput = document.getElementById('search-bar');
-
-  // Stock en mémoire pour filtrage
+  const searchInput   = document.getElementById('search-bar');
   let allFetchedItems = [];
 
   if (!feedContainer) return;
 
-  /* ---------------------------------------------------
-    Helpers
-  --------------------------------------------------- */
+  /* ── Helpers ── */
+  const escapeHTML = (s) =>
+    (s ?? '').toString()
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 
-  const escapeHTML = (str) => {
-    return (str ?? '').toString()
-      .replaceAll('&', '&amp;')
-      .replaceAll('<', '&lt;')
-      .replaceAll('>', '&gt;')
-      .replaceAll('"', '&quot;')
-      .replaceAll("'", '&#039;');
+  const toText = (html) => {
+    try { return new DOMParser().parseFromString(html||'','text/html').documentElement.textContent.trim(); }
+    catch { return (html||'').trim(); }
   };
 
-  const toTextFromHTML = (html) => {
-    try {
-      const doc = new DOMParser().parseFromString(html || '', 'text/html');
-      return (doc.documentElement.textContent || '').trim();
-    } catch {
-      return (html || '').toString().trim();
-    }
-  };
-
-  const safeDateValue = (d) => {
-    const t = Date.parse(d);
-    return Number.isFinite(t) ? t : 0;
-  };
-
-  const formatDateFR = (d) => {
-    const t = safeDateValue(d);
+  const safeDate  = (d) => { const t = Date.parse(d); return isFinite(t) ? t : 0; };
+  const formatDate = (d) => {
+    const t = safeDate(d);
     if (!t) return 'Date inconnue';
-    return new Date(t).toLocaleDateString('fr-FR', {
-      year: 'numeric', month: 'long', day: 'numeric'
-    });
+    return new Date(t).toLocaleDateString('fr-FR', {year:'numeric',month:'long',day:'numeric'});
   };
 
-  const escapeRegex = (s) => (s ?? '').toString().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-  const highlight = (text, term) => {
-    const clean = (term || '').trim();
-    if (!clean) return escapeHTML(text);
-
-    const regex = new RegExp(escapeRegex(clean), 'gi');
-    const safe = escapeHTML(text);
-
-    // On relance la regex sur le texte non-échappé, puis on reconstruit en échappant
-    // => Ici, on fait simple : on highlight sur la version échappée, ce qui marche
-    // tant que "term" n'inclut pas de séquences HTML (il est échappé de toute façon).
-    return safe.replace(regex, (m) => `<mark>${m}</mark>`);
-  };
-
-  // Catégorisation simple (optionnelle) basée sur le titre + source
-  const getCategoryFromTitle = (title, feedTitle) => {
-    const t = (title || '').toLowerCase();
-    const f = (feedTitle || '').toLowerCase();
-
-    if (f.includes('cert') || t.includes('ssi') || t.includes('vuln') || t.includes('cve')) return 'Sécurité';
-    if (t.includes('microsoft') || t.includes('windows') || t.includes('patch')) return 'Microsoft';
-    if (t.includes('linux') || t.includes('ubuntu') || t.includes('debian')) return 'Linux';
-    if (t.includes('ransom') || t.includes('malware') || t.includes('phishing')) return 'Menaces';
-    if (t.includes('cloud') || t.includes('aws') || t.includes('azure') || t.includes('gcp')) return 'Cloud';
-    if (t.includes('ia') || t.includes('ai') || t.includes('llm')) return 'IA';
-
+  const getCategory = (title, feedTitle) => {
+    const t = (title||'').toLowerCase(), f = (feedTitle||'').toLowerCase();
+    if (f.includes('cert')||t.includes('vuln')||t.includes('cve')||t.includes('ssi')) return 'Sécurité';
+    if (t.includes('microsoft')||t.includes('windows')||t.includes('patch'))           return 'Microsoft';
+    if (t.includes('linux')||t.includes('ubuntu')||t.includes('debian'))               return 'Linux';
+    if (t.includes('ransom')||t.includes('malware')||t.includes('phishing'))            return 'Menaces';
+    if (t.includes('cloud')||t.includes('aws')||t.includes('azure'))                   return 'Cloud';
+    if (t.includes(' ai ')||t.includes('artificial')||t.includes('llm'))               return 'IA';
     return 'Général';
   };
 
-  const displayLoading = () => {
-    feedContainer.innerHTML = `
-      <li class="timeline-item">
-        <h4 class="h4 timeline-item-title">Chargement de la veille...</h4>
-        <p class="timeline-text">Récupération des derniers articles.</p>
-      </li>
-    `;
+  const esc = (s) => (s||'').replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const highlight = (text, term) => {
+    const safe = escapeHTML(text);
+    if (!term) return safe;
+    return safe.replace(new RegExp(esc(term),'gi'), m => `<mark>${m}</mark>`);
   };
 
-  const displayError = (msg) => {
-    feedContainer.innerHTML = `
-      <li class="timeline-item">
-        <h4 class="h4 timeline-item-title">Erreur</h4>
-        <p class="timeline-text">${escapeHTML(msg)}</p>
-      </li>
-    `;
-  };
-
-  /* ---------------------------------------------------
-    Fetch RSS via rss2json (dépendance externe)
-    - Timeout (AbortController : annulation d’une requête)
-    - allSettled (ne casse pas si 1 flux échoue)
-  --------------------------------------------------- */
-
-  const fetchFeed = async (feedUrl, timeoutMs = 12000) => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
-
+  /* ── Fetch RSS via allorigins.win ── */
+  const fetchRSS = async (feedUrl, ms = 15000) => {
+    const url = `https://api.allorigins.win/get?url=${encodeURIComponent(feedUrl)}`;
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), ms);
     try {
-      const res = await fetch(apiUrl, { signal: controller.signal });
+      const res = await fetch(url, { signal: ctrl.signal });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return await res.json();
-    } finally {
-      clearTimeout(timer);
-    }
+      const json = await res.json();
+      return json.contents || '';
+    } finally { clearTimeout(timer); }
   };
 
-  const normalizeItems = (result) => {
-    const feedTitle = result?.feed?.title || '';
-    const items = Array.isArray(result?.items) ? result.items : [];
+  const parseRSS = (xmlStr, feedUrl) => {
+    const doc = new DOMParser().parseFromString(xmlStr, 'text/xml');
+    const feedTitle =
+      doc.querySelector('channel > title')?.textContent ||
+      doc.querySelector('feed > title')?.textContent ||
+      new URL(feedUrl).hostname;
 
-    return items.map(it => {
-      const title = it?.title || 'Sans titre';
-      const link = it?.link || '#';
-      const pubDate = it?.pubDate || it?.published || '';
-      const descriptionText = toTextFromHTML(it?.description || it?.content || '');
+    return [...doc.querySelectorAll('item, entry')].map(el => {
+      const title   = el.querySelector('title')?.textContent || 'Sans titre';
+      const link    = el.querySelector('link')?.textContent ||
+                      el.querySelector('link')?.getAttribute('href') || '#';
+      const pubDate = el.querySelector('pubDate,published,updated')?.textContent || '';
+      const desc    = toText(
+        el.querySelector('description,content,summary')?.textContent || ''
+      ).slice(0, 220);
 
-      return {
-        title,
-        link,
-        pubDate,
-        description: descriptionText,
-        feedTitle,
-        category: getCategoryFromTitle(title, feedTitle),
-        _dateValue: safeDateValue(pubDate)
+      return { title, link, pubDate,
+        description: desc, feedTitle,
+        category: getCategory(title, feedTitle),
+        _dateValue: safeDate(pubDate)
       };
     });
   };
 
-  /* ---------------------------------------------------
-    Render
-  --------------------------------------------------- */
-
+  /* ── Rendu ── */
   const renderItems = (items, term = '') => {
     if (!items.length) {
-      feedContainer.innerHTML = `
-        <li class="timeline-item">
-          <h4 class="h4 timeline-item-title">Aucun article</h4>
-          <p class="timeline-text">Aucun résultat pour votre recherche.</p>
-        </li>
-      `;
+      feedContainer.innerHTML = `<li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Aucun résultat</h4>
+        <p class="timeline-text">Aucun article ne correspond à votre recherche.</p></li>`;
       return;
     }
-
-    // Limite d’affichage (facultatif)
-    const LIMIT = 30;
-    const sliced = items.slice(0, LIMIT);
-
-    let html = '';
-    sliced.forEach(item => {
-      const title = highlight(item.title, term);
-      const desc = highlight(item.description, term);
-      const source = highlight(item.feedTitle, term);
-      const badge = highlight(item.category, term);
-      const dateStr = escapeHTML(formatDateFR(item.pubDate));
-      const link = escapeHTML(item.link);
-
-      html += `
-        <li class="timeline-item">
-          <h4 class="h4 timeline-item-title">
-            <a href="${link}" target="_blank" rel="noopener noreferrer">${title}</a>
-          </h4>
-
-          <span>${dateStr} — <em>${source}</em> — <strong>${badge}</strong></span>
-
-          <p class="timeline-text">${desc || '—'}</p>
-        </li>
-      `;
-    });
-
-    feedContainer.innerHTML = html;
+    feedContainer.innerHTML = items.slice(0,30).map(item => `
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">
+          <a href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">${highlight(item.title,term)}</a>
+        </h4>
+        <span>${escapeHTML(formatDate(item.pubDate))} — <em>${highlight(item.feedTitle,term)}</em> — <strong>${highlight(item.category,term)}</strong></span>
+        <p class="timeline-text">${highlight(item.description,term)||'—'}</p>
+      </li>`).join('');
   };
 
-  /* ---------------------------------------------------
-    Search (filtrage + highlight)
-  --------------------------------------------------- */
-
-  const applySearch = (termRaw) => {
-    const term = (termRaw || '').trim().toLowerCase();
-
-    if (!term) {
-      renderItems(allFetchedItems, '');
-      return;
-    }
-
-    const filtered = allFetchedItems.filter(item => {
-      const hay = [
-        item.title,
-        item.description,
-        item.feedTitle,
-        item.category
-      ].join(' ').toLowerCase();
-
-      return hay.includes(term);
-    });
-
-    renderItems(filtered, termRaw);
-  };
-
+  /* ── Recherche ── */
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
-      applySearch(e.target.value);
+      const term = e.target.value.trim().toLowerCase();
+      const filtered = term
+        ? allFetchedItems.filter(i => [i.title,i.description,i.feedTitle,i.category].join(' ').toLowerCase().includes(term))
+        : allFetchedItems;
+      renderItems(filtered, e.target.value.trim());
     });
   }
 
-  /* ---------------------------------------------------
-    Init
-  --------------------------------------------------- */
+  /* ── Init ── */
+  feedContainer.innerHTML = `<li class="timeline-item">
+    <h4 class="h4 timeline-item-title">Chargement en cours…</h4>
+    <p class="timeline-text">Récupération des derniers articles.</p></li>`;
 
-  const init = async () => {
-    displayLoading();
+  Promise.allSettled(rssFeeds.map(url => fetchRSS(url).then(xml => parseRSS(xml, url))))
+    .then(results => {
+      let items = [];
+      results.forEach(r => { if (r.status==='fulfilled') items = items.concat(r.value); });
+      items.sort((a,b) => b._dateValue - a._dateValue);
+      allFetchedItems = items;
 
-    const results = await Promise.allSettled(
-      rssFeeds.map(url => fetchFeed(url))
-    );
-
-    let items = [];
-
-    results.forEach(r => {
-      if (r.status !== 'fulfilled') return;
-
-      const data = r.value;
-      if (data?.status !== 'ok') return;
-
-      items = items.concat(normalizeItems(data));
+      if (!items.length) {
+        feedContainer.innerHTML = `<li class="timeline-item">
+          <h4 class="h4 timeline-item-title">Flux temporairement indisponibles</h4>
+          <p class="timeline-text">Réessaie dans quelques instants.</p></li>`;
+        return;
+      }
+      renderItems(allFetchedItems);
+    })
+    .catch(() => {
+      feedContainer.innerHTML = `<li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Erreur</h4>
+        <p class="timeline-text">Impossible de charger la veille pour le moment.</p></li>`;
     });
-
-    // Tri décroissant par date
-    items.sort((a, b) => (b._dateValue - a._dateValue));
-
-    allFetchedItems = items;
-
-    if (!allFetchedItems.length) {
-      displayError("Aucun article n’a pu être récupéré (flux indisponibles ou service de conversion).");
-      return;
-    }
-
-    renderItems(allFetchedItems, '');
-  };
-
-  init().catch((err) => {
-    console.error(err);
-    displayError("Impossible de récupérer la veille pour le moment.");
-  });
 });
