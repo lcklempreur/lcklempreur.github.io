@@ -193,28 +193,22 @@
             </div>
             <div class="sidebar-info_more">
                 <div class="separator"></div>
+                <p class="sidebar-bio">Étudiant en <strong>BTS SIO SISR</strong>, alternant au Conseil Départemental de Seine-Saint-Denis. Passionné par les infrastructures systèmes &amp; réseaux — administration, déploiement et support.</p>
+                <div class="separator"></div>
                 <ul class="contacts-list">
                     <li class="contact-item">
-                        <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+                        <div class="icon-box"><ion-icon name="logo-linkedin"></ion-icon></div>
                         <div class="contact-info">
-                            <p class="contact-title">Email</p>
-                            <a href="mailto:luc.augustin.kone1@gmail.com" class="contact-link">luc.augustin.kone1@gmail.com</a>
+                            <p class="contact-title">LinkedIn</p>
+                            <a href="https://www.linkedin.com/in/luc-kone-38a586286/" target="_blank" class="contact-link">luc-kone</a>
                         </div>
                     </li>
                     <li class="contact-item">
-                        <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
+                        <div class="icon-box"><ion-icon name="logo-github"></ion-icon></div>
                         <div class="contact-info">
-                            <p class="contact-title">Anniversaire</p>
-                            <time datetime="1998-06-26">26 juin 1998</time>
+                            <p class="contact-title">GitHub</p>
+                            <a href="https://github.com/lcklempreur" target="_blank" class="contact-link">lcklempreur</a>
                         </div>
-                    </li>
-                </ul>
-                <div class="separator"></div>
-                <ul class="social-list">
-                    <li class="social-item">
-                        <a href="https://github.com/lcklempreur" target="_blank" class="social-link">
-                            <ion-icon name="logo-github"></ion-icon>
-                        </a>
                     </li>
                 </ul>
             </div>
@@ -225,6 +219,7 @@
                     <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
                     <li class="navbar-item"><a href="competences.html" class="navbar-link">Compétences</a></li>
                     <li class="navbar-item"><a href="portfolio.html" class="navbar-link">Projets</a></li>
+                    <li class="navbar-item"><a href="certifications.html" class="navbar-link">Certifications</a></li>
                     <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
                     <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
                     <li class="navbar-item"><a href="contact.html" class="navbar-link active">Contact</a></li>
@@ -234,7 +229,7 @@
             <header><h2 class="h2 article-title">Contact</h2></header>
             <section class="contact-form">
                 <h3 class="h3 form-title">Formulaire de contact</h3>
-                <form action="#" class="form" data-form>
+                <form id="contact-form" action="https://formspree.io/f/mrejbzqb" method="POST" class="form" data-form>
                     <div class="input-wrapper">
                         <input type="text" name="fullname" class="form-input" placeholder="Nom complet" required data-form-input>
                         <input type="email" name="email" class="form-input" placeholder="Adresse email" required data-form-input>
@@ -245,13 +240,5 @@
                         <span>Envoyer le message</span>
                     </button>
                 </form>
-            </section>
-        </article>
-    </div>
-</main>
-    <script src="./assets/js/script.js"></script>
-    
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
-</html>
+                <div id="form-success" style="display:none; margin-top:16px; background:rgba(126,201,126,0.08); border:1px solid rgba(126,201,126,0.3); border-radius:12px; padding:16px 20px;">
+                    <p style="color:#7ec97e; font-weight:600; margin-bottom:4

@@ -1,183 +1,274 @@
+<!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KONE Luc-Augustin - Technicien Informatique</title>
+    <title>Certifications – KONE Luc-Augustin</title>
     <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+  :root {
+    --accent: #e2a951;
+    --accent-soft: rgba(226,169,81,0.12);
+    --accent-border: rgba(226,169,81,0.35);
+    --card-bg: rgba(255,255,255,0.04);
+    --card-border: rgba(255,255,255,0.08);
+    --text-muted: rgba(255,255,255,0.55);
+    --radius: 12px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 600;
+    margin: 3px 3px 3px 0;
+    letter-spacing: .3px;
+  }
+
+  .sec-title {
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 26px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--accent-border);
+  }
+
+  .navbar-link { transition: color .2s; }
+  .navbar-link:hover { color: var(--accent) !important; }
+  .article-title { letter-spacing: -.3px; }
+
+  /* ── Grille de certifications ── */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 10px;
+  }
+  @media (max-width: 600px) { .cert-grid { grid-template-columns: 1fr; } }
+
+  /* ── Carte certificat ── */
+  .cert-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+    border-color: rgba(226,169,81,0.35);
+  }
+
+  /* Zone image du certificat */
+  .cert-preview {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .cert-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+    transition: transform .3s ease;
+  }
+  .cert-card:hover .cert-preview img { transform: scale(1.04); }
+
+  /* Icône placeholder si pas d'image */
+  .cert-preview-icon {
+    font-size: 48px;
+    color: var(--accent);
+    opacity: 0.6;
+  }
+
+  /* Infos sous l'image */
+  .cert-body {
+    padding: 16px 18px 18px;
+  }
+  .cert-name {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .cert-issuer {
+    color: var(--accent);
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    margin-bottom: 8px;
+  }
+  .cert-date {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  /* Boutons voir / télécharger */
+  .cert-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .cert-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    border-radius: 8px;
+    padding: 7px 13px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s, border-color .2s;
+    cursor: pointer;
+  }
+  .cert-btn:hover {
+    background: rgba(226,169,81,0.22);
+    border-color: var(--accent);
+  }
+  .cert-btn ion-icon { font-size: 14px; }
+</style>
 </head>
-
 <body class="theme-glass">
-    <main>
-        <!-- BARRE LATERALE (SIDEBAR) -->
-        <aside class="sidebar" data-sidebar>
-            <div class="sidebar-info">
-                <figure class="avatar-box">
-                    <!-- IMPORTANT : Remplacez par le chemin de votre photo -->
-                    <img src="/assets/images/photo_de_profils.jpg"
-                        alt="KONE Luc-Augustin" width="80">
-                </figure>
-                <div class="info-content">
-                    <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
-                    <p class="title">Technicien Informatique en Alternance</p>
-                </div>
-                <button class="info_more-btn" data-sidebar-btn>
-                    <span>Mes Coordonnées</span>
-                    <ion-icon name="chevron-down"></ion-icon>
-                </button>
+<main>
+    <aside class="sidebar" data-sidebar>
+        <div class="sidebar-info">
+            <figure class="avatar-box">
+                <img src="/assets/images/photo_de_profils.jpg" alt="KONE Luc-Augustin" width="80">
+            </figure>
+            <div class="info-content">
+                <h1 class="name" title="KONE Luc-Augustin">KONE Luc-Augustin</h1>
+                <p class="title">Technicien Informatique en Alternance</p>
             </div>
-            <div class="sidebar-info_more">
-                <div class="separator"></div>
-                <ul class="contacts-list">
-                    <li class="contact-item">
-                        <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
-                        <div class="contact-info">
-                            <p class="contact-title">Email</p>
-                            <a href="mailto:luc.augustin.kone1@gmail.com"
-                                class="contact-link">luc.augustin.kone1@gmail.com</a>
-                        </div>
-                    </li>
-                    <li class="contact-item">
-                        <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
-                        <div class="contact-info">
-                            <p class="contact-title">Anniversaire</p>
-                            <time datetime="1998-06-26">26 juin 1998</time>
-                        </div>
-                    </li>
-                </ul>
-                <div class="separator"></div>
-                <ul class="social-list">
-                    <!-- IMPORTANT : Ajoutez vos liens LinkedIn et GitHub ici -->
-                    <li class="social-item"><a href="[VOTRE LIEN LINKEDIN]" target="_blank"
-                            class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                    <li class="social-item"><a href="https://github.com/lcklempreur" target="_blank" class="social-link"><ion-icon
-                                name="logo-github"></ion-icon></a></li>
-                </ul>
-            </div>
-        </aside>
-
-        <!-- CONTENU PRINCIPAL -->
-        <div class="main-content">
-            <!-- BARRE DE NAVIGATION -->
-            <nav class="navbar">
-                <ul class="navbar-list">
-                    <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
-                    <li class="navbar-item"><a href="competences.html" class="navbar-link">competences</a></li>
-                    <li class="navbar-item"><a href="portfolio.html" class="navbar-link">Projets</a></li>
-                    <!-- <li class="navbar-item"><a href="certifications.html" class="navbar-link">Certifications</a></li> -->
-                    <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
-                    <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
-                    <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
-                </ul>
-            </nav> 
-
-            <!-- SECTION PORTFOLIO -->
-            <article class="portfolio active" data-page="portfolio">
-                <header>
-                    <h2 class="h2 article-title">Certifications</h2>
-                </header>
-
-                <section>
-                    
-                    <!-- GRILLE DES PROJETS -->
-                    <ul class="project-list">
-
-                        <!-- Certificat 1 -->
-                        <li class="project-item active" data-filter-item data-category="projets réseaux">
-                            <!-- MODIFICATION ICI : le lien pointe vers projet-1.html -->
-                            <a href="projet-1.html">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                    <img src="./assets/images/acceuil-glpi.png" alt="Maquette réseau GNS3"
-                                        loading="lazy">
-                                </figure>
-                                <h3 class="project-title">Certificats </h3>
-                                <p class="project-category">Projets Réseaux</p>
-                            </a>
-                        </li>
-
-                        <!-- Certificat 2 -->
-                        <li class="project-item active" data-filter-item data-category="scripting">
-                            <!-- MODIFICATION ICI : le lien pointe vers projet-2.html -->
-                            <a href="projet-2.html">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                    <img src="./assets/images/image-projet-2.jpg" alt="Script d'automatisation"
-                                        loading="lazy">
-                                </figure>
-                                <h3 class="project-title">Script d'Automatisation</h3>
-                                <p class="project-category">Scripting</p>
-                            </a>
-                        </li>
-
-                        <!-- Certificat 3 -->
-                        <li class="project-item active" data-filter-item data-category="développement web">
-                            <!-- MODIFICATION ICI : le lien pointe vers projet-3.html -->
-                            <a href="projet-3.html">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                    <img src="./assets/images/image-projet-3.jpg" alt="Site vitrine" loading="lazy">
-                                </figure>
-                                <h3 class="project-title">Site Web Vitrine</h3>
-                                <p class="project-category">Développement Web</p>
-                            </a>
-                        </li>
-
-                        <!-- Certificat 4 -->
-                        <li class="project-item active" data-filter-item data-category="projets réseaux">
-                            <!-- MODIFICATION ICI : le lien pointe vers projet-4.html -->
-                            <a href="projet-4.html">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                    <img src="./assets/images/image-projet-4.jpg" alt="Supervision réseau"
-                                        loading="lazy">
-                                </figure>
-                                <h3 class="project-title">Supervision Réseau</h3>
-                                <p class="project-category">Projets Réseaux</p>
-                            </a>
-                        </li>
-
-                        <!-- Certificat 5 -->
-                        <li class="project-item active" data-filter-item data-category="documentation">
-                            <!-- MODIFICATION ICI : le lien pointe vers projet-5.html -->
-                            <a href="projet-5.html">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                    <img src="./assets/images/image-projet-5.jpg" alt="Procédure de maintenance"
-                                        loading="lazy">
-                                </figure>
-                                <h3 class="project-title">Procédure de Maintenance</h3>
-                                <p class="project-category">Documentation</p>
-                            </a>
-                        </li>
-
-                        <!-- Certificat 6 -->
-                        <li class="project-item active" data-filter-item data-category="design">
-                            <!-- MODIFICATION ICI : le lien pointe vers projet-6.html -->
-                            <a href="projet-6.html">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                                    <img src="./assets/images/image-projet-6.jpg" alt="Identité visuelle"
-                                        loading="lazy">
-                                </figure>
-                                <h3 class="project-title">Identité Visuelle</h3>
-                                <p class="project-category">Design</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </section>
-            </article>
+            <button class="info_more-btn" data-sidebar-btn>
+                <span>Mes Coordonnées</span>
+                <ion-icon name="chevron-down"></ion-icon>
+            </button>
         </div>
-    </main>
-    <script src="../assets/js/script.js"></script>
+        <div class="sidebar-info_more">
+            <div class="separator"></div>
+            <p class="sidebar-bio">Étudiant en <strong>BTS SIO SISR</strong>, alternant au Conseil Départemental de Seine-Saint-Denis. Passionné par les infrastructures systèmes &amp; réseaux — administration, déploiement et support.</p>
+            <div class="separator"></div>
+            <ul class="contacts-list">
+                <li class="contact-item">
+                    <div class="icon-box"><ion-icon name="logo-linkedin"></ion-icon></div>
+                    <div class="contact-info">
+                        <p class="contact-title">LinkedIn</p>
+                        <a href="https://www.linkedin.com/in/luc-kone-38a586286/" target="_blank" class="contact-link">luc-kone</a>
+                    </div>
+                </li>
+                <li class="contact-item">
+                    <div class="icon-box"><ion-icon name="logo-github"></ion-icon></div>
+                    <div class="contact-info">
+                        <p class="contact-title">GitHub</p>
+                        <a href="https://github.com/lcklempreur" target="_blank" class="contact-link">lcklempreur</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="main-content">
+        <nav class="navbar">
+            <ul class="navbar-list">
+                <li class="navbar-item"><a href="index.html" class="navbar-link">À propos</a></li>
+                <li class="navbar-item"><a href="competences.html" class="navbar-link">Compétences</a></li>
+                <li class="navbar-item"><a href="portfolio.html" class="navbar-link">Projets</a></li>
+                <li class="navbar-item"><a href="certifications.html" class="navbar-link active">Certifications</a></li>
+                <li class="navbar-item"><a href="fiche-syntese.html" class="navbar-link">Fiche synthèse</a></li>
+                <li class="navbar-item"><a href="veille.html" class="navbar-link">Veille Technologique</a></li>
+                <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+            </ul>
+        </nav>
+
+        <article class="about active" data-page="certifications">
+            <header>
+                <h2 class="h2 article-title">Certifications</h2>
+            </header>
+
+            <section class="about-text" style="margin-bottom: 24px;">
+                <p>Certifications obtenues dans le cadre de ma formation BTS SIO SISR et de mon développement professionnel en administration systèmes &amp; réseaux.</p>
+            </section>
+
+            <div class="cert-grid">
+
+                <!-- ══ CERTIFICAT IBM ══ -->
+                <div class="cert-card">
+                    <div class="cert-preview">
+                        <img src="./assets/certificats/logo-ibm.svg" alt="Introduction to Cloud – IBM">
+                    </div>
+                    <div class="cert-body">
+                        <p class="cert-issuer">IBM / Cognitive Class</p>
+                        <p class="cert-name">Introduction to Cloud</p>
+                        <p class="cert-date">📅 30 avril 2025</p>
+                        <div style="margin-bottom: 12px;">
+                            <span class="badge">Cloud Computing</span>
+                            <span class="badge">IBM</span>
+                            <span class="badge">CC0101EN</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="./assets/certificats/ibm_certificat.pdf" target="_blank" class="cert-btn">
+                                <ion-icon name="eye-outline"></ion-icon> Voir
+                            </a>
+                            <a href="./assets/certificats/ibm_certificat.pdf" download class="cert-btn">
+                                <ion-icon name="cloud-download-outline"></ion-icon> Télécharger
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══ CERTIFICAT CNIL / RGPD ══ -->
+                <div class="cert-card">
+                    <div class="cert-preview">
+                        <img src="./assets/certificats/logo-cnil.svg" alt="RGPD – CNIL">
+                    </div>
+                    <div class="cert-body">
+                        <p class="cert-issuer">CNIL</p>
+                        <p class="cert-name">Module 1 — Le RGPD et ses notions clés</p>
+                        <p class="cert-date">📅 18 octobre 2024 · Score : 87 %</p>
+                        <div style="margin-bottom: 12px;">
+                            <span class="badge">RGPD</span>
+                            <span class="badge">Protection des données</span>
+                            <span class="badge">CNIL</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="./assets/certificats/Certificat_rgpd_cnil.pdf" target="_blank" class="cert-btn">
+                                <ion-icon name="eye-outline"></ion-icon> Voir
+                            </a>
+                            <a href="./assets/certificats/Certificat_rgpd_cnil.pdf" download class="cert-btn">
+                                <ion-icon name="cloud-download-outline"></ion-icon> Télécharger
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+    </div>
+</main>
+
+    <script src="./assets/js/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>

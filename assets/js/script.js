@@ -128,17 +128,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ===================================================
-     NAVBAR : évite le chevauchement (hauteur dynamique)
-     -> utilise --navbar-height côté CSS
+     NAVBAR : menu hamburger mobile
   =================================================== */
   const navbar = $('.navbar');
 
+  if (navbar) {
+    // Injecter l'en-tête mobile (label + bouton chevron) avant la liste
+    const navHeader = document.createElement('div');
+    navHeader.className = 'nav-header';
+    navHeader.innerHTML = `
+      <span class="nav-label">Navigation</span>
+      <button class="nav-toggle-btn" aria-label="Ouvrir la navigation">
+        <ion-icon name="chevron-down"></ion-icon>
+      </button>
+    `;
+    navbar.insertBefore(navHeader, navbar.firstChild);
 
+    const toggleBtn = navHeader.querySelector('.nav-toggle-btn');
 
+    // Toggle — même logique que sidebar
+    toggleBtn.addEventListener('click', () => {
+      navbar.classList.toggle('open');
+    });
+
+    // Fermer quand on clique sur un lien
+    $$('.navbar-link', navbar).forEach(link => {
+      link.addEventListener('click', () => navbar.classList.remove('open'));
+    });
+
+    // Fermer si on clique en dehors
+    document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target)) navbar.classList.remove('open');
+    });
+  }
 
 
   function updateNavbarHeight() {
     if (!navbar) return;
+    // Sur mobile le menu hamburger gère sa propre hauteur via nav-header (70px fixe)
+    if (window.innerWidth < 580) {
+      document.documentElement.style.setProperty('--navbar-height', '70px');
+      return;
+    }
     const h = navbar.getBoundingClientRect().height;
     document.documentElement.style.setProperty('--navbar-height', h + 'px');
   }

@@ -172,6 +172,7 @@ article.active {
 .article-title {
   position: relative;
   padding-bottom: 7px;
+  margin-bottom: 20px;
 }
 
 .article-title::after {
@@ -314,6 +315,19 @@ main {
 .sidebar.active .sidebar-info_more {
   opacity: 1;
   visibility: visible;
+}
+
+.sidebar-bio {
+  color: var(--light-gray-70);
+  font-size: var(--fs-8);
+  line-height: 1.7;
+  padding: 4px 0;
+  text-align: center;
+}
+
+.sidebar-bio strong {
+  color: var(--orange-yellow-crayola);
+  font-weight: var(--fw-600);
 }
 
 .contacts-list {
@@ -503,7 +517,7 @@ main {
 .project-item-icon-box { --scale: 0.8; background: var(--jet); color: var(--orange-yellow-crayola); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(var(--scale)); font-size: 20px; padding: 18px; border-radius: 12px; opacity: 0; z-index: 1; transition: var(--transition-1); }
 .project-item > a:hover .project-item-icon-box { --scale: 1; opacity: 1; }
 .project-item-icon-box ion-icon { --ionicon-stroke-width: 50px; }
-.project-img img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-1); }
+.project-img img { width: 100%; height: 100%; object-fit: contain; padding: 10px; transition: var(--transition-1); }
 .project-item > a:hover img { transform: scale(1.1); }
 
 .project-title, .project-category { margin-left: 10px; }
@@ -570,7 +584,7 @@ textarea.form-input::-webkit-resizer { display: none; }
  */
 @media (min-width: 450px) {
   .clients-item { min-width: calc(33.33% - 10px); }
-  .project-img, .blog-banner-box { height: auto; }
+  .project-img { height: 200px; }
 }
 
 /**
@@ -953,7 +967,8 @@ article.active .article-title::after {
 
 /* cartes projets vitrées */
 .project-item > a {
-  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 55%);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 18px;
   padding-bottom: 12px;
 }
@@ -961,20 +976,21 @@ article.active .article-title::after {
 .project-item > a:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75);
-  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 60%);
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(226, 169, 81, 0.35);
 }
 
 /* === AVATAR STYLE GLASS === */
 .avatar-box {
   background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 60%) !important;
   padding: 4px !important;
-  border-radius: 999px !important;
+  border-radius: 20px !important;
 }
 
 .avatar-box img {
   width: 88px !important;
   height: 88px !important;
-  border-radius: 999px !important;
+  border-radius: 16px !important;
   object-fit: cover !important;
   border: 2px solid rgba(255, 255, 255, 0.18) !important;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.7) !important;
@@ -1193,3 +1209,102 @@ article.active .article-title::after {
   line-height: 2;
 }
 .flux-box .arr { color: var(--accent); margin: 0 6px; }
+
+
+
+
+/* ================================================
+   NAVBAR MOBILE — même mécanique que la sidebar
+   ================================================ */
+@media (max-width: 579px) {
+
+  main { margin-top: 70px; }
+
+  /* Navbar fermée = max-height 70px, comme .sidebar avec max-height:112px */
+  .navbar {
+    height: auto !important;
+    max-height: 70px;
+    overflow: hidden;
+    padding: 0;
+    background: hsl(240, 2%, 13%);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: max-height 0.5s ease-in-out;
+  }
+
+  /* Ouverte = max-height grande, comme .sidebar.active */
+  .navbar.open { max-height: 500px; }
+
+  /* Barre toujours visible (= sidebar-info) */
+  .nav-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding: 0 18px;
+  }
+
+  .nav-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--orange-yellow-crayola);
+  }
+
+  /* Bouton chevron = info_more-btn */
+  .nav-toggle-btn {
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    border-radius: 15px 0;
+    color: var(--orange-yellow-crayola);
+    background: var(--border-gradient-onyx);
+    padding: 10px;
+    box-shadow: var(--shadow-2);
+    transition: var(--transition-1);
+    z-index: 1;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav-toggle-btn::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: var(--bg-gradient-jet);
+    z-index: -1;
+  }
+
+  .nav-toggle-btn ion-icon {
+    display: block;
+    font-size: 16px;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  /* Chevron tourne comme sur la sidebar */
+  .navbar.open .nav-toggle-btn ion-icon { transform: rotate(0.5turn); }
+
+  /* Liste des liens — juste clippée par le parent, pas cachée */
+  .navbar-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 8px 0 14px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .navbar-link {
+    padding: 13px 22px;
+    font-size: 14px;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .navbar-link.active { color: var(--orange-yellow-crayola); }
+  .navbar-item:last-child .navbar-link { border-bottom: none; }
+}
+
+/* Desktop : cacher les éléments mobiles */
+@media (min-width: 580px) {
+  .nav-toggle-btn, .nav-header { display: none; }
+}
