@@ -1256,4 +1256,56 @@ article.active .article-title::after {
     position: absolute;
     bottom: -1px;
     right: -1px;
-    border-radius:
+    border-radius: 15px 0;
+    color: var(--orange-yellow-crayola);
+    background: var(--border-gradient-onyx);
+    padding: 10px;
+    box-shadow: var(--shadow-2);
+    transition: var(--transition-1);
+    z-index: 1;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav-toggle-btn::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: var(--bg-gradient-jet);
+    z-index: -1;
+  }
+
+  .nav-toggle-btn ion-icon {
+    display: block;
+    font-size: 16px;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  /* Chevron tourne comme sur la sidebar */
+  .navbar.open .nav-toggle-btn ion-icon { transform: rotate(0.5turn); }
+
+  /* Liste des liens — juste clippée par le parent, pas cachée */
+  .navbar-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 8px 0 14px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .navbar-link {
+    padding: 13px 22px;
+    font-size: 14px;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .navbar-link.active { color: var(--orange-yellow-crayola); }
+  .navbar-item:last-child .navbar-link { border-bottom: none; }
+}
+
+/* Desktop : cacher les éléments mobiles */
+@media (min-width: 580px) {
+  .nav-toggle-btn, .nav-header { display: none; }
+}
